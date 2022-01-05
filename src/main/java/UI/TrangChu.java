@@ -4,6 +4,9 @@
  */
 package UI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
  * @author nguye
@@ -15,6 +18,9 @@ public class TrangChu extends javax.swing.JFrame {
      */
     public TrangChu() {
         initComponents();
+        setVisible(true);
+        setResizable(false);
+        logoutButton.setFocusPainted(false);
     }
 
     /**
@@ -1059,9 +1065,6 @@ public class TrangChu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TrangChu trangChu = new TrangChu();
-                trangChu.setVisible(true);
-                trangChu.setResizable(false);
-                trangChu.logoutButton.setFocusPainted(false);
             }
         });
     }

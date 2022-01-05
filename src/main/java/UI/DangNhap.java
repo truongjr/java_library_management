@@ -4,7 +4,16 @@
  */
 package UI;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
+import DataAccessObject.SQLConnection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -19,6 +28,9 @@ public class DangNhap extends javax.swing.JFrame {
      */
     public DangNhap() {
         initComponents();
+        setVisible(true);
+        setResizable(false);
+        loginButton.setFocusPainted(false);
     }
 
     /**
@@ -70,6 +82,11 @@ public class DangNhap extends javax.swing.JFrame {
 
     loginName.setBackground(new java.awt.Color(255, 255, 255));
     loginName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+    loginName.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            loginNameKeyPressed(evt);
+        }
+    });
 
     loginNameText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
     loginNameText.setForeground(new java.awt.Color(0, 0, 0));
@@ -80,6 +97,11 @@ public class DangNhap extends javax.swing.JFrame {
     loginPassword.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             loginPasswordActionPerformed(evt);
+        }
+    });
+    loginPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            loginPasswordKeyPressed(evt);
         }
     });
 
@@ -105,9 +127,6 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(jPanel1Layout.createSequentialGroup()
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(20, 20, 20)
                     .addComponent(ptitLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,7 +134,11 @@ public class DangNhap extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(titleEn)
                         .addComponent(titleVi))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(6, 6, 6)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,29 +169,34 @@ public class DangNhap extends javax.swing.JFrame {
             .addGap(33, 33, 33)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(titleVi)
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(loginLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18))
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(titleVi)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(titleEn))
+                        .addComponent(ptitLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(52, 52, 52)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(loginText)
+                    .addGap(31, 31, 31)
+                    .addComponent(loginNameText)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(titleEn))
-                .addComponent(ptitLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(71, 71, 71)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(32, 32, 32))
-        .addGroup(jPanel1Layout.createSequentialGroup()
-            .addContainerGap(77, Short.MAX_VALUE)
-            .addComponent(loginLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(loginText)
-            .addGap(31, 31, 31)
-            .addComponent(loginNameText)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(loginName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(30, 30, 30)
-            .addComponent(passwordText)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(loginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(56, 56, 56)
-            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(104, 104, 104))
+                    .addComponent(loginName, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(30, 30, 30)
+                    .addComponent(passwordText)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(loginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(56, 56, 56)
+                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(104, 104, 104))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(43, 43, 43))))
     );
 
     loginText.getAccessibleContext().setAccessibleDescription("");
@@ -192,30 +220,100 @@ public class DangNhap extends javax.swing.JFrame {
 //        JOptionPane.showMessageDialog(null, "Chua co data :3");
         String userName = loginName.getText();
         String password = new String(loginPassword.getPassword());
-        if(userName.equals("")){
-            JOptionPane.showMessageDialog(null, "userName rong");
+        if(userName.length() == 0 || password.length() == 0){
+            JOptionPane.showMessageDialog(null, "Hãy nhập đủ thông tin");
         } else {
-            JOptionPane.showMessageDialog(null, "userName la: " + userName);
-        }
-        if(password.equals("")){
-            JOptionPane.showMessageDialog(null, "password rong");
-        } else {
-            JOptionPane.showMessageDialog(null, "password la: " + userName);
+            Connection connection = SQLConnection.openConnection();
+            String query = "SELECT * FROM USERNAME";
+            try {
+                Statement stm = connection.createStatement();
+                ResultSet res = stm.executeQuery(query);
+                boolean isSuccess = false;
+                while(res.next()){
+                    if(res.getString("userName").equals(userName) && res.getString("password").equals(password)){
+                        JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
+                        isSuccess = true;
+                        break;
+                    }
+                }
+                stm.close();
+                res.close();
+                connection.close();
+                if(!isSuccess){
+                    JOptionPane.showMessageDialog(null, "Damg nhap that bai");
+                    loginName.setText("");
+                    loginPassword.setText("");
+                    loginName.requestFocus();
+                } else {
+                    new TrangChu().setVisible(true);
+                    this.setVisible(false);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void loginPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_loginPasswordActionPerformed
+
+    private void loginNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginNameKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == 10){
+            loginPassword.requestFocus();
+        }
+    }//GEN-LAST:event_loginNameKeyPressed
+
+    private void loginPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginPasswordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == 10){
+            String userName = loginName.getText();
+            String password = new String(loginPassword.getPassword());
+            if(userName.length() == 0 || password.length() == 0){
+                JOptionPane.showMessageDialog(null, "Hãy nhập đủ thông tin");
+            } else {
+                Connection connection = SQLConnection.openConnection();
+                String query = "SELECT * FROM USERNAME";
+                try {
+                    Statement stm = connection.createStatement();
+                    ResultSet res = stm.executeQuery(query);
+                    boolean isSuccess = false;
+                    while(res.next()){
+                        if(res.getString("userName").equals(userName) && res.getString("password").equals(password)){
+                            JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
+                            isSuccess = true;
+                            break;
+                        }
+                    }
+                    //close connection
+                    stm.close();
+                    res.close();
+                    connection.close();
+                    
+                    if(!isSuccess){
+                        JOptionPane.showMessageDialog(null, "Damg nhap that bai");
+                        loginName.setText("");
+                        loginPassword.setText("");
+                        loginName.requestFocus();
+                    } else {
+                        new TrangChu().setVisible(true);
+                        this.setVisible(false);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(DangNhap.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+        }
+    }//GEN-LAST:event_loginPasswordKeyPressed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-//        System.setProperty("sun.java2d.uiScale", "1.25");
+        DangNhap dangNhap = new DangNhap();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DangNhap dangNhap = new DangNhap();
                 dangNhap.setVisible(true);
                 dangNhap.setResizable(false);
                 dangNhap.setTitle("Library Management");
