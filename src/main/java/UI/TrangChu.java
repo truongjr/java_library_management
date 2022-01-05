@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package library_management;
+package UI;
+
 /**
  *
  * @author nguye
@@ -38,11 +39,11 @@ public class TrangChu extends javax.swing.JFrame {
         readersManagement = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        txtReaderID = new javax.swing.JLabel();
+        txtFullName = new javax.swing.JLabel();
+        txtPhoneNumber = new javax.swing.JLabel();
+        txtDayOfBirth = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JLabel();
         readerID = new javax.swing.JTextField();
         readerFullname = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
@@ -50,81 +51,79 @@ public class TrangChu extends javax.swing.JFrame {
         phoneNumber = new javax.swing.JTextField();
         maleRadioButton = new javax.swing.JRadioButton();
         femaleRadioButton = new javax.swing.JRadioButton();
-        jLabel9 = new javax.swing.JLabel();
+        txtGender = new javax.swing.JLabel();
         addReaderButton = new javax.swing.JButton();
         editReaderButton = new javax.swing.JButton();
         deleteReaderButton = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        txtStatus = new javax.swing.JLabel();
+        isActive = new javax.swing.JRadioButton();
+        isNotActive = new javax.swing.JRadioButton();
         booksManagement = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txtBookTitleID = new javax.swing.JLabel();
+        txtBookType = new javax.swing.JLabel();
+        txtAuthor = new javax.swing.JLabel();
+        txtBookName = new javax.swing.JLabel();
+        txtNumberBook = new javax.swing.JLabel();
+        txtPublishingYear = new javax.swing.JLabel();
+        txtPublishingCompany = new javax.swing.JLabel();
+        bookName = new javax.swing.JTextField();
+        bookTitleID = new javax.swing.JTextField();
+        bookTypeName = new javax.swing.JTextField();
+        numberBookReady = new javax.swing.JTextField();
+        author = new javax.swing.JTextField();
+        publishingCompany = new javax.swing.JTextField();
+        publishingYear = new javax.swing.JTextField();
+        addBookButton = new javax.swing.JButton();
+        editBookButton = new javax.swing.JButton();
+        deleteBookButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        bookManagementTable = new javax.swing.JTable();
         loanManagement = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        borrowManagement = new javax.swing.JPanel();
+        txtLoanReaderID = new javax.swing.JLabel();
+        loanReaderID = new javax.swing.JTextField();
+        txtloanBookName = new javax.swing.JLabel();
+        loanBookName = new javax.swing.JTextField();
+        txtBookReturnDay = new javax.swing.JLabel();
+        bookReturnDay = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
+        borrowBookTable = new javax.swing.JTable();
+        borrowBookButton = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        borrowReaderTable = new javax.swing.JTable();
+        bookReturnManagement = new javax.swing.JPanel();
+        txtbookReturnReaderID = new javax.swing.JLabel();
+        bookReturnReaderID = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        bookReturnBookTable = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        jButton8 = new javax.swing.JButton();
+        bookReturnReaderTable = new javax.swing.JTable();
+        bookReturnButton = new javax.swing.JButton();
         statistical = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         readerStatistics = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        txtReaderStatisticIcon = new javax.swing.JLabel();
+        readerStatisticComboBox = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        readerStatisticTable = new javax.swing.JTable();
         booksStatistics = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel20 = new javax.swing.JLabel();
+        bookStatisticComboBox = new javax.swing.JComboBox<>();
+        txtBookStatisticIcon = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        bookStatisticTable = new javax.swing.JTable();
         search = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jLabel28 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel29 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jLabel30 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        txtSearchBook = new javax.swing.JLabel();
+        searchBook = new javax.swing.JTextField();
+        txtYearFilter = new javax.swing.JLabel();
+        categoryFilter = new javax.swing.JComboBox<>();
+        txtCategoryFilter = new javax.swing.JLabel();
+        authorFilter = new javax.swing.JComboBox<>();
+        txtPublishingCompanyFilter = new javax.swing.JLabel();
+        publishingCompanyFilter = new javax.swing.JComboBox<>();
+        txtAuthorFilter = new javax.swing.JLabel();
+        yearFilter = new javax.swing.JComboBox<>();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTable9 = new javax.swing.JTable();
 
@@ -216,25 +215,25 @@ public class TrangChu extends javax.swing.JFrame {
     jTable2.setSelectionForeground(new java.awt.Color(0, 0, 0));
     jScrollPane2.setViewportView(jTable2);
 
-    jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel4.setText("Mã độc giả");
+    txtReaderID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtReaderID.setForeground(new java.awt.Color(0, 0, 0));
+    txtReaderID.setText("Mã độc giả");
 
-    jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel5.setText("Họ và tên");
+    txtFullName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtFullName.setForeground(new java.awt.Color(0, 0, 0));
+    txtFullName.setText("Họ và tên");
 
-    jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel6.setText("Số điện thoại");
+    txtPhoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtPhoneNumber.setForeground(new java.awt.Color(0, 0, 0));
+    txtPhoneNumber.setText("Số điện thoại");
 
-    jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel7.setText("Ngày sinh");
+    txtDayOfBirth.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtDayOfBirth.setForeground(new java.awt.Color(0, 0, 0));
+    txtDayOfBirth.setText("Ngày sinh");
 
-    jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel8.setText("Email");
+    txtEmail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtEmail.setForeground(new java.awt.Color(0, 0, 0));
+    txtEmail.setText("Email");
 
     sexRadioGroup.add(maleRadioButton);
     maleRadioButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -251,9 +250,9 @@ public class TrangChu extends javax.swing.JFrame {
     femaleRadioButton.setForeground(new java.awt.Color(0, 0, 0));
     femaleRadioButton.setText("Nữ");
 
-    jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel9.setText("Giới tính");
+    txtGender.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtGender.setForeground(new java.awt.Color(0, 0, 0));
+    txtGender.setText("Giới tính");
 
     addReaderButton.setBackground(new java.awt.Color(255, 255, 255));
     addReaderButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -273,21 +272,21 @@ public class TrangChu extends javax.swing.JFrame {
     deleteReaderButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))));
     deleteReaderButton.setText("Xóa");
 
-    jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel10.setText("Trạng thái");
+    txtStatus.setBackground(new java.awt.Color(255, 255, 255));
+    txtStatus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtStatus.setForeground(new java.awt.Color(0, 0, 0));
+    txtStatus.setText("Trạng thái");
 
-    adjRadioGroup.add(jRadioButton3);
-    jRadioButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jRadioButton3.setForeground(new java.awt.Color(0, 0, 0));
-    jRadioButton3.setText("Hoạt động");
+    adjRadioGroup.add(isActive);
+    isActive.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    isActive.setForeground(new java.awt.Color(0, 0, 0));
+    isActive.setText("Hoạt động");
 
-    jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
-    adjRadioGroup.add(jRadioButton4);
-    jRadioButton4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jRadioButton4.setForeground(new java.awt.Color(0, 0, 0));
-    jRadioButton4.setText("Bị khóa");
+    isNotActive.setBackground(new java.awt.Color(255, 255, 255));
+    adjRadioGroup.add(isNotActive);
+    isNotActive.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    isNotActive.setForeground(new java.awt.Color(0, 0, 0));
+    isNotActive.setText("Bị khóa");
 
     javax.swing.GroupLayout readersManagementLayout = new javax.swing.GroupLayout(readersManagement);
     readersManagement.setLayout(readersManagementLayout);
@@ -296,14 +295,14 @@ public class TrangChu extends javax.swing.JFrame {
         .addGroup(readersManagementLayout.createSequentialGroup()
             .addGap(47, 47, 47)
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addComponent(txtReaderID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(readersManagementLayout.createSequentialGroup()
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(isActive, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, readersManagementLayout.createSequentialGroup()
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -313,7 +312,7 @@ public class TrangChu extends javax.swing.JFrame {
                                 .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(readerID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(readersManagementLayout.createSequentialGroup()
-                                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(isNotActive, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(32, 32, 32)
                                         .addComponent(femaleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(48, 48, 48)))
@@ -333,9 +332,9 @@ public class TrangChu extends javax.swing.JFrame {
                                     .addComponent(deleteReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(readersManagementLayout.createSequentialGroup()
                                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtDayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGap(27, 27, 27)
                                     .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGap(54, 54, 54))))
@@ -349,33 +348,32 @@ public class TrangChu extends javax.swing.JFrame {
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, readersManagementLayout.createSequentialGroup()
             .addContainerGap()
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel8)
+                .addComponent(txtEmail)
                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(readerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel4))
+                .addComponent(txtReaderID))
+            .addGap(18, 18, 18)
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(readersManagementLayout.createSequentialGroup()
-                    .addGap(18, 18, 18)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
+                        .addComponent(txtFullName)
                         .addComponent(readerFullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(23, 23, 23)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(maleRadioButton)
                         .addComponent(femaleRadioButton)
-                        .addComponent(jLabel9))
+                        .addComponent(txtGender))
                     .addGap(18, 18, 18)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel10)
-                        .addComponent(jRadioButton3)))
+                        .addComponent(txtStatus)
+                        .addComponent(isActive)))
                 .addGroup(readersManagementLayout.createSequentialGroup()
-                    .addGap(18, 18, 18)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
+                        .addComponent(txtDayOfBirth)
                         .addComponent(dayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addGap(2, 2, 2)
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,7 +383,7 @@ public class TrangChu extends javax.swing.JFrame {
                         .addComponent(editReaderButton)
                         .addComponent(deleteReaderButton)
                         .addComponent(addReaderButton)))
-                .addComponent(jRadioButton4))
+                .addComponent(isNotActive))
             .addGap(18, 18, 18)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
             .addContainerGap())
@@ -395,56 +393,56 @@ public class TrangChu extends javax.swing.JFrame {
 
     booksManagement.setBackground(new java.awt.Color(255, 255, 255));
 
-    jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel11.setText("Mã đầu sách");
+    txtBookTitleID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtBookTitleID.setForeground(new java.awt.Color(0, 0, 0));
+    txtBookTitleID.setText("Mã đầu sách");
 
-    jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel12.setText("Thể loại");
+    txtBookType.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtBookType.setForeground(new java.awt.Color(0, 0, 0));
+    txtBookType.setText("Thể loại");
 
-    jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel13.setText("Tác giả");
+    txtAuthor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtAuthor.setForeground(new java.awt.Color(0, 0, 0));
+    txtAuthor.setText("Tác giả");
 
-    jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel14.setText("Tên sách");
+    txtBookName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtBookName.setForeground(new java.awt.Color(0, 0, 0));
+    txtBookName.setText("Tên sách");
 
-    jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel15.setText("Số lượng còn");
+    txtNumberBook.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtNumberBook.setForeground(new java.awt.Color(0, 0, 0));
+    txtNumberBook.setText("Số lượng còn");
 
-    jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel16.setText("Năm xuất bản");
+    txtPublishingYear.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtPublishingYear.setForeground(new java.awt.Color(0, 0, 0));
+    txtPublishingYear.setText("Năm xuất bản");
 
-    jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel17.setText("Nhà xuất bản");
+    txtPublishingCompany.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtPublishingCompany.setForeground(new java.awt.Color(0, 0, 0));
+    txtPublishingCompany.setText("Nhà xuất bản");
 
-    jButton2.setBackground(new java.awt.Color(255, 255, 255));
-    jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jButton2.setForeground(new java.awt.Color(0, 0, 0));
-    jButton2.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))));
-    jButton2.setText("Thêm");
+    addBookButton.setBackground(new java.awt.Color(255, 255, 255));
+    addBookButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    addBookButton.setForeground(new java.awt.Color(0, 0, 0));
+    addBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))));
+    addBookButton.setText("Thêm");
 
-    jButton5.setBackground(new java.awt.Color(255, 255, 255));
-    jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jButton5.setForeground(new java.awt.Color(0, 0, 0));
-    jButton5.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))));
-    jButton5.setText("Chỉnh sửa");
+    editBookButton.setBackground(new java.awt.Color(255, 255, 255));
+    editBookButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    editBookButton.setForeground(new java.awt.Color(0, 0, 0));
+    editBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))));
+    editBookButton.setText("Chỉnh sửa");
 
-    jButton6.setBackground(new java.awt.Color(255, 255, 255));
-    jButton6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jButton6.setForeground(new java.awt.Color(0, 0, 0));
-    jButton6.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))));
-    jButton6.setText("Xóa");
+    deleteBookButton.setBackground(new java.awt.Color(255, 255, 255));
+    deleteBookButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    deleteBookButton.setForeground(new java.awt.Color(0, 0, 0));
+    deleteBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))));
+    deleteBookButton.setText("Xóa");
 
-    jTable3.setBackground(new java.awt.Color(255, 255, 255));
-    jTable3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jTable3.setForeground(new java.awt.Color(0, 0, 0));
-    jTable3.setModel(new javax.swing.table.DefaultTableModel(
+    bookManagementTable.setBackground(new java.awt.Color(255, 255, 255));
+    bookManagementTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    bookManagementTable.setForeground(new java.awt.Color(0, 0, 0));
+    bookManagementTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -452,9 +450,9 @@ public class TrangChu extends javax.swing.JFrame {
             "Mã đầu sách", "Tên sách", "Thể loại", "Số lượng còn", "Tác giả", "Năm xuất bản", "Nhà xuất bản"
         }
     ));
-    jTable3.setSelectionBackground(new java.awt.Color(255, 255, 255));
-    jTable3.setSelectionForeground(new java.awt.Color(0, 0, 0));
-    jScrollPane3.setViewportView(jTable3);
+    bookManagementTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+    bookManagementTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+    jScrollPane3.setViewportView(bookManagementTable);
 
     javax.swing.GroupLayout booksManagementLayout = new javax.swing.GroupLayout(booksManagement);
     booksManagement.setLayout(booksManagementLayout);
@@ -463,37 +461,37 @@ public class TrangChu extends javax.swing.JFrame {
         .addGroup(booksManagementLayout.createSequentialGroup()
             .addGap(37, 37, 37)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBookName, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBookTitleID, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(txtNumberBook, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtBookType, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGap(28, 28, 28)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bookName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bookTitleID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bookTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numberBookReady, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(addBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(booksManagementLayout.createSequentialGroup()
                     .addGap(51, 51, 51)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, booksManagementLayout.createSequentialGroup()
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel16)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPublishingCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPublishingYear)
+                        .addComponent(txtAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(40, 40, 40)))
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
-                .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(author)
+                    .addComponent(publishingCompany)
+                    .addComponent(publishingYear, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+                .addComponent(deleteBookButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(54, 54, 54))
         .addGroup(booksManagementLayout.createSequentialGroup()
             .addContainerGap()
@@ -505,31 +503,31 @@ public class TrangChu extends javax.swing.JFrame {
         .addGroup(booksManagementLayout.createSequentialGroup()
             .addGap(16, 16, 16)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel11)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel13)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtBookTitleID)
+                .addComponent(bookTitleID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAuthor)
+                .addComponent(author, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel14)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel17)
-                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtBookName)
+                .addComponent(bookName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPublishingCompany)
+                .addComponent(publishingCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel12)
-                .addComponent(jLabel16)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtBookType)
+                .addComponent(txtPublishingYear)
+                .addComponent(bookTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(publishingYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel15)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtNumberBook)
+                .addComponent(numberBookReady, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton2)
-                .addComponent(jButton5)
-                .addComponent(jButton6))
+                .addComponent(addBookButton)
+                .addComponent(editBookButton)
+                .addComponent(deleteBookButton))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
             .addContainerGap())
@@ -543,31 +541,24 @@ public class TrangChu extends javax.swing.JFrame {
     jTabbedPane2.setForeground(new java.awt.Color(0, 0, 0));
     jTabbedPane2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
-    jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+    borrowManagement.setBackground(new java.awt.Color(255, 255, 255));
 
-    jLabel18.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel18.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel18.setText("Mã độc giả");
+    txtLoanReaderID.setBackground(new java.awt.Color(255, 255, 255));
+    txtLoanReaderID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtLoanReaderID.setForeground(new java.awt.Color(0, 0, 0));
+    txtLoanReaderID.setText("Mã độc giả");
 
-    jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel19.setText("Tên sách");
+    txtloanBookName.setBackground(new java.awt.Color(255, 255, 255));
+    txtloanBookName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtloanBookName.setForeground(new java.awt.Color(0, 0, 0));
+    txtloanBookName.setText("Tên sách");
 
-    jSpinner1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtBookReturnDay.setBackground(new java.awt.Color(255, 255, 255));
+    txtBookReturnDay.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtBookReturnDay.setForeground(new java.awt.Color(0, 0, 0));
+    txtBookReturnDay.setText("Ngày hẹn trả");
 
-    jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel21.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel21.setText("Số lượng");
-
-    jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel22.setText("Ngày hẹn trả");
-
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+    borrowBookTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -575,18 +566,18 @@ public class TrangChu extends javax.swing.JFrame {
             "Mã đầu sách", "Tên sách", "Thể loại", "Số lượng còn", "Tác giả", "Năm xuất bản", "Nhà xuất bản"
         }
     ));
-    jScrollPane1.setViewportView(jTable1);
+    jScrollPane1.setViewportView(borrowBookTable);
 
-    jButton9.setBackground(new java.awt.Color(255, 255, 255));
-    jButton9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jButton9.setForeground(new java.awt.Color(0, 0, 0));
-    jButton9.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/borrow.png"))));
-    jButton9.setText("Mượn sách");
+    borrowBookButton.setBackground(new java.awt.Color(255, 255, 255));
+    borrowBookButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    borrowBookButton.setForeground(new java.awt.Color(0, 0, 0));
+    borrowBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/borrow.png"))));
+    borrowBookButton.setText("Mượn sách");
 
-    jTable6.setBackground(new java.awt.Color(255, 255, 255));
-    jTable6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jTable6.setForeground(new java.awt.Color(0, 0, 0));
-    jTable6.setModel(new javax.swing.table.DefaultTableModel(
+    borrowReaderTable.setBackground(new java.awt.Color(255, 255, 255));
+    borrowReaderTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    borrowReaderTable.setForeground(new java.awt.Color(0, 0, 0));
+    borrowReaderTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -594,87 +585,78 @@ public class TrangChu extends javax.swing.JFrame {
             "Mã độc giả", "Họ và tên", "Giới tính", "Ngày sinh", "Email", "Số điện thoại"
         }
     ));
-    jTable6.setSelectionBackground(new java.awt.Color(255, 255, 255));
-    jTable6.setSelectionForeground(new java.awt.Color(0, 0, 0));
-    jTable6.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-    jScrollPane6.setViewportView(jTable6);
+    borrowReaderTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+    borrowReaderTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+    borrowReaderTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    jScrollPane6.setViewportView(borrowReaderTable);
 
-    javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-    jPanel3.setLayout(jPanel3Layout);
-    jPanel3Layout.setHorizontalGroup(
-        jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+    javax.swing.GroupLayout borrowManagementLayout = new javax.swing.GroupLayout(borrowManagement);
+    borrowManagement.setLayout(borrowManagementLayout);
+    borrowManagementLayout.setHorizontalGroup(
+        borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, borrowManagementLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton9)
+            .addComponent(borrowBookButton)
             .addGap(39, 39, 39))
-        .addGroup(jPanel3Layout.createSequentialGroup()
+        .addGroup(borrowManagementLayout.createSequentialGroup()
             .addGap(43, 43, 43)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(txtLoanReaderID, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                .addComponent(txtloanBookName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(18, 18, 18)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jTextField13)
-                .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
+            .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(loanReaderID)
+                .addComponent(loanBookName, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
             .addGap(99, 99, 99)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel22)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(txtBookReturnDay)
             .addGap(33, 33, 33)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(bookReturnDay, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(109, Short.MAX_VALUE))
-        .addGroup(jPanel3Layout.createSequentialGroup()
+        .addGroup(borrowManagementLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane6)
                 .addComponent(jScrollPane1))
             .addContainerGap())
     );
-    jPanel3Layout.setVerticalGroup(
-        jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel3Layout.createSequentialGroup()
+    borrowManagementLayout.setVerticalGroup(
+        borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(borrowManagementLayout.createSequentialGroup()
             .addGap(17, 17, 17)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel22)))
+            .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(borrowManagementLayout.createSequentialGroup()
+                    .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtLoanReaderID)
+                        .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(loanReaderID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBookReturnDay)))
                     .addGap(18, 18, 18)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel21)))
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(18, 18, 18)
+                    .addGroup(borrowManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtloanBookName)
+                        .addComponent(loanBookName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(bookReturnDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(19, 19, 19)
             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(59, 59, 59)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
             .addGap(18, 18, 18)
-            .addComponent(jButton9)
+            .addComponent(borrowBookButton)
             .addGap(59, 59, 59))
     );
 
-    jTabbedPane2.addTab("QUẢN LÝ MƯỢN", jPanel3);
+    jTabbedPane2.addTab("QUẢN LÝ MƯỢN", borrowManagement);
 
-    jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+    bookReturnManagement.setBackground(new java.awt.Color(255, 255, 255));
 
-    jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel23.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel23.setText("Mã độc giả");
+    txtbookReturnReaderID.setBackground(new java.awt.Color(255, 255, 255));
+    txtbookReturnReaderID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtbookReturnReaderID.setForeground(new java.awt.Color(0, 0, 0));
+    txtbookReturnReaderID.setText("Mã độc giả");
 
-    jTable4.setBackground(new java.awt.Color(255, 255, 255));
-    jTable4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jTable4.setForeground(new java.awt.Color(0, 0, 0));
-    jTable4.setModel(new javax.swing.table.DefaultTableModel(
+    bookReturnBookTable.setBackground(new java.awt.Color(255, 255, 255));
+    bookReturnBookTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    bookReturnBookTable.setForeground(new java.awt.Color(0, 0, 0));
+    bookReturnBookTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
             {null, null, null, null, null, null, null},
             {null, null, null, null, null, null, null},
@@ -684,20 +666,20 @@ public class TrangChu extends javax.swing.JFrame {
             "Mã đầu sách", "Tên sách", "Thể loại", "Số lượng", "Tác giả", "Năm xuất bản", "Nhà xuất bản"
         }
     ));
-    jTable4.setSelectionBackground(new java.awt.Color(255, 255, 255));
-    jTable4.setSelectionForeground(new java.awt.Color(0, 0, 0));
-    jTable4.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-    jScrollPane4.setViewportView(jTable4);
+    bookReturnBookTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+    bookReturnBookTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+    bookReturnBookTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    jScrollPane4.setViewportView(bookReturnBookTable);
 
     jLabel24.setBackground(new java.awt.Color(255, 255, 255));
     jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     jLabel24.setForeground(new java.awt.Color(0, 0, 0));
     jLabel24.setText("Danh sách đã mượn");
 
-    jTable5.setBackground(new java.awt.Color(255, 255, 255));
-    jTable5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jTable5.setForeground(new java.awt.Color(0, 0, 0));
-    jTable5.setModel(new javax.swing.table.DefaultTableModel(
+    bookReturnReaderTable.setBackground(new java.awt.Color(255, 255, 255));
+    bookReturnReaderTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    bookReturnReaderTable.setForeground(new java.awt.Color(0, 0, 0));
+    bookReturnReaderTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
             {null, null, null, null, null, null}
         },
@@ -705,68 +687,68 @@ public class TrangChu extends javax.swing.JFrame {
             "Mã độc giả", "Họ và tên", "Giới tính", "Ngày sinh", "Email", "Số điện thoại"
         }
     ));
-    jTable5.setSelectionBackground(new java.awt.Color(255, 255, 255));
-    jTable5.setSelectionForeground(new java.awt.Color(0, 0, 0));
-    jTable5.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-    jScrollPane5.setViewportView(jTable5);
+    bookReturnReaderTable.setSelectionBackground(new java.awt.Color(255, 255, 255));
+    bookReturnReaderTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+    bookReturnReaderTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    jScrollPane5.setViewportView(bookReturnReaderTable);
 
-    jButton8.setBackground(new java.awt.Color(255, 255, 255));
-    jButton8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jButton8.setForeground(new java.awt.Color(0, 0, 0));
-    jButton8.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/give_book.png"))));
-    jButton8.setText("Trả sách");
+    bookReturnButton.setBackground(new java.awt.Color(255, 255, 255));
+    bookReturnButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    bookReturnButton.setForeground(new java.awt.Color(0, 0, 0));
+    bookReturnButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/give_book.png"))));
+    bookReturnButton.setText("Trả sách");
 
-    javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-    jPanel4.setLayout(jPanel4Layout);
-    jPanel4Layout.setHorizontalGroup(
-        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel4Layout.createSequentialGroup()
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
+    javax.swing.GroupLayout bookReturnManagementLayout = new javax.swing.GroupLayout(bookReturnManagement);
+    bookReturnManagement.setLayout(bookReturnManagementLayout);
+    bookReturnManagementLayout.setHorizontalGroup(
+        bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(bookReturnManagementLayout.createSequentialGroup()
+            .addGroup(bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bookReturnManagementLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 938, Short.MAX_VALUE))
-                .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(bookReturnManagementLayout.createSequentialGroup()
                     .addGap(56, 56, 56)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel24)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(bookReturnManagementLayout.createSequentialGroup()
+                            .addComponent(txtbookReturnReaderID, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(bookReturnReaderID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bookReturnManagementLayout.createSequentialGroup()
             .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(jButton8)
+            .addComponent(bookReturnButton)
             .addGap(47, 47, 47))
-        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        .addGroup(bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bookReturnManagementLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane5)
                 .addContainerGap()))
     );
-    jPanel4Layout.setVerticalGroup(
-        jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(jPanel4Layout.createSequentialGroup()
+    bookReturnManagementLayout.setVerticalGroup(
+        bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(bookReturnManagementLayout.createSequentialGroup()
             .addGap(23, 23, 23)
-            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel23)
-                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtbookReturnReaderID)
+                .addComponent(bookReturnReaderID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(102, 102, 102)
             .addComponent(jLabel24)
             .addGap(18, 18, 18)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-            .addComponent(jButton8)
+            .addComponent(bookReturnButton)
             .addGap(59, 59, 59))
-        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        .addGroup(bookReturnManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bookReturnManagementLayout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(332, Short.MAX_VALUE)))
     );
 
-    jTabbedPane2.addTab("QUẢN LÝ TRẢ", jPanel4);
+    jTabbedPane2.addTab("QUẢN LÝ TRẢ", bookReturnManagement);
 
     javax.swing.GroupLayout loanManagementLayout = new javax.swing.GroupLayout(loanManagement);
     loanManagement.setLayout(loanManagementLayout);
@@ -790,14 +772,14 @@ public class TrangChu extends javax.swing.JFrame {
     readerStatistics.setBackground(new java.awt.Color(255, 255, 255));
     readerStatistics.setForeground(new java.awt.Color(0, 0, 0));
 
-    jLabel25.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/choose.png"))));
+    txtReaderStatisticIcon.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/choose.png"))));
 
-    jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-    jComboBox2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-    jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ĐỘC GIẢ MƯỢN QUÁ HẠN", "ĐỘC GIẢ CHƯA TRẢ SÁCH" }));
+    readerStatisticComboBox.setBackground(new java.awt.Color(255, 255, 255));
+    readerStatisticComboBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    readerStatisticComboBox.setForeground(new java.awt.Color(0, 0, 0));
+    readerStatisticComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ĐỘC GIẢ MƯỢN QUÁ HẠN", "ĐỘC GIẢ CHƯA TRẢ SÁCH" }));
 
-    jTable8.setModel(new javax.swing.table.DefaultTableModel(
+    readerStatisticTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -805,7 +787,7 @@ public class TrangChu extends javax.swing.JFrame {
 
         }
     ));
-    jScrollPane8.setViewportView(jTable8);
+    jScrollPane8.setViewportView(readerStatisticTable);
 
     javax.swing.GroupLayout readerStatisticsLayout = new javax.swing.GroupLayout(readerStatistics);
     readerStatistics.setLayout(readerStatisticsLayout);
@@ -813,9 +795,9 @@ public class TrangChu extends javax.swing.JFrame {
         readerStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(readerStatisticsLayout.createSequentialGroup()
             .addGap(316, 316, 316)
-            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtReaderStatisticIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(readerStatisticComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, readerStatisticsLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -828,10 +810,10 @@ public class TrangChu extends javax.swing.JFrame {
             .addGroup(readerStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(readerStatisticsLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtReaderStatisticIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(readerStatisticsLayout.createSequentialGroup()
                     .addGap(23, 23, 23)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(readerStatisticComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
             .addContainerGap())
@@ -842,14 +824,14 @@ public class TrangChu extends javax.swing.JFrame {
     booksStatistics.setBackground(new java.awt.Color(255, 255, 255));
     booksStatistics.setForeground(new java.awt.Color(0, 0, 0));
 
-    jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-    jComboBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-    jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SÁCH MƯỢN NHIỀU NHẤT", "SÁCH ĐANG ĐƯỢC MƯỢN" }));
+    bookStatisticComboBox.setBackground(new java.awt.Color(255, 255, 255));
+    bookStatisticComboBox.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    bookStatisticComboBox.setForeground(new java.awt.Color(0, 0, 0));
+    bookStatisticComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SÁCH MƯỢN NHIỀU NHẤT", "SÁCH ĐANG ĐƯỢC MƯỢN" }));
 
-    jLabel20.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/choose.png"))));
+    txtBookStatisticIcon.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/choose.png"))));
 
-    jTable7.setModel(new javax.swing.table.DefaultTableModel(
+    bookStatisticTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
@@ -857,7 +839,7 @@ public class TrangChu extends javax.swing.JFrame {
             "Mã đầu sách", "Tên sách", "Thể loại", "Tác giả"
         }
     ));
-    jScrollPane7.setViewportView(jTable7);
+    jScrollPane7.setViewportView(bookStatisticTable);
 
     javax.swing.GroupLayout booksStatisticsLayout = new javax.swing.GroupLayout(booksStatistics);
     booksStatistics.setLayout(booksStatisticsLayout);
@@ -865,9 +847,9 @@ public class TrangChu extends javax.swing.JFrame {
         booksStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(booksStatisticsLayout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(txtBookStatisticIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
-            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bookStatisticComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(401, 401, 401))
         .addGroup(booksStatisticsLayout.createSequentialGroup()
             .addGap(59, 59, 59)
@@ -880,10 +862,10 @@ public class TrangChu extends javax.swing.JFrame {
             .addGroup(booksStatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(booksStatisticsLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBookStatisticIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(booksStatisticsLayout.createSequentialGroup()
                     .addGap(21, 21, 21)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(bookStatisticComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(18, 18, 18)
             .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
             .addContainerGap())
@@ -906,35 +888,35 @@ public class TrangChu extends javax.swing.JFrame {
 
     search.setBackground(new java.awt.Color(255, 255, 255));
 
-    jLabel26.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel26.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel26.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel26.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search (1).png"))));
-    jLabel26.setText("Tìm kiếm sách");
+    txtSearchBook.setBackground(new java.awt.Color(255, 255, 255));
+    txtSearchBook.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtSearchBook.setForeground(new java.awt.Color(0, 0, 0));
+    txtSearchBook.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search (1).png"))));
+    txtSearchBook.setText("Tìm kiếm sách");
 
-    jLabel27.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel27.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel27.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel27.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/year.png"))));
-    jLabel27.setText("Lọc theo năm");
+    txtYearFilter.setBackground(new java.awt.Color(255, 255, 255));
+    txtYearFilter.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtYearFilter.setForeground(new java.awt.Color(0, 0, 0));
+    txtYearFilter.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/year.png"))));
+    txtYearFilter.setText("Lọc theo năm");
 
-    jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel28.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel28.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel28.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/categories.png"))));
-    jLabel28.setText("Lọc theo thể loại");
+    txtCategoryFilter.setBackground(new java.awt.Color(255, 255, 255));
+    txtCategoryFilter.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtCategoryFilter.setForeground(new java.awt.Color(0, 0, 0));
+    txtCategoryFilter.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/categories.png"))));
+    txtCategoryFilter.setText("Lọc theo thể loại");
 
-    jLabel29.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel29.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel29.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel29.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/send.png"))));
-    jLabel29.setText("Theo nhà xuất bản");
+    txtPublishingCompanyFilter.setBackground(new java.awt.Color(255, 255, 255));
+    txtPublishingCompanyFilter.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtPublishingCompanyFilter.setForeground(new java.awt.Color(0, 0, 0));
+    txtPublishingCompanyFilter.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/send.png"))));
+    txtPublishingCompanyFilter.setText("Theo nhà xuất bản");
 
-    jLabel30.setBackground(new java.awt.Color(255, 255, 255));
-    jLabel30.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    jLabel30.setForeground(new java.awt.Color(0, 0, 0));
-    jLabel30.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/writer.png"))));
-    jLabel30.setText("Theo tác giả");
+    txtAuthorFilter.setBackground(new java.awt.Color(255, 255, 255));
+    txtAuthorFilter.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtAuthorFilter.setForeground(new java.awt.Color(0, 0, 0));
+    txtAuthorFilter.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/writer.png"))));
+    txtAuthorFilter.setText("Theo tác giả");
 
     jTable9.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
@@ -954,31 +936,31 @@ public class TrangChu extends javax.swing.JFrame {
             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(searchLayout.createSequentialGroup()
                     .addGap(276, 276, 276)
-                    .addComponent(jLabel26)
+                    .addComponent(txtSearchBook)
                     .addGap(27, 27, 27)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(searchBook, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(searchLayout.createSequentialGroup()
                     .addGap(52, 52, 52)
                     .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane9)
                         .addGroup(searchLayout.createSequentialGroup()
                             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel28)
-                                .addComponent(jLabel29))
+                                .addComponent(txtCategoryFilter)
+                                .addComponent(txtPublishingCompanyFilter))
                             .addGap(26, 26, 26)
                             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(categoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(publishingCompanyFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(118, 118, 118)
                             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(searchLayout.createSequentialGroup()
-                                    .addComponent(jLabel27)
+                                    .addComponent(txtYearFilter)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(yearFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(searchLayout.createSequentialGroup()
-                                    .addComponent(jLabel30)
+                                    .addComponent(txtAuthorFilter)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                    .addComponent(authorFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
             .addContainerGap(32, Short.MAX_VALUE))
     );
     searchLayout.setVerticalGroup(
@@ -986,20 +968,20 @@ public class TrangChu extends javax.swing.JFrame {
         .addGroup(searchLayout.createSequentialGroup()
             .addContainerGap()
             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel26)
-                .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtSearchBook)
+                .addComponent(searchBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(36, 36, 36)
             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel28)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel27)
-                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtCategoryFilter)
+                .addComponent(categoryFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtYearFilter)
+                .addComponent(yearFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(searchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel29)
-                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel30)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtPublishingCompanyFilter)
+                .addComponent(publishingCompanyFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAuthorFilter)
+                .addComponent(authorFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(37, Short.MAX_VALUE))
@@ -1085,64 +1067,46 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBookButton;
     private javax.swing.JButton addReaderButton;
     private javax.swing.ButtonGroup adjRadioGroup;
+    private javax.swing.JTextField author;
+    private javax.swing.JComboBox<String> authorFilter;
+    private javax.swing.JTable bookManagementTable;
+    private javax.swing.JTextField bookName;
+    private javax.swing.JTable bookReturnBookTable;
+    private javax.swing.JButton bookReturnButton;
+    private com.toedter.calendar.JDateChooser bookReturnDay;
+    private javax.swing.JPanel bookReturnManagement;
+    private javax.swing.JTextField bookReturnReaderID;
+    private javax.swing.JTable bookReturnReaderTable;
+    private javax.swing.JComboBox<String> bookStatisticComboBox;
+    private javax.swing.JTable bookStatisticTable;
+    private javax.swing.JTextField bookTitleID;
+    private javax.swing.JTextField bookTypeName;
     private javax.swing.JPanel booksManagement;
     private javax.swing.JPanel booksStatistics;
+    private javax.swing.JButton borrowBookButton;
+    private javax.swing.JTable borrowBookTable;
+    private javax.swing.JPanel borrowManagement;
+    private javax.swing.JTable borrowReaderTable;
+    private javax.swing.JComboBox<String> categoryFilter;
     private javax.swing.JTextField dayOfBirth;
+    private javax.swing.JButton deleteBookButton;
     private javax.swing.JButton deleteReaderButton;
+    private javax.swing.JButton editBookButton;
     private javax.swing.JButton editReaderButton;
     private javax.swing.JTextField email;
     private javax.swing.JRadioButton femaleRadioButton;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JRadioButton isActive;
+    private javax.swing.JRadioButton isNotActive;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1152,40 +1116,56 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
     private javax.swing.JTable jTable9;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField loanBookName;
     private javax.swing.JPanel loanManagement;
+    private javax.swing.JTextField loanReaderID;
     private javax.swing.JButton logoutButton;
     private javax.swing.JRadioButton maleRadioButton;
+    private javax.swing.JTextField numberBookReady;
     private javax.swing.JTextField phoneNumber;
+    private javax.swing.JTextField publishingCompany;
+    private javax.swing.JComboBox<String> publishingCompanyFilter;
+    private javax.swing.JTextField publishingYear;
     private javax.swing.JTextField readerFullname;
     private javax.swing.JTextField readerID;
+    private javax.swing.JComboBox<String> readerStatisticComboBox;
+    private javax.swing.JTable readerStatisticTable;
     private javax.swing.JPanel readerStatistics;
     private javax.swing.JPanel readersManagement;
     private javax.swing.JPanel search;
+    private javax.swing.JTextField searchBook;
     private javax.swing.ButtonGroup sexRadioGroup;
     private javax.swing.JPanel statistical;
+    private javax.swing.JLabel txtAuthor;
+    private javax.swing.JLabel txtAuthorFilter;
+    private javax.swing.JLabel txtBookName;
+    private javax.swing.JLabel txtBookReturnDay;
+    private javax.swing.JLabel txtBookStatisticIcon;
+    private javax.swing.JLabel txtBookTitleID;
+    private javax.swing.JLabel txtBookType;
+    private javax.swing.JLabel txtCategoryFilter;
+    private javax.swing.JLabel txtDayOfBirth;
+    private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtFullName;
+    private javax.swing.JLabel txtGender;
+    private javax.swing.JLabel txtLoanReaderID;
+    private javax.swing.JLabel txtNumberBook;
+    private javax.swing.JLabel txtPhoneNumber;
+    private javax.swing.JLabel txtPublishingCompany;
+    private javax.swing.JLabel txtPublishingCompanyFilter;
+    private javax.swing.JLabel txtPublishingYear;
+    private javax.swing.JLabel txtReaderID;
+    private javax.swing.JLabel txtReaderStatisticIcon;
+    private javax.swing.JLabel txtSearchBook;
+    private javax.swing.JLabel txtStatus;
+    private javax.swing.JLabel txtYearFilter;
+    private javax.swing.JLabel txtbookReturnReaderID;
+    private javax.swing.JLabel txtloanBookName;
+    private javax.swing.JComboBox<String> yearFilter;
     // End of variables declaration//GEN-END:variables
 }

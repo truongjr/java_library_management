@@ -212,15 +212,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel5" pref="80" max="32767" attributes="0"/>
-                              <Component id="jLabel9" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                              <Component id="jLabel10" pref="80" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtFullName" pref="80" max="32767" attributes="0"/>
+                              <Component id="txtGender" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="txtStatus" pref="80" max="32767" attributes="0"/>
+                              <Component id="txtReaderID" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jRadioButton3" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <Component id="isActive" min="-2" pref="107" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -231,7 +231,7 @@
                                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                                   <Component id="readerID" min="-2" pref="240" max="-2" attributes="0"/>
                                                   <Group type="102" attributes="0">
-                                                      <Component id="jRadioButton4" min="-2" pref="98" max="-2" attributes="0"/>
+                                                      <Component id="isNotActive" min="-2" pref="98" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                                       <Component id="femaleRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -257,9 +257,9 @@
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel8" min="-2" pref="103" max="-2" attributes="0"/>
-                                                      <Component id="jLabel7" min="-2" pref="103" max="-2" attributes="0"/>
-                                                      <Component id="jLabel6" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      <Component id="txtEmail" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      <Component id="txtDayOfBirth" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      <Component id="txtPhoneNumber" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                                   <Component id="phoneNumber" min="-2" pref="240" max="-2" attributes="0"/>
@@ -283,39 +283,38 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="readerID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtReaderID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtFullName" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="readerFullname" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="maleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="femaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtGender" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="isActive" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtDayOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="dayOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel6" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="txtPhoneNumber" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                                       <Component id="phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -330,7 +329,7 @@
                                       <Component id="addReaderButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="isNotActive" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" pref="292" max="32767" attributes="0"/>
@@ -415,7 +414,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="txtReaderID">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -426,7 +425,7 @@
                     <Property name="text" type="java.lang.String" value="M&#xe3; &#x111;&#x1ed9;c gi&#x1ea3;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="txtFullName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -437,7 +436,7 @@
                     <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="txtPhoneNumber">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -448,7 +447,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="txtDayOfBirth">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -459,7 +458,7 @@
                     <Property name="text" type="java.lang.String" value="Ng&#xe0;y sinh"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="txtEmail">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -511,7 +510,7 @@
                     <Property name="text" type="java.lang.String" value="N&#x1eef;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="txtGender">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -573,7 +572,7 @@
                     <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
+                <Component class="javax.swing.JLabel" name="txtStatus">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -587,7 +586,7 @@
                     <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                <Component class="javax.swing.JRadioButton" name="isActive">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="adjRadioGroup"/>
@@ -601,7 +600,7 @@
                     <Property name="text" type="java.lang.String" value="Ho&#x1ea1;t &#x111;&#x1ed9;ng"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+                <Component class="javax.swing.JRadioButton" name="isNotActive">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -643,46 +642,46 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel14" min="-2" pref="86" max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="txtBookName" min="-2" pref="86" max="-2" attributes="0"/>
+                              <Component id="txtBookTitleID" min="-2" pref="96" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jLabel15" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel12" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNumberBook" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtBookType" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="jTextField6" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="bookName" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="bookTitleID" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="bookTypeName" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="numberBookReady" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jButton2" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="addBookButton" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Component id="jButton5" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="editBookButton" min="-2" pref="140" max="-2" attributes="0"/>
                                   <EmptySpace pref="64" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel17" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <Component id="txtPublishingCompany" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <Component id="txtPublishingYear" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtAuthor" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField10" max="32767" attributes="0"/>
-                                  <Component id="jTextField11" max="32767" attributes="0"/>
-                                  <Component id="jTextField12" pref="240" max="32767" attributes="0"/>
+                                  <Component id="author" max="32767" attributes="0"/>
+                                  <Component id="publishingCompany" max="32767" attributes="0"/>
+                                  <Component id="publishingYear" pref="240" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jButton6" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="deleteBookButton" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
@@ -698,35 +697,35 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBookTitleID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookTitleID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAuthor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="author" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBookName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPublishingCompany" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="publishingCompany" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBookType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPublishingYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="bookTypeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="publishingYear" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNumberBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="numberBookReady" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="addBookButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="editBookButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="deleteBookButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane3" pref="282" max="32767" attributes="0"/>
@@ -736,7 +735,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="txtBookTitleID">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -747,7 +746,7 @@
                     <Property name="text" type="java.lang.String" value="M&#xe3; &#x111;&#x1ea7;u s&#xe1;ch"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel12">
+                <Component class="javax.swing.JLabel" name="txtBookType">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -758,7 +757,7 @@
                     <Property name="text" type="java.lang.String" value="Th&#x1ec3; lo&#x1ea1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
+                <Component class="javax.swing.JLabel" name="txtAuthor">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -769,7 +768,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xe1;c gi&#x1ea3;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel14">
+                <Component class="javax.swing.JLabel" name="txtBookName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -780,7 +779,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n s&#xe1;ch"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel15">
+                <Component class="javax.swing.JLabel" name="txtNumberBook">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -791,7 +790,7 @@
                     <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng c&#xf2;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel16">
+                <Component class="javax.swing.JLabel" name="txtPublishingYear">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -802,7 +801,7 @@
                     <Property name="text" type="java.lang.String" value="N&#x103;m xu&#x1ea5;t b&#x1ea3;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel17">
+                <Component class="javax.swing.JLabel" name="txtPublishingCompany">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="14" style="1"/>
@@ -813,21 +812,21 @@
                     <Property name="text" type="java.lang.String" value="Nh&#xe0; xu&#x1ea5;t b&#x1ea3;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField6">
+                <Component class="javax.swing.JTextField" name="bookName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="bookTitleID">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="bookTypeName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="numberBookReady">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField10">
+                <Component class="javax.swing.JTextField" name="author">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField11">
+                <Component class="javax.swing.JTextField" name="publishingCompany">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField12">
+                <Component class="javax.swing.JTextField" name="publishingYear">
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="addBookButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -844,7 +843,7 @@
                     <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton5">
+                <Component class="javax.swing.JButton" name="editBookButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -861,7 +860,7 @@
                     <Property name="text" type="java.lang.String" value="Ch&#x1ec9;nh s&#x1eed;a"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton6">
+                <Component class="javax.swing.JButton" name="deleteBookButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -885,7 +884,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable3">
+                    <Component class="javax.swing.JTable" name="bookManagementTable">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1006,7 +1005,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel3">
+                    <Container class="javax.swing.JPanel" name="borrowManagement">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1025,30 +1024,24 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="borrowBookButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel18" pref="81" max="32767" attributes="0"/>
-                                      <Component id="jLabel19" max="32767" attributes="0"/>
+                                      <Component id="txtLoanReaderID" pref="81" max="32767" attributes="0"/>
+                                      <Component id="txtloanBookName" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField13" max="32767" attributes="0"/>
-                                      <Component id="jTextField14" pref="240" max="32767" attributes="0"/>
+                                      <Component id="loanReaderID" max="32767" attributes="0"/>
+                                      <Component id="loanBookName" pref="240" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtBookReturnDay" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jSpinner1" min="-2" pref="79" max="-2" attributes="0"/>
-                                      <Component id="jDateChooser2" min="-2" pref="238" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="bookReturnDay" min="-2" pref="238" max="-2" attributes="0"/>
                                   <EmptySpace pref="109" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1068,40 +1061,33 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtLoanReaderID" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jTextField13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="loanReaderID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtBookReturnDay" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jTextField14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="txtloanBookName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="loanBookName" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="bookReturnDay" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   <Component id="jScrollPane6" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                   <Component id="jScrollPane1" pref="149" max="32767" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="borrowBookButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel18">
+                        <Component class="javax.swing.JLabel" name="txtLoanReaderID">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1115,9 +1101,9 @@
                             <Property name="text" type="java.lang.String" value="M&#xe3; &#x111;&#x1ed9;c gi&#x1ea3;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField13">
+                        <Component class="javax.swing.JTextField" name="loanReaderID">
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel19">
+                        <Component class="javax.swing.JLabel" name="txtloanBookName">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1131,30 +1117,9 @@
                             <Property name="text" type="java.lang.String" value="T&#xea;n s&#xe1;ch"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField14">
+                        <Component class="javax.swing.JTextField" name="loanBookName">
                         </Component>
-                        <Component class="javax.swing.JSpinner" name="jSpinner1">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Arial" size="14" style="1"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel21">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Arial" size="14" style="1"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="0" green="0" red="0" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel22">
+                        <Component class="javax.swing.JLabel" name="txtBookReturnDay">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1168,7 +1133,7 @@
                             <Property name="text" type="java.lang.String" value="Ng&#xe0;y h&#x1eb9;n tr&#x1ea3;"/>
                           </Properties>
                         </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+                        <Component class="com.toedter.calendar.JDateChooser" name="bookReturnDay">
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                           <AuxValues>
@@ -1177,7 +1142,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable1">
+                            <Component class="javax.swing.JTable" name="borrowBookTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="7" rowCount="0">
@@ -1236,7 +1201,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="jButton9">
+                        <Component class="javax.swing.JButton" name="borrowBookButton">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1260,7 +1225,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable6">
+                            <Component class="javax.swing.JTable" name="borrowReaderTable">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1331,7 +1296,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel4">
+                    <Container class="javax.swing.JPanel" name="bookReturnManagement">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1359,9 +1324,9 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
-                                                  <Component id="jLabel23" min="-2" pref="82" max="-2" attributes="0"/>
+                                                  <Component id="txtbookReturnReaderID" min="-2" pref="82" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jTextField15" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="bookReturnReaderID" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1371,7 +1336,7 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bookReturnButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -1388,15 +1353,15 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtbookReturnReaderID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="bookReturnReaderID" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jScrollPane4" min="-2" pref="116" max="-2" attributes="0"/>
                                   <EmptySpace pref="80" max="32767" attributes="0"/>
-                                  <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bookReturnButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -1410,7 +1375,7 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel23">
+                        <Component class="javax.swing.JLabel" name="txtbookReturnReaderID">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1424,7 +1389,7 @@
                             <Property name="text" type="java.lang.String" value="M&#xe3; &#x111;&#x1ed9;c gi&#x1ea3;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField15">
+                        <Component class="javax.swing.JTextField" name="bookReturnReaderID">
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
                           <AuxValues>
@@ -1433,7 +1398,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable4">
+                            <Component class="javax.swing.JTable" name="bookReturnBookTable">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1529,7 +1494,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable5">
+                            <Component class="javax.swing.JTable" name="bookReturnReaderTable">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1598,7 +1563,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="jButton8">
+                        <Component class="javax.swing.JButton" name="bookReturnButton">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1691,9 +1656,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
-                                  <Component id="jLabel25" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="txtReaderStatisticIcon" min="-2" pref="51" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jComboBox2" min="-2" pref="244" max="-2" attributes="0"/>
+                                  <Component id="readerStatisticComboBox" min="-2" pref="244" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -1709,11 +1674,11 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel25" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="txtReaderStatisticIcon" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                          <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="readerStatisticComboBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1724,14 +1689,14 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel25">
+                        <Component class="javax.swing.JLabel" name="txtReaderStatisticIcon">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Images/choose.png&quot;)))" type="code"/>
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="jComboBox2">
+                        <Component class="javax.swing.JComboBox" name="readerStatisticComboBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1760,7 +1725,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable8">
+                            <Component class="javax.swing.JTable" name="readerStatisticTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="0" rowCount="0"/>
@@ -1802,9 +1767,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLabel20" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="txtBookStatisticIcon" min="-2" pref="51" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" min="-2" pref="229" max="-2" attributes="0"/>
+                                  <Component id="bookStatisticComboBox" min="-2" pref="229" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1820,11 +1785,11 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jLabel20" min="-2" pref="50" max="-2" attributes="0"/>
+                                          <Component id="txtBookStatisticIcon" min="-2" pref="50" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bookStatisticComboBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1835,7 +1800,7 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JComboBox" name="jComboBox1">
+                        <Component class="javax.swing.JComboBox" name="bookStatisticComboBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1857,7 +1822,7 @@
                             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                           </AuxValues>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel20">
+                        <Component class="javax.swing.JLabel" name="txtBookStatisticIcon">
                           <Properties>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                               <Connection code="new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Images/choose.png&quot;)))" type="code"/>
@@ -1871,7 +1836,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable7">
+                            <Component class="javax.swing.JTable" name="bookStatisticTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="0">
@@ -1942,9 +1907,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
-                                  <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSearchBook" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="jTextField16" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="searchBook" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -1952,25 +1917,25 @@
                                       <Component id="jScrollPane9" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtCategoryFilter" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtPublishingCompanyFilter" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jComboBox3" min="-2" pref="240" max="-2" attributes="0"/>
-                                              <Component id="jComboBox5" min="-2" pref="240" max="-2" attributes="0"/>
+                                              <Component id="categoryFilter" min="-2" pref="240" max="-2" attributes="0"/>
+                                              <Component id="publishingCompanyFilter" min="-2" pref="240" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" attributes="0">
-                                                  <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtYearFilter" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jComboBox6" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="yearFilter" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
-                                                  <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtAuthorFilter" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jComboBox4" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="authorFilter" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1986,22 +1951,22 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSearchBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchBook" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCategoryFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="categoryFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtYearFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="yearFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPublishingCompanyFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="publishingCompanyFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAuthorFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="authorFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane9" min="-2" pref="312" max="-2" attributes="0"/>
@@ -2011,7 +1976,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel26">
+                <Component class="javax.swing.JLabel" name="txtSearchBook">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2028,9 +1993,9 @@
                     <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m s&#xe1;ch"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField16">
+                <Component class="javax.swing.JTextField" name="searchBook">
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel27">
+                <Component class="javax.swing.JLabel" name="txtYearFilter">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2047,7 +2012,7 @@
                     <Property name="text" type="java.lang.String" value="L&#x1ecd;c theo n&#x103;m"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox3">
+                <Component class="javax.swing.JComboBox" name="categoryFilter">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2057,7 +2022,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel28">
+                <Component class="javax.swing.JLabel" name="txtCategoryFilter">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2074,7 +2039,7 @@
                     <Property name="text" type="java.lang.String" value="L&#x1ecd;c theo th&#x1ec3; lo&#x1ea1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox4">
+                <Component class="javax.swing.JComboBox" name="authorFilter">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2084,7 +2049,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel29">
+                <Component class="javax.swing.JLabel" name="txtPublishingCompanyFilter">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2101,7 +2066,7 @@
                     <Property name="text" type="java.lang.String" value="Theo nh&#xe0; xu&#x1ea5;t b&#x1ea3;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox5">
+                <Component class="javax.swing.JComboBox" name="publishingCompanyFilter">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2111,7 +2076,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel30">
+                <Component class="javax.swing.JLabel" name="txtAuthorFilter">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -2128,7 +2093,7 @@
                     <Property name="text" type="java.lang.String" value="Theo t&#xe1;c gi&#x1ea3;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox6">
+                <Component class="javax.swing.JComboBox" name="yearFilter">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>

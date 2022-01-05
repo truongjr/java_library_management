@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package library_management;
+package UI;
+
+import javax.swing.JOptionPane;
 
 
 /**
@@ -43,7 +45,6 @@ public class DangNhap extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
-        setMaximumSize(new java.awt.Dimension(950, 500));
         setMinimumSize(new java.awt.Dimension(950, 500));
         setSize(new java.awt.Dimension(950, 500));
 
@@ -188,6 +189,19 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
+//        JOptionPane.showMessageDialog(null, "Chua co data :3");
+        String userName = loginName.getText();
+        String password = new String(loginPassword.getPassword());
+        if(userName.equals("")){
+            JOptionPane.showMessageDialog(null, "userName rong");
+        } else {
+            JOptionPane.showMessageDialog(null, "userName la: " + userName);
+        }
+        if(password.equals("")){
+            JOptionPane.showMessageDialog(null, "password rong");
+        } else {
+            JOptionPane.showMessageDialog(null, "password la: " + userName);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void loginPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordActionPerformed
@@ -205,6 +219,7 @@ public class DangNhap extends javax.swing.JFrame {
                 dangNhap.setVisible(true);
                 dangNhap.setResizable(false);
                 dangNhap.setTitle("Library Management");
+                dangNhap.loginButton.setFocusPainted(false);
             }
         });
     }
