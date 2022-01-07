@@ -5,26 +5,19 @@
 package UI;
 
 import DataAccessObject.SQLConnection;
-import java.awt.Component;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
+
 import process.Process;
 import process.*;
 
@@ -38,6 +31,7 @@ public class TrangChu extends javax.swing.JFrame {
      * Creates new form TrangChu
      */
     DefaultTableModel modelReaderManagement;
+    String prefixName = "";
 
     public TrangChu() {
         initComponents();
@@ -53,7 +47,10 @@ public class TrangChu extends javax.swing.JFrame {
         editReaderButton.setFocusPainted(false);
         logoutButton.setFocusPainted(false);
         editBookButton.setFocusPainted(false);
-        loadValueTable(readerFullname.getText());
+        loadValueTable("");
+        readerID.setEditable(false);
+        isActiveRadioButton.setSelected(!isActiveRadioButton.isSelected());
+        maleRadioButton.setSelected(!maleRadioButton.isSelected());
     }
 
     /**
@@ -79,14 +76,13 @@ public class TrangChu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         readerManagementTable = new javax.swing.JTable();
         txtReaderID = new javax.swing.JLabel();
-        txtFullName = new javax.swing.JLabel();
+        txtlastName = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JLabel();
         txtDayOfBirth = new javax.swing.JLabel();
         txtEmail = new javax.swing.JLabel();
         readerID = new javax.swing.JTextField();
-        readerFullname = new javax.swing.JTextField();
+        readerLastName = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        dayOfBirth = new javax.swing.JTextField();
         phoneNumber = new javax.swing.JTextField();
         maleRadioButton = new javax.swing.JRadioButton();
         femaleRadioButton = new javax.swing.JRadioButton();
@@ -95,8 +91,11 @@ public class TrangChu extends javax.swing.JFrame {
         editReaderButton = new javax.swing.JButton();
         deleteReaderButton = new javax.swing.JButton();
         txtStatus = new javax.swing.JLabel();
-        isActive = new javax.swing.JRadioButton();
-        isNotActive = new javax.swing.JRadioButton();
+        isActiveRadioButton = new javax.swing.JRadioButton();
+        isNotActiveRadioButton = new javax.swing.JRadioButton();
+        firstName = new javax.swing.JLabel();
+        readerFirstName = new javax.swing.JTextField();
+        dayOfBirth = new com.toedter.calendar.JDateChooser();
         booksManagement = new javax.swing.JPanel();
         txtBookTitleID = new javax.swing.JLabel();
         txtBookType = new javax.swing.JLabel();
@@ -244,7 +243,6 @@ public class TrangChu extends javax.swing.JFrame {
         }
     ));
     readerManagementTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-    readerManagementTable.setColumnSelectionAllowed(true);
     readerManagementTable.setGridColor(new java.awt.Color(0, 0, 0));
     readerManagementTable.setSelectionBackground(new java.awt.Color(204, 255, 255));
     readerManagementTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
@@ -263,9 +261,9 @@ public class TrangChu extends javax.swing.JFrame {
     txtReaderID.setForeground(new java.awt.Color(0, 0, 0));
     txtReaderID.setText("Mã độc giả");
 
-    txtFullName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    txtFullName.setForeground(new java.awt.Color(0, 0, 0));
-    txtFullName.setText("Họ và tên");
+    txtlastName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    txtlastName.setForeground(new java.awt.Color(0, 0, 0));
+    txtlastName.setText("Họ");
 
     txtPhoneNumber.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     txtPhoneNumber.setForeground(new java.awt.Color(0, 0, 0));
@@ -279,17 +277,28 @@ public class TrangChu extends javax.swing.JFrame {
     txtEmail.setForeground(new java.awt.Color(0, 0, 0));
     txtEmail.setText("Email");
 
+    readerID.setBackground(new java.awt.Color(255, 255, 255));
     readerID.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyPressed(java.awt.event.KeyEvent evt) {
             readerIDKeyPressed(evt);
         }
     });
 
-    readerFullname.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyPressed(java.awt.event.KeyEvent evt) {
-            readerFullnameKeyPressed(evt);
+    readerLastName.setBackground(new java.awt.Color(255, 255, 255));
+    readerLastName.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            readerLastNameActionPerformed(evt);
         }
     });
+    readerLastName.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            readerLastNameKeyPressed(evt);
+        }
+    });
+
+    email.setBackground(new java.awt.Color(255, 255, 255));
+
+    phoneNumber.setBackground(new java.awt.Color(255, 255, 255));
 
     maleRadioButton.setBackground(new java.awt.Color(255, 255, 255));
     sexRadioGroup.add(maleRadioButton);
@@ -317,6 +326,11 @@ public class TrangChu extends javax.swing.JFrame {
     addReaderButton.setForeground(new java.awt.Color(0, 0, 0));
     addReaderButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))));
     addReaderButton.setText("Thêm");
+    addReaderButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addReaderButtonActionPerformed(evt);
+        }
+    });
 
     editReaderButton.setBackground(new java.awt.Color(255, 255, 255));
     editReaderButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -335,17 +349,29 @@ public class TrangChu extends javax.swing.JFrame {
     txtStatus.setForeground(new java.awt.Color(0, 0, 0));
     txtStatus.setText("Trạng thái");
 
-    isActive.setBackground(new java.awt.Color(255, 255, 255));
-    adjRadioGroup.add(isActive);
-    isActive.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    isActive.setForeground(new java.awt.Color(0, 0, 0));
-    isActive.setText("Hoạt động");
+    isActiveRadioButton.setBackground(new java.awt.Color(255, 255, 255));
+    adjRadioGroup.add(isActiveRadioButton);
+    isActiveRadioButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    isActiveRadioButton.setForeground(new java.awt.Color(0, 0, 0));
+    isActiveRadioButton.setText("Hoạt động");
 
-    isNotActive.setBackground(new java.awt.Color(255, 255, 255));
-    adjRadioGroup.add(isNotActive);
-    isNotActive.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    isNotActive.setForeground(new java.awt.Color(0, 0, 0));
-    isNotActive.setText("Bị khóa");
+    isNotActiveRadioButton.setBackground(new java.awt.Color(255, 255, 255));
+    adjRadioGroup.add(isNotActiveRadioButton);
+    isNotActiveRadioButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    isNotActiveRadioButton.setForeground(new java.awt.Color(0, 0, 0));
+    isNotActiveRadioButton.setText("Bị khóa");
+
+    firstName.setBackground(new java.awt.Color(255, 255, 255));
+    firstName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    firstName.setForeground(new java.awt.Color(0, 0, 0));
+    firstName.setText("Tên");
+
+    readerFirstName.setBackground(new java.awt.Color(255, 255, 255));
+    readerFirstName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+    readerFirstName.setForeground(new java.awt.Color(0, 0, 0));
+
+    dayOfBirth.setBackground(new java.awt.Color(255, 255, 255));
+    dayOfBirth.setForeground(new java.awt.Color(0, 0, 0));
 
     javax.swing.GroupLayout readersManagementLayout = new javax.swing.GroupLayout(readersManagement);
     readersManagement.setLayout(readersManagementLayout);
@@ -354,49 +380,51 @@ public class TrangChu extends javax.swing.JFrame {
         .addGroup(readersManagementLayout.createSequentialGroup()
             .addGap(47, 47, 47)
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(txtFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addComponent(txtlastName, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                 .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addComponent(txtReaderID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtReaderID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(firstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(readersManagementLayout.createSequentialGroup()
-                    .addComponent(isActive, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, readersManagementLayout.createSequentialGroup()
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(readersManagementLayout.createSequentialGroup()
                             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(maleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(readerID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(readersManagementLayout.createSequentialGroup()
-                                        .addComponent(isNotActive, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(32, 32, 32)
-                                        .addComponent(femaleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(48, 48, 48)))
-                                .addComponent(readerFullname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(readersManagementLayout.createSequentialGroup()
+                                    .addGap(36, 36, 36)
+                                    .addComponent(readerID, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(readerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(readerLastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(27, 247, Short.MAX_VALUE)
-                            .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(readersManagementLayout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
-                            .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(readersManagementLayout.createSequentialGroup()
-                                    .addComponent(addReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(55, 55, 55)
-                                    .addComponent(editReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(deleteReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(readersManagementLayout.createSequentialGroup()
-                                    .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtDayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(27, 27, 27)
-                                    .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGap(54, 54, 54))))
+                            .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(27, 27, 27)
+                            .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(phoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                .addComponent(dayOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(readersManagementLayout.createSequentialGroup()
+                            .addComponent(isActiveRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(3, 3, 3)
+                            .addComponent(isNotActiveRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(55, 55, 55)
+                            .addComponent(editReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(40, 40, 40)
+                            .addComponent(deleteReaderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(54, 54, 54))
+                .addGroup(readersManagementLayout.createSequentialGroup()
+                    .addComponent(maleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(femaleRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         .addGroup(readersManagementLayout.createSequentialGroup()
             .addContainerGap()
             .addComponent(jScrollPane2)
@@ -415,36 +443,39 @@ public class TrangChu extends javax.swing.JFrame {
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(readersManagementLayout.createSequentialGroup()
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtFullName)
-                        .addComponent(readerFullname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(23, 23, 23)
-                    .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(maleRadioButton)
-                        .addComponent(femaleRadioButton)
-                        .addComponent(txtGender))
+                        .addComponent(txtlastName)
+                        .addComponent(readerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtStatus)
-                        .addComponent(isActive)))
+                        .addComponent(firstName)
+                        .addComponent(readerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(readersManagementLayout.createSequentialGroup()
-                    .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtDayOfBirth)
-                        .addComponent(dayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDayOfBirth)
                     .addGap(18, 18, 18)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGap(2, 2, 2)
+                        .addComponent(phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(dayOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(10, 10, 10)
+            .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtGender)
+                .addComponent(maleRadioButton)
+                .addComponent(femaleRadioButton))
             .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(readersManagementLayout.createSequentialGroup()
-                    .addGap(1, 1, 1)
+                    .addGap(3, 3, 3)
                     .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(editReaderButton)
                         .addComponent(deleteReaderButton)
                         .addComponent(addReaderButton)))
-                .addComponent(isNotActive))
-            .addGap(18, 18, 18)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addGroup(readersManagementLayout.createSequentialGroup()
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(readersManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtStatus)
+                        .addComponent(isActiveRadioButton)
+                        .addComponent(isNotActiveRadioButton))))
+            .addGap(37, 37, 37)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -485,6 +516,11 @@ public class TrangChu extends javax.swing.JFrame {
     addBookButton.setForeground(new java.awt.Color(0, 0, 0));
     addBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))));
     addBookButton.setText("Thêm");
+    addBookButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addBookButtonActionPerformed(evt);
+        }
+    });
 
     editBookButton.setBackground(new java.awt.Color(255, 255, 255));
     editBookButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -588,8 +624,8 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(editBookButton)
                 .addComponent(deleteBookButton))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(185, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+            .addContainerGap())
     );
 
     jTabbedPane1.addTab("QUẢN LÝ SÁCH              ", new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/books.png"))), booksManagement);
@@ -696,8 +732,8 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(bookReturnDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(19, 19, 19)
             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(59, 59, 59)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addComponent(borrowBookButton)
             .addGap(59, 59, 59))
@@ -1127,30 +1163,96 @@ public class TrangChu extends javax.swing.JFrame {
         }
         
     }
-    private void readerFullnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_readerFullnameKeyPressed
-        // TODO add your handling code here:
-        String prefixName;
-        if(evt.getKeyCode() >= 65 && evt.getKeyCode() <= 90){
-//            System.out.println("cc");
-            prefixName = readerFullname.getText() + evt.getKeyChar();
-        } else if(evt.getKeyCode() == 8){
-            prefixName = readerFullname.getText().substring(0, readerFullname.getText().length() - 1);
-        }
-        else {
-            prefixName = readerFullname.getText();
-        }
-        loadValueTable(prefixName);
-    }//GEN-LAST:event_readerFullnameKeyPressed
 
-    private void readerManagementTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_readerManagementTableMouseClicked
+    private void readerLastNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_readerLastNameKeyPressed
+//        if(evt.getKeyCode() >= 65 && evt.getKeyCode() <= 90 || evt.getKeyCode() == 32){
+//            prefixName += evt.getKeyChar();
+//        }
+//        System.out.println(lastName.getText());
+//        loadValueTable(readerFullname.getText());
+    }//GEN-LAST:event_readerLastNameKeyPressed
+
+    private void readerManagementTableMouseClicked(java.awt.event.MouseEvent evt) {                                                   
         // TODO add your handling code here:
-        JTable source = (JTable)evt.getSource();
-            int row = source.rowAtPoint( evt.getPoint() );
-            int column = source.columnAtPoint( evt.getPoint() );
-            String s=source.getModel().getValueAt(row, column)+"";
- 
-            JOptionPane.showMessageDialog(null, s);
-    }//GEN-LAST:event_readerManagementTableMouseClicked
+//        JTable source = (JTable)evt.getSource();
+//            int row = source.rowAtPoint( evt.getPoint() );
+//            int column = source.columnAtPoint( evt.getPoint() );
+//            String s=source.getModel().getValueAt(row, column)+"";
+//
+//            JOptionPane.showMessageDialog(null, s);
+        JOptionPane.showMessageDialog(null, readerManagementTable.getValueAt());
+    }
+
+    private void addBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+
+    private void readerLastNameActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+//        loadValueTable(readerFullname.getText());
+//        readerFullname.get
+    }
+
+    private boolean checkInList(String s, List<String> l){
+        for(String it:l){
+            if(it.equals(s)){
+                return false;
+            }
+        }
+        return true;
+    }
+    private void addReaderButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        Connection con = SQLConnection.openConnection();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(dayOfBirth.getDate());
+        String txtReaderLastName = readerLastName.getText();
+        String txtReaderFirstName = readerFirstName.getText();
+        String txtEmail = email.getText();
+        String txtPhoneNumber = phoneNumber.getText();
+        String txtGender = maleRadioButton.isSelected() ? "Nam" : "Nu";
+        String txtStatus = isActiveRadioButton.isSelected() ? "1" : "0";
+        Random random = new Random();
+        String txtSQLReaderID = "";
+//        System.out.println(date);
+        List<String> readerIDExits = new ArrayList<>();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet res = stm.executeQuery("SELECT DocGiaID FROM [dbo].[DOCGIA]");
+            while (res.next()){
+                readerIDExits.add(res.getString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while(!checkInList(txtSQLReaderID, readerIDExits) || txtSQLReaderID.equals("")){
+            txtSQLReaderID = String.valueOf(random.nextInt(99999) + 10000);
+        }
+        String[] listTxt = new String[]{txtSQLReaderID, txtReaderLastName, txtReaderFirstName, txtGender, date, txtEmail, txtPhoneNumber, txtStatus};
+        if(!date.equals("") && !txtReaderFirstName.equals("") && !txtReaderLastName.equals("") && !txtEmail.equals("") && !txtPhoneNumber.equals("")){
+            String query = "INSERT INTO [dbo].[DOCGIA](DocGiaID, Ho, Ten, GioiTinh, NgaySinh, Email, SDT, TrangThai) " + "VALUES(?,?,?,?,?,?,?,?)";
+            try {
+                PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                for(int i = 1; i <= 8; i++){
+                    pstmt.setString(i, listTxt[i - 1]);
+                }
+                int addSuccess = pstmt.executeUpdate();
+                if(addSuccess == 1){
+                    JOptionPane.showMessageDialog(null, "Thêm độc giả thành công");
+                    loadValueTable("");
+                    readerFirstName.setText("");
+                    readerLastName.setText("");
+                    email.setText("");
+                    phoneNumber.setText("");
+                    dayOfBirth.setCalendar(null);
+                    maleRadioButton.setSelected(!maleRadioButton.isSelected());
+                    femaleRadioButton.setSelected(!femaleRadioButton.isSelected());
+                    readerLastName.requestFocus();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -1212,15 +1314,16 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JPanel borrowManagement;
     private javax.swing.JTable borrowReaderTable;
     private javax.swing.JComboBox<String> categoryFilter;
-    private javax.swing.JTextField dayOfBirth;
+    private com.toedter.calendar.JDateChooser dayOfBirth;
     private javax.swing.JButton deleteBookButton;
     private javax.swing.JButton deleteReaderButton;
     private javax.swing.JButton editBookButton;
     private javax.swing.JButton editReaderButton;
     private javax.swing.JTextField email;
     private javax.swing.JRadioButton femaleRadioButton;
-    private javax.swing.JRadioButton isActive;
-    private javax.swing.JRadioButton isNotActive;
+    private javax.swing.JLabel firstName;
+    private javax.swing.JRadioButton isActiveRadioButton;
+    private javax.swing.JRadioButton isNotActiveRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
@@ -1251,8 +1354,9 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JTextField publishingCompany;
     private javax.swing.JComboBox<String> publishingCompanyFilter;
     private javax.swing.JTextField publishingYear;
-    private javax.swing.JTextField readerFullname;
+    private javax.swing.JTextField readerFirstName;
     private javax.swing.JTextField readerID;
+    private javax.swing.JTextField readerLastName;
     private javax.swing.JTable readerManagementTable;
     private javax.swing.JComboBox<String> readerStatisticComboBox;
     private javax.swing.JTable readerStatisticTable;
@@ -1272,7 +1376,6 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JLabel txtCategoryFilter;
     private javax.swing.JLabel txtDayOfBirth;
     private javax.swing.JLabel txtEmail;
-    private javax.swing.JLabel txtFullName;
     private javax.swing.JLabel txtGender;
     private javax.swing.JLabel txtLoanReaderID;
     private javax.swing.JLabel txtNumberBook;
@@ -1286,6 +1389,7 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JLabel txtStatus;
     private javax.swing.JLabel txtYearFilter;
     private javax.swing.JLabel txtbookReturnReaderID;
+    private javax.swing.JLabel txtlastName;
     private javax.swing.JLabel txtloanBookName;
     private javax.swing.JComboBox<String> yearFilter;
     // End of variables declaration//GEN-END:variables
