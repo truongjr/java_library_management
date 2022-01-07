@@ -4,8 +4,29 @@
  */
 package UI;
 
+import DataAccessObject.SQLConnection;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
+import process.Process;
+import process.*;
 
 /**
  *
@@ -16,11 +37,23 @@ public class TrangChu extends javax.swing.JFrame {
     /**
      * Creates new form TrangChu
      */
+    DefaultTableModel modelReaderManagement;
+
     public TrangChu() {
         initComponents();
         setVisible(true);
         setResizable(false);
         logoutButton.setFocusPainted(false);
+        addBookButton.setFocusPainted(false);
+        addReaderButton.setFocusPainted(false);
+        bookReturnButton.setFocusPainted(false);
+        borrowBookButton.setFocusPainted(false);
+        deleteBookButton.setFocusPainted(false);
+        deleteReaderButton.setFocusPainted(false);
+        editReaderButton.setFocusPainted(false);
+        logoutButton.setFocusPainted(false);
+        editBookButton.setFocusPainted(false);
+        loadValueTable(readerFullname.getText());
     }
 
     /**
@@ -44,7 +77,7 @@ public class TrangChu extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         readersManagement = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        readerManagementTable = new javax.swing.JTable();
         txtReaderID = new javax.swing.JLabel();
         txtFullName = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JLabel();
@@ -188,7 +221,7 @@ public class TrangChu extends javax.swing.JFrame {
             .addContainerGap(29, Short.MAX_VALUE))
     );
 
-    jPanel2.setBackground(new java.awt.Color(153, 255, 153));
+    jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
     jTabbedPane1.setBackground(new java.awt.Color(153, 255, 153));
     jTabbedPane1.setForeground(new java.awt.Color(0, 0, 0));
@@ -198,28 +231,33 @@ public class TrangChu extends javax.swing.JFrame {
     readersManagement.setBackground(new java.awt.Color(255, 255, 255));
     readersManagement.setForeground(new java.awt.Color(0, 0, 0));
 
-    jTable2.setBackground(new java.awt.Color(255, 255, 255));
-    jTable2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-    jTable2.setForeground(new java.awt.Color(0, 0, 0));
-    jTable2.setModel(new javax.swing.table.DefaultTableModel(
+    readerManagementTable.setBackground(new java.awt.Color(255, 255, 255));
+    readerManagementTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+    readerManagementTable.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+    readerManagementTable.setForeground(new java.awt.Color(0, 0, 0));
+    readerManagementTable.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
         },
         new String [] {
-            "Mã độc giả", "Họ và tên", "Giới tính", "Ngày sinh", "Email", "Số điện thoại"
-        }
-    ) {
-        Class[] types = new Class [] {
-            java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
-        };
 
-        public Class getColumnClass(int columnIndex) {
-            return types [columnIndex];
+        }
+    ));
+    readerManagementTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+    readerManagementTable.setColumnSelectionAllowed(true);
+    readerManagementTable.setGridColor(new java.awt.Color(0, 0, 0));
+    readerManagementTable.setSelectionBackground(new java.awt.Color(204, 255, 255));
+    readerManagementTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
+    readerManagementTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+    readerManagementTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    readerManagementTable.setShowGrid(true);
+    readerManagementTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            readerManagementTableMouseClicked(evt);
         }
     });
-    jTable2.setSelectionBackground(new java.awt.Color(255, 255, 255));
-    jTable2.setSelectionForeground(new java.awt.Color(0, 0, 0));
-    jScrollPane2.setViewportView(jTable2);
+    jScrollPane2.setViewportView(readerManagementTable);
+    readerManagementTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
     txtReaderID.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     txtReaderID.setForeground(new java.awt.Color(0, 0, 0));
@@ -241,6 +279,19 @@ public class TrangChu extends javax.swing.JFrame {
     txtEmail.setForeground(new java.awt.Color(0, 0, 0));
     txtEmail.setText("Email");
 
+    readerID.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            readerIDKeyPressed(evt);
+        }
+    });
+
+    readerFullname.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            readerFullnameKeyPressed(evt);
+        }
+    });
+
+    maleRadioButton.setBackground(new java.awt.Color(255, 255, 255));
     sexRadioGroup.add(maleRadioButton);
     maleRadioButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     maleRadioButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -251,6 +302,7 @@ public class TrangChu extends javax.swing.JFrame {
         }
     });
 
+    femaleRadioButton.setBackground(new java.awt.Color(255, 255, 255));
     sexRadioGroup.add(femaleRadioButton);
     femaleRadioButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     femaleRadioButton.setForeground(new java.awt.Color(0, 0, 0));
@@ -283,6 +335,7 @@ public class TrangChu extends javax.swing.JFrame {
     txtStatus.setForeground(new java.awt.Color(0, 0, 0));
     txtStatus.setText("Trạng thái");
 
+    isActive.setBackground(new java.awt.Color(255, 255, 255));
     adjRadioGroup.add(isActive);
     isActive.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     isActive.setForeground(new java.awt.Color(0, 0, 0));
@@ -535,8 +588,8 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(editBookButton)
                 .addComponent(deleteBookButton))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-            .addContainerGap())
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(185, Short.MAX_VALUE))
     );
 
     jTabbedPane1.addTab("QUẢN LÝ SÁCH              ", new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/books.png"))), booksManagement);
@@ -1028,11 +1081,76 @@ public class TrangChu extends javax.swing.JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new DangNhap().setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
+
+    private void readerIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_readerIDKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_readerIDKeyPressed
+
+    private void loadValueTable(String prefixName){
+        Connection con = SQLConnection.openConnection();
+        try {
+            String query = "SELECT DocGiaID, Ho + ' ' + Ten AS HoVaTen, GioiTinh, NgaySinh, Email, SDT FROM [dbo].[DOCGIA] WHERE Ho + ' ' + Ten LIKE '" + prefixName + "%'";
+            Statement stm = con.createStatement();
+            ResultSet res = stm.executeQuery(query);
+            modelReaderManagement = new DefaultTableModel();
+//            modelReaderManagement 
+//            
+            modelReaderManagement.setColumnIdentifiers(new String []{"Mã độc giả", "Họ và tên", "Giới tính", "Ngày sinh", "Email", "SÐT"});
+            readerManagementTable.setModel(modelReaderManagement);
+            modelReaderManagement.setRowCount(0);
+            
+            while(res.next()){
+                modelReaderManagement.addRow(new String[] {res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6)});
+            }
+//            readerManagementTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+            modelReaderManagement.fireTableDataChanged();
+//            readerManagementTable.setModel(modelReaderManagement);
+//            {
+//                @Override
+//                 public boolean isCellEditable(int row, int column) {
+//                    //all cells false
+//                    return false;
+//                 }
+//            });
+            Process.resizeColumnWidth(readerManagementTable);
+            JTableUtilities.setCellsAlignment(readerManagementTable, SwingConstants.CENTER);
+//            readerManagementTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        } catch (SQLException ex) {
+            Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    private void readerFullnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_readerFullnameKeyPressed
+        // TODO add your handling code here:
+        String prefixName;
+        if(evt.getKeyCode() >= 65 && evt.getKeyCode() <= 90){
+//            System.out.println("cc");
+            prefixName = readerFullname.getText() + evt.getKeyChar();
+        } else if(evt.getKeyCode() == 8){
+            prefixName = readerFullname.getText().substring(0, readerFullname.getText().length() - 1);
+        }
+        else {
+            prefixName = readerFullname.getText();
+        }
+        loadValueTable(prefixName);
+    }//GEN-LAST:event_readerFullnameKeyPressed
+
+    private void readerManagementTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_readerManagementTableMouseClicked
+        // TODO add your handling code here:
+        JTable source = (JTable)evt.getSource();
+            int row = source.rowAtPoint( evt.getPoint() );
+            int column = source.columnAtPoint( evt.getPoint() );
+            String s=source.getModel().getValueAt(row, column)+"";
+ 
+            JOptionPane.showMessageDialog(null, s);
+    }//GEN-LAST:event_readerManagementTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1122,7 +1240,6 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable9;
     private javax.swing.JTextField loanBookName;
     private javax.swing.JPanel loanManagement;
@@ -1136,6 +1253,7 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JTextField publishingYear;
     private javax.swing.JTextField readerFullname;
     private javax.swing.JTextField readerID;
+    private javax.swing.JTable readerManagementTable;
     private javax.swing.JComboBox<String> readerStatisticComboBox;
     private javax.swing.JTable readerStatisticTable;
     private javax.swing.JPanel readerStatistics;

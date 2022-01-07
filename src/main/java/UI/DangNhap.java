@@ -11,6 +11,7 @@ import java.sql.Statement;
 import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
 import DataAccessObject.SQLConnection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -224,23 +225,25 @@ public class DangNhap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Hãy nhập đủ thông tin");
         } else {
             Connection connection = SQLConnection.openConnection();
-            String query = "SELECT * FROM USERNAME";
+            String query = "SELECT * FROM [dbo].[USER]";
             try {
                 Statement stm = connection.createStatement();
                 ResultSet res = stm.executeQuery(query);
                 boolean isSuccess = false;
                 while(res.next()){
-                    if(res.getString("userName").equals(userName) && res.getString("password").equals(password)){
-                        JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
+                    if(res.getString("TenDangNhap").equals(userName) && res.getString("MatKhau").equals(password)){
+//                            JOptionPane.showMessageDialog(null, "Đăng nhập thành công");
                         isSuccess = true;
                         break;
                     }
                 }
+                //close connection
                 stm.close();
                 res.close();
                 connection.close();
+
                 if(!isSuccess){
-                    JOptionPane.showMessageDialog(null, "Damg nhap that bai");
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thất bại");
                     loginName.setText("");
                     loginPassword.setText("");
                     loginName.requestFocus();
@@ -274,14 +277,14 @@ public class DangNhap extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hãy nhập đủ thông tin");
             } else {
                 Connection connection = SQLConnection.openConnection();
-                String query = "SELECT * FROM USERNAME";
+                String query = "SELECT * FROM [dbo].[USER]";
                 try {
                     Statement stm = connection.createStatement();
                     ResultSet res = stm.executeQuery(query);
                     boolean isSuccess = false;
                     while(res.next()){
-                        if(res.getString("userName").equals(userName) && res.getString("password").equals(password)){
-                            JOptionPane.showMessageDialog(null, "Dang nhap thanh cong");
+                        if(res.getString("TenDangNhap").equals(userName) && res.getString("MatKhau").equals(password)){
+//                            JOptionPane.showMessageDialog(null, "Đăng nhập thành công");
                             isSuccess = true;
                             break;
                         }
@@ -292,7 +295,7 @@ public class DangNhap extends javax.swing.JFrame {
                     connection.close();
                     
                     if(!isSuccess){
-                        JOptionPane.showMessageDialog(null, "Damg nhap that bai");
+                        JOptionPane.showMessageDialog(null, "Đăng nhập thất bại");
                         loginName.setText("");
                         loginPassword.setText("");
                         loginName.requestFocus();
