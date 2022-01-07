@@ -5,10 +5,13 @@
 package UI;
 
 import DataAccessObject.SQLConnection;
+import java.awt.event.KeyEvent;
 
 import java.sql.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
@@ -32,6 +35,7 @@ public class TrangChu extends javax.swing.JFrame {
      */
     DefaultTableModel modelReaderManagement;
     String prefixName = "";
+    int selectedRowIndex = -1;
 
     public TrangChu() {
         initComponents();
@@ -42,7 +46,7 @@ public class TrangChu extends javax.swing.JFrame {
         addReaderButton.setFocusPainted(false);
         bookReturnButton.setFocusPainted(false);
         borrowBookButton.setFocusPainted(false);
-        deleteBookButton.setFocusPainted(false);
+        bookDetail.setFocusPainted(false);
         deleteReaderButton.setFocusPainted(false);
         editReaderButton.setFocusPainted(false);
         logoutButton.setFocusPainted(false);
@@ -113,7 +117,7 @@ public class TrangChu extends javax.swing.JFrame {
         publishingYear = new javax.swing.JTextField();
         addBookButton = new javax.swing.JButton();
         editBookButton = new javax.swing.JButton();
-        deleteBookButton = new javax.swing.JButton();
+        bookDetail = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         bookManagementTable = new javax.swing.JTable();
         loanManagement = new javax.swing.JPanel();
@@ -251,7 +255,11 @@ public class TrangChu extends javax.swing.JFrame {
     readerManagementTable.setShowGrid(true);
     readerManagementTable.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
-            readerManagementTableMouseClicked(evt);
+            try {
+                readerManagementTableMouseClicked(evt);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
     });
     jScrollPane2.setViewportView(readerManagementTable);
@@ -285,6 +293,8 @@ public class TrangChu extends javax.swing.JFrame {
     });
 
     readerLastName.setBackground(new java.awt.Color(255, 255, 255));
+    readerLastName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+    readerLastName.setForeground(new java.awt.Color(0, 0, 0));
     readerLastName.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             readerLastNameActionPerformed(evt);
@@ -299,6 +309,11 @@ public class TrangChu extends javax.swing.JFrame {
     email.setBackground(new java.awt.Color(255, 255, 255));
 
     phoneNumber.setBackground(new java.awt.Color(255, 255, 255));
+    phoneNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            phoneNumberKeyTyped(evt);
+        }
+    });
 
     maleRadioButton.setBackground(new java.awt.Color(255, 255, 255));
     sexRadioGroup.add(maleRadioButton);
@@ -337,12 +352,22 @@ public class TrangChu extends javax.swing.JFrame {
     editReaderButton.setForeground(new java.awt.Color(0, 0, 0));
     editReaderButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))));
     editReaderButton.setText("Chỉnh sửa");
+    editReaderButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            editReaderButtonActionPerformed(evt);
+        }
+    });
 
     deleteReaderButton.setBackground(new java.awt.Color(255, 255, 255));
     deleteReaderButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     deleteReaderButton.setForeground(new java.awt.Color(0, 0, 0));
     deleteReaderButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))));
     deleteReaderButton.setText("Xóa");
+    deleteReaderButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            deleteReaderButtonActionPerformed(evt);
+        }
+    });
 
     txtStatus.setBackground(new java.awt.Color(255, 255, 255));
     txtStatus.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -367,7 +392,7 @@ public class TrangChu extends javax.swing.JFrame {
     firstName.setText("Tên");
 
     readerFirstName.setBackground(new java.awt.Color(255, 255, 255));
-    readerFirstName.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+    readerFirstName.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
     readerFirstName.setForeground(new java.awt.Color(0, 0, 0));
 
     dayOfBirth.setBackground(new java.awt.Color(255, 255, 255));
@@ -475,7 +500,7 @@ public class TrangChu extends javax.swing.JFrame {
                         .addComponent(isActiveRadioButton)
                         .addComponent(isNotActiveRadioButton))))
             .addGap(37, 37, 37)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
             .addContainerGap())
     );
 
@@ -528,11 +553,11 @@ public class TrangChu extends javax.swing.JFrame {
     editBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))));
     editBookButton.setText("Chỉnh sửa");
 
-    deleteBookButton.setBackground(new java.awt.Color(255, 255, 255));
-    deleteBookButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    deleteBookButton.setForeground(new java.awt.Color(0, 0, 0));
-    deleteBookButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))));
-    deleteBookButton.setText("Xóa");
+    bookDetail.setBackground(new java.awt.Color(255, 255, 255));
+    bookDetail.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+    bookDetail.setForeground(new java.awt.Color(0, 0, 0));
+    bookDetail.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete.png"))));
+    bookDetail.setText("Chi tiết");
 
     bookManagementTable.setBackground(new java.awt.Color(255, 255, 255));
     bookManagementTable.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -586,7 +611,7 @@ public class TrangChu extends javax.swing.JFrame {
                     .addComponent(author)
                     .addComponent(publishingCompany)
                     .addComponent(publishingYear, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
-                .addComponent(deleteBookButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bookDetail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(54, 54, 54))
         .addGroup(booksManagementLayout.createSequentialGroup()
             .addContainerGap()
@@ -622,7 +647,7 @@ public class TrangChu extends javax.swing.JFrame {
             .addGroup(booksManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(addBookButton)
                 .addComponent(editBookButton)
-                .addComponent(deleteBookButton))
+                .addComponent(bookDetail))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
             .addContainerGap())
@@ -1115,15 +1140,15 @@ public class TrangChu extends javax.swing.JFrame {
     pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
         // TODO add your handling code here:
         this.setVisible(false);
         new DangNhap().setVisible(true);
-    }//GEN-LAST:event_logoutButtonActionPerformed
+    }
 
-    private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
+    private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                
         // TODO add your handling code here:
-    }//GEN-LAST:event_maleRadioButtonActionPerformed
+    }
 
     private void readerIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_readerIDKeyPressed
         // TODO add your handling code here:
@@ -1132,29 +1157,28 @@ public class TrangChu extends javax.swing.JFrame {
     private void loadValueTable(String prefixName){
         Connection con = SQLConnection.openConnection();
         try {
-            String query = "SELECT DocGiaID, Ho + ' ' + Ten AS HoVaTen, GioiTinh, NgaySinh, Email, SDT FROM [dbo].[DOCGIA] WHERE Ho + ' ' + Ten LIKE '" + prefixName + "%'";
+            String query = "SELECT DocGiaID, Ho, Ten, GioiTinh, NgaySinh, Email, SDT FROM [dbo].[DOCGIA] WHERE Ho + ' ' + Ten LIKE '" + prefixName + "%'";
             Statement stm = con.createStatement();
             ResultSet res = stm.executeQuery(query);
-            modelReaderManagement = new DefaultTableModel();
+            modelReaderManagement = new DefaultTableModel(){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    //all cells false
+                    return false;
+                }
+            };
 //            modelReaderManagement 
 //            
-            modelReaderManagement.setColumnIdentifiers(new String []{"Mã độc giả", "Họ và tên", "Giới tính", "Ngày sinh", "Email", "SÐT"});
+            modelReaderManagement.setColumnIdentifiers(new String []{"Mã độc giả", "Họ",  "Tên", "Giới tính", "Ngày sinh", "Email", "SÐT"});
             readerManagementTable.setModel(modelReaderManagement);
             modelReaderManagement.setRowCount(0);
             
             while(res.next()){
-                modelReaderManagement.addRow(new String[] {res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6)});
+                modelReaderManagement.addRow(new String[] {res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7)});
             }
 //            readerManagementTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
             modelReaderManagement.fireTableDataChanged();
-//            readerManagementTable.setModel(modelReaderManagement);
-//            {
-//                @Override
-//                 public boolean isCellEditable(int row, int column) {
-//                    //all cells false
-//                    return false;
-//                 }
-//            });
+
             Process.resizeColumnWidth(readerManagementTable);
             JTableUtilities.setCellsAlignment(readerManagementTable, SwingConstants.CENTER);
 //            readerManagementTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
@@ -1172,15 +1196,111 @@ public class TrangChu extends javax.swing.JFrame {
 //        loadValueTable(readerFullname.getText());
     }//GEN-LAST:event_readerLastNameKeyPressed
 
-    private void readerManagementTableMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+    private void phoneNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberKeyTyped
         // TODO add your handling code here:
-//        JTable source = (JTable)evt.getSource();
-//            int row = source.rowAtPoint( evt.getPoint() );
-//            int column = source.columnAtPoint( evt.getPoint() );
-//            String s=source.getModel().getValueAt(row, column)+"";
-//
-//            JOptionPane.showMessageDialog(null, s);
-        JOptionPane.showMessageDialog(null, readerManagementTable.getValueAt());
+        char c = evt.getKeyChar();
+        if(((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneNumberKeyTyped
+
+    private void deleteReaderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteReaderButtonActionPerformed
+        if(selectedRowIndex >= 0){
+            int confirm = JOptionPane.showConfirmDialog(null,"Bạn có chắc chắn muốn xóa", "Confirm", JOptionPane.YES_NO_OPTION);
+            if(confirm == JOptionPane.YES_OPTION){
+                Connection con = SQLConnection.openConnection();
+                String query = "DELETE FROM [dbo].[DOCGIA] WHERE DocGiaID=?";
+                try {
+                    PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                    pstmt.setString(1, modelReaderManagement.getValueAt(selectedRowIndex, 0).toString());
+                    pstmt.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Xóa độc giả thành công");
+                    loadValueTable("");
+                    readerID.setText("");
+                    readerFirstName.setText("");
+                    readerLastName.setText("");
+                    email.setText("");
+                    phoneNumber.setText("");
+                    dayOfBirth.setCalendar(null);
+                    maleRadioButton.setSelected(!maleRadioButton.isSelected());
+                    femaleRadioButton.setSelected(!femaleRadioButton.isSelected());
+                    readerLastName.requestFocus();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                return;
+            }
+        }
+    }
+
+    private void editReaderButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        if(selectedRowIndex >= 0){
+            Connection con = SQLConnection.openConnection();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(dayOfBirth.getDate());
+            String txtReaderLastName = readerLastName.getText();
+            String txtReaderFirstName = readerFirstName.getText();
+            String txtEmail = email.getText();
+            String txtPhoneNumber = phoneNumber.getText();
+            String txtGender = maleRadioButton.isSelected() ? "Nam" : "Nu";
+            String txtStatus = isActiveRadioButton.isSelected() ? "1" : "0";
+            String txtSQLReaderID = readerID.getText();
+            String[] listTxt = new String[]{txtReaderLastName, txtReaderFirstName, txtGender, date, txtEmail, txtPhoneNumber, txtStatus, txtSQLReaderID};
+            if(!date.equals("") && !txtReaderFirstName.equals("") && !txtReaderLastName.equals("") && !txtEmail.equals("") && !txtPhoneNumber.equals("")){
+                String query = "UPDATE [dbo].[DOCGIA] SET Ho=?, Ten=?, GioiTinh=?, NgaySinh=?, Email=?, SDT=?, TrangThai=? WHERE DocGiaID = ?";
+                try {
+                    PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                    for(int i = 1; i <= 8; i++){
+                        pstmt.setString(i, listTxt[i - 1]);
+                    }
+                    int addSuccess = pstmt.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Chỉnh sửa độc giả thành công");
+                    loadValueTable("");
+                    readerFirstName.setText("");
+                    readerLastName.setText("");
+                    email.setText("");
+                    phoneNumber.setText("");
+                    dayOfBirth.setCalendar(null);
+                    maleRadioButton.setSelected(!maleRadioButton.isSelected());
+                    femaleRadioButton.setSelected(!femaleRadioButton.isSelected());
+                    readerLastName.requestFocus();
+                } catch (SQLException ex) {
+                    Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                if(txtReaderLastName.equals("")){
+                    readerLastName.requestFocus();
+                } else if(txtReaderFirstName.equals("")){
+                    readerFirstName.requestFocus();
+                } else if(txtEmail.equals("")){
+                    email.requestFocus();
+                } else if(txtPhoneNumber.equals("")){
+                    phoneNumber.requestFocus();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Hãy chọn độc giả cần chỉnh sửa");
+        }
+    }
+
+    private void readerManagementTableMouseClicked(java.awt.event.MouseEvent evt) throws ParseException {
+        DefaultTableModel model = (DefaultTableModel)readerManagementTable.getModel();
+        selectedRowIndex = readerManagementTable.getSelectedRow();
+        readerID.setText(model.getValueAt(selectedRowIndex, 0).toString());
+        readerLastName.setText(model.getValueAt(selectedRowIndex, 1).toString());
+        readerFirstName.setText(model.getValueAt(selectedRowIndex, 2).toString());
+        if (model.getValueAt(selectedRowIndex, 3).toString().equals("Nam")) {
+            maleRadioButton.setSelected(true);
+        } else {
+            femaleRadioButton.setSelected(true);
+        }
+        String dateValue = model.getValueAt(selectedRowIndex, 4).toString();
+        java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse(dateValue);
+        dayOfBirth.setDate(date);
+        email.setText(model.getValueAt(selectedRowIndex, 5).toString());
+        phoneNumber.setText(model.getValueAt(selectedRowIndex, 6).toString());
+
     }
 
     private void addBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -1251,6 +1371,16 @@ public class TrangChu extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else {
+            if(txtReaderLastName.equals("")){
+                readerLastName.requestFocus();
+            } else if(txtReaderFirstName.equals("")){
+                readerFirstName.requestFocus();
+            } else if(txtEmail.equals("")){
+                email.requestFocus();
+            } else if(txtPhoneNumber.equals("")){
+                phoneNumber.requestFocus();
+            }
         }
     }
 
@@ -1295,6 +1425,7 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup adjRadioGroup;
     private javax.swing.JTextField author;
     private javax.swing.JComboBox<String> authorFilter;
+    private javax.swing.JButton bookDetail;
     private javax.swing.JTable bookManagementTable;
     private javax.swing.JTextField bookName;
     private javax.swing.JTable bookReturnBookTable;
@@ -1315,7 +1446,6 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JTable borrowReaderTable;
     private javax.swing.JComboBox<String> categoryFilter;
     private com.toedter.calendar.JDateChooser dayOfBirth;
-    private javax.swing.JButton deleteBookButton;
     private javax.swing.JButton deleteReaderButton;
     private javax.swing.JButton editBookButton;
     private javax.swing.JButton editReaderButton;
