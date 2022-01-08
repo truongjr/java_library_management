@@ -14,9 +14,9 @@ public class DauSach {
     private final String maLoaiSach;
     private String tacGia;
     private String nhaXuatBan;
-    private int namXuatBan;
+    private String namXuatBan;
 
-    public DauSach(String maDauSach, String tenDauSach, String maLoaiSach, String tacGia, String nhaXuatBan, int namXuatBan) {
+    public DauSach(String maDauSach, String tenDauSach, String maLoaiSach, String tacGia, String nhaXuatBan, String namXuatBan) {
         this.maDauSach = maDauSach;
         this.tenDauSach = tenDauSach;
         this.maLoaiSach = maLoaiSach;
@@ -57,11 +57,11 @@ public class DauSach {
         this.nhaXuatBan = nhaXuatBan;
     }
 
-    public int getNamXuatBan() {
+    public String getNamXuatBan() {
         return namXuatBan;
     }
 
-    public void setNamXuatBan(int namXuatBan) {
+    public void setNamXuatBan(String namXuatBan) {
         this.namXuatBan = namXuatBan;
     }
 }

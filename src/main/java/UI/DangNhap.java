@@ -225,7 +225,7 @@ public class DangNhap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Hãy nhập đủ thông tin");
         } else {
             Connection connection = SQLConnection.openConnection();
-            String query = "SELECT * FROM [dbo].[USER]";
+            String query = "SELECT * FROM [dbo].[THONGTINDANGNHAP]";
             try {
                 Statement stm = connection.createStatement();
                 ResultSet res = stm.executeQuery(query);
@@ -277,7 +277,7 @@ public class DangNhap extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hãy nhập đủ thông tin");
             } else {
                 Connection connection = SQLConnection.openConnection();
-                String query = "SELECT * FROM [dbo].[USER]";
+                String query = "SELECT * FROM [dbo].[THONGTINDANGNHAP]";
                 try {
                     Statement stm = connection.createStatement();
                     ResultSet res = stm.executeQuery(query);

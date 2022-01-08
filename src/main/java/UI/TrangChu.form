@@ -716,10 +716,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txtBookName" min="-2" pref="86" max="-2" attributes="0"/>
                               <Component id="txtBookTitleID" min="-2" pref="96" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtNumberBook" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtBookType" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtBookType" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -727,33 +724,35 @@
                                   <Component id="tenSach" min="-2" pref="240" max="-2" attributes="0"/>
                                   <Component id="maDauSach" min="-2" pref="240" max="-2" attributes="0"/>
                                   <Component id="theLoaiSach" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="soLuongSachCon" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="themSachButton" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="themSachButton" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                                   <Component id="chinhSuaSachButton" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <EmptySpace pref="64" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtPublishingCompany" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="txtPublishingYear" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAuthor" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tacGia" max="32767" attributes="0"/>
-                                  <Component id="nhaXuatBan" max="32767" attributes="0"/>
-                                  <Component id="namXuatBan" pref="240" max="32767" attributes="0"/>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtPublishingCompany" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <Component id="txtPublishingYear" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtAuthor" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="chiTietSachButton" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="xoaSachButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="tacGia" max="32767" attributes="0"/>
+                                      <Component id="nhaXuatBan" max="32767" attributes="0"/>
+                                      <Component id="namXuatBan" pref="240" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="chiTietSachButton" min="-2" pref="140" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
@@ -788,18 +787,14 @@
                               <Component id="theLoaiSach" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="namXuatBan" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtNumberBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="soLuongSachCon" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="themSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="chinhSuaSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="chiTietSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="xoaSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" pref="282" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -851,17 +846,6 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n s&#xe1;ch"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="txtNumberBook">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Arial" size="14" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng c&#xf2;n"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="txtPublishingYear">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -889,8 +873,6 @@
                 <Component class="javax.swing.JTextField" name="maDauSach">
                 </Component>
                 <Component class="javax.swing.JTextField" name="theLoaiSach">
-                </Component>
-                <Component class="javax.swing.JTextField" name="soLuongSachCon">
                 </Component>
                 <Component class="javax.swing.JTextField" name="tacGia">
                 </Component>
@@ -934,6 +916,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Ch&#x1ec9;nh s&#x1eed;a"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chinhSuaSachButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="chiTietSachButton">
                   <Properties>
@@ -947,7 +932,7 @@
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Images/delete.png&quot;)))" type="code"/>
+                      <Connection code="new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Images/detail.png&quot;)))" type="code"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Chi ti&#x1ebf;t"/>
                   </Properties>
@@ -1033,6 +1018,26 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="xoaSachButton">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Images/delete.png&quot;)))" type="code"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xoaSachButtonActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="QuanLyMuonTra">

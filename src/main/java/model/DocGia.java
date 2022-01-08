@@ -29,6 +29,10 @@ public class DocGia {
         this.hoatDong = hoatDong;
     }
 
+    public int getMaDocGia() {
+        return maDocGia;
+    }
+
     public String getHoDocGia() {
         return hoDocGia;
     }
