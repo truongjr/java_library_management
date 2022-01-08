@@ -186,7 +186,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="readersManagement">
+            <Container class="javax.swing.JPanel" name="QuanLyDocGia">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -226,15 +226,15 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Component id="readerID" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="maDocGia" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="readerFirstName" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
-                                                  <Component id="readerLastName" alignment="1" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="tenDocGia" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="hoDocGia" alignment="1" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace min="27" pref="247" max="32767" attributes="0"/>
-                                          <Component id="email" min="-2" pref="240" max="-2" attributes="0"/>
+                                          <Component id="emailDocGia" min="-2" pref="240" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -245,28 +245,28 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="phoneNumber" pref="240" max="32767" attributes="0"/>
-                                              <Component id="dayOfBirth" max="32767" attributes="0"/>
+                                              <Component id="sdtDocGia" pref="240" max="32767" attributes="0"/>
+                                              <Component id="ngaySinhDocGia" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="isActiveRadioButton" min="-2" pref="107" max="-2" attributes="0"/>
+                                          <Component id="hoatDongRadioButton" min="-2" pref="107" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                          <Component id="isNotActiveRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <Component id="biKhoaRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="addReaderButton" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Component id="themDocGiaButton" min="-2" pref="120" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                          <Component id="editReaderButton" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Component id="chinhSuaDocGiaButton" min="-2" pref="140" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="deleteReaderButton" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="xoaDocGiaButton" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="maleRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="namRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="femaleRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <Component id="nuRadioButton" min="-2" pref="98" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -284,8 +284,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="readerID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="emailDocGia" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="maDocGia" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtReaderID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -293,12 +293,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtlastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="readerLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hoDocGia" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="firstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="readerFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tenDocGia" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -306,32 +306,32 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtPhoneNumber" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="sdtDocGia" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="dayOfBirth" min="-2" max="-2" attributes="0"/>
+                              <Component id="ngaySinhDocGia" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtGender" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="maleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="femaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="namRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nuRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="editReaderButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="deleteReaderButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="addReaderButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chinhSuaDocGiaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="xoaDocGiaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="themDocGiaButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txtStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="isActiveRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="isNotActiveRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="hoatDongRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="biKhoaRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -350,7 +350,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="readerManagementTable">
+                    <Component class="javax.swing.JTable" name="quanLyDocGiaTable">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -392,7 +392,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="readerManagementTableMouseClicked"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="quanLyDocGiaTableMouseClicked"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -452,17 +452,17 @@
                     <Property name="text" type="java.lang.String" value="Email"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="readerID">
+                <Component class="javax.swing.JTextField" name="maDocGia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="readerIDKeyPressed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="maDocGiaKeyPressed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="readerLastName">
+                <Component class="javax.swing.JTextField" name="hoDocGia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -475,28 +475,28 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="readerLastNameActionPerformed"/>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="readerLastNameKeyPressed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hoDocGiaActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hoDocGiaKeyPressed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="email">
+                <Component class="javax.swing.JTextField" name="emailDocGia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="phoneNumber">
+                <Component class="javax.swing.JTextField" name="sdtDocGia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNumberKeyTyped"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="sdtDocGiaKeyTyped"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="maleRadioButton">
+                <Component class="javax.swing.JRadioButton" name="namRadioButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -513,10 +513,10 @@
                     <Property name="text" type="java.lang.String" value="Nam"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maleRadioButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namRadioButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="femaleRadioButton">
+                <Component class="javax.swing.JRadioButton" name="nuRadioButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -544,7 +544,7 @@
                     <Property name="text" type="java.lang.String" value="Gi&#x1edb;i t&#xed;nh"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="addReaderButton">
+                <Component class="javax.swing.JButton" name="themDocGiaButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -561,10 +561,10 @@
                     <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addReaderButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="themDocGiaButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="editReaderButton">
+                <Component class="javax.swing.JButton" name="chinhSuaDocGiaButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -581,10 +581,10 @@
                     <Property name="text" type="java.lang.String" value="Ch&#x1ec9;nh s&#x1eed;a"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editReaderButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chinhSuaDocGiaButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="deleteReaderButton">
+                <Component class="javax.swing.JButton" name="xoaDocGiaButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -601,7 +601,7 @@
                     <Property name="text" type="java.lang.String" value="X&#xf3;a"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteReaderButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="xoaDocGiaButtonActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="txtStatus">
@@ -618,7 +618,7 @@
                     <Property name="text" type="java.lang.String" value="Tr&#x1ea1;ng th&#xe1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="isActiveRadioButton">
+                <Component class="javax.swing.JRadioButton" name="hoatDongRadioButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -635,7 +635,7 @@
                     <Property name="text" type="java.lang.String" value="Ho&#x1ea1;t &#x111;&#x1ed9;ng"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="isNotActiveRadioButton">
+                <Component class="javax.swing.JRadioButton" name="biKhoaRadioButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -666,7 +666,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xea;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="readerFirstName">
+                <Component class="javax.swing.JTextField" name="tenDocGia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -679,7 +679,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="dayOfBirth">
+                <Component class="com.toedter.calendar.JDateChooser" name="ngaySinhDocGia">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -691,7 +691,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="booksManagement">
+            <Container class="javax.swing.JPanel" name="QuanLySach">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -724,17 +724,17 @@
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="bookName" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="bookTitleID" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="bookTypeName" min="-2" pref="240" max="-2" attributes="0"/>
-                                  <Component id="numberBookReady" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="tenSach" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="maDauSach" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="theLoaiSach" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="soLuongSachCon" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="addBookButton" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="themSachButton" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Component id="editBookButton" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="chinhSuaSachButton" min="-2" pref="140" max="-2" attributes="0"/>
                                   <EmptySpace pref="64" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -749,11 +749,11 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="author" max="32767" attributes="0"/>
-                                  <Component id="publishingCompany" max="32767" attributes="0"/>
-                                  <Component id="publishingYear" pref="240" max="32767" attributes="0"/>
+                                  <Component id="tacGia" max="32767" attributes="0"/>
+                                  <Component id="nhaXuatBan" max="32767" attributes="0"/>
+                                  <Component id="namXuatBan" pref="240" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="bookDetail" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                              <Component id="chiTietSachButton" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
@@ -770,34 +770,34 @@
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtBookTitleID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bookTitleID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="maDauSach" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtAuthor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="author" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tacGia" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtBookName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bookName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tenSach" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtPublishingCompany" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="publishingCompany" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nhaXuatBan" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtBookType" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtPublishingYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bookTypeName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="publishingYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="theLoaiSach" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="namXuatBan" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtNumberBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="numberBookReady" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="soLuongSachCon" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="addBookButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="editBookButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="bookDetail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="themSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chinhSuaSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chiTietSachButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane3" pref="282" max="32767" attributes="0"/>
@@ -884,21 +884,21 @@
                     <Property name="text" type="java.lang.String" value="Nh&#xe0; xu&#x1ea5;t b&#x1ea3;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="bookName">
+                <Component class="javax.swing.JTextField" name="tenSach">
                 </Component>
-                <Component class="javax.swing.JTextField" name="bookTitleID">
+                <Component class="javax.swing.JTextField" name="maDauSach">
                 </Component>
-                <Component class="javax.swing.JTextField" name="bookTypeName">
+                <Component class="javax.swing.JTextField" name="theLoaiSach">
                 </Component>
-                <Component class="javax.swing.JTextField" name="numberBookReady">
+                <Component class="javax.swing.JTextField" name="soLuongSachCon">
                 </Component>
-                <Component class="javax.swing.JTextField" name="author">
+                <Component class="javax.swing.JTextField" name="tacGia">
                 </Component>
-                <Component class="javax.swing.JTextField" name="publishingCompany">
+                <Component class="javax.swing.JTextField" name="nhaXuatBan">
                 </Component>
-                <Component class="javax.swing.JTextField" name="publishingYear">
+                <Component class="javax.swing.JTextField" name="namXuatBan">
                 </Component>
-                <Component class="javax.swing.JButton" name="addBookButton">
+                <Component class="javax.swing.JButton" name="themSachButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -915,10 +915,10 @@
                     <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBookButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="themSachButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="editBookButton">
+                <Component class="javax.swing.JButton" name="chinhSuaSachButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -935,7 +935,7 @@
                     <Property name="text" type="java.lang.String" value="Ch&#x1ec9;nh s&#x1eed;a"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="bookDetail">
+                <Component class="javax.swing.JButton" name="chiTietSachButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -959,7 +959,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="bookManagementTable">
+                    <Component class="javax.swing.JTable" name="quanLySachTable">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1035,7 +1035,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="loanManagement">
+            <Container class="javax.swing.JPanel" name="QuanLyMuonTra">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1080,7 +1080,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="borrowManagement">
+                    <Container class="javax.swing.JPanel" name="QuanLyMuon">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1099,7 +1099,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="borrowBookButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="muonSachButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1110,13 +1110,13 @@
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="loanReaderID" max="32767" attributes="0"/>
-                                      <Component id="loanBookName" pref="240" max="32767" attributes="0"/>
+                                      <Component id="maDocGiaMuon" max="32767" attributes="0"/>
+                                      <Component id="maSachMuon" pref="240" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                                   <Component id="txtBookReturnDay" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="bookReturnDay" min="-2" pref="238" max="-2" attributes="0"/>
+                                  <Component id="ngayHenTra" min="-2" pref="238" max="-2" attributes="0"/>
                                   <EmptySpace pref="109" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1138,24 +1138,24 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtLoanReaderID" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="loanReaderID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="maDocGiaMuon" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtBookReturnDay" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="txtloanBookName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="loanBookName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="maSachMuon" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="bookReturnDay" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ngayHenTra" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                   <Component id="jScrollPane6" min="-2" pref="54" max="-2" attributes="0"/>
                                   <EmptySpace pref="31" max="32767" attributes="0"/>
                                   <Component id="jScrollPane1" min="-2" pref="177" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="borrowBookButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="muonSachButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1176,7 +1176,7 @@
                             <Property name="text" type="java.lang.String" value="M&#xe3; &#x111;&#x1ed9;c gi&#x1ea3;"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="loanReaderID">
+                        <Component class="javax.swing.JTextField" name="maDocGiaMuon">
                         </Component>
                         <Component class="javax.swing.JLabel" name="txtloanBookName">
                           <Properties>
@@ -1192,7 +1192,7 @@
                             <Property name="text" type="java.lang.String" value="T&#xea;n s&#xe1;ch"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="loanBookName">
+                        <Component class="javax.swing.JTextField" name="maSachMuon">
                         </Component>
                         <Component class="javax.swing.JLabel" name="txtBookReturnDay">
                           <Properties>
@@ -1208,7 +1208,7 @@
                             <Property name="text" type="java.lang.String" value="Ng&#xe0;y h&#x1eb9;n tr&#x1ea3;"/>
                           </Properties>
                         </Component>
-                        <Component class="com.toedter.calendar.JDateChooser" name="bookReturnDay">
+                        <Component class="com.toedter.calendar.JDateChooser" name="ngayHenTra">
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
                           <AuxValues>
@@ -1217,7 +1217,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="borrowBookTable">
+                            <Component class="javax.swing.JTable" name="sachTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="7" rowCount="0">
@@ -1276,7 +1276,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="borrowBookButton">
+                        <Component class="javax.swing.JButton" name="muonSachButton">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1300,7 +1300,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="borrowReaderTable">
+                            <Component class="javax.swing.JTable" name="docGiaMuonTable">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1371,7 +1371,7 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="bookReturnManagement">
+                    <Container class="javax.swing.JPanel" name="QuanLyTra">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1661,7 +1661,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="statistical">
+            <Container class="javax.swing.JPanel" name="ThongKe">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1733,7 +1733,7 @@
                                   <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                                   <Component id="txtReaderStatisticIcon" min="-2" pref="51" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="readerStatisticComboBox" min="-2" pref="244" max="-2" attributes="0"/>
+                                  <Component id="thongKeDocGiaComboBox" min="-2" pref="244" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -1753,7 +1753,7 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                          <Component id="readerStatisticComboBox" min="-2" max="-2" attributes="0"/>
+                                          <Component id="thongKeDocGiaComboBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1771,7 +1771,7 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JComboBox" name="readerStatisticComboBox">
+                        <Component class="javax.swing.JComboBox" name="thongKeDocGiaComboBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1800,7 +1800,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="readerStatisticTable">
+                            <Component class="javax.swing.JTable" name="thongKeDocGiaTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="0" rowCount="0"/>
@@ -1844,7 +1844,7 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="txtBookStatisticIcon" min="-2" pref="51" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="bookStatisticComboBox" min="-2" pref="229" max="-2" attributes="0"/>
+                                  <Component id="thongKeSachComboBox" min="-2" pref="229" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1864,7 +1864,7 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                          <Component id="bookStatisticComboBox" min="-2" max="-2" attributes="0"/>
+                                          <Component id="thongKeSachComboBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1875,7 +1875,7 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JComboBox" name="bookStatisticComboBox">
+                        <Component class="javax.swing.JComboBox" name="thongKeSachComboBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1911,7 +1911,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="bookStatisticTable">
+                            <Component class="javax.swing.JTable" name="thongKeSachTable">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="0">
@@ -1958,7 +1958,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="search">
+            <Container class="javax.swing.JPanel" name="TraCuu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1984,7 +1984,7 @@
                                   <EmptySpace min="-2" pref="276" max="-2" attributes="0"/>
                                   <Component id="txtSearchBook" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  <Component id="searchBook" min="-2" pref="240" max="-2" attributes="0"/>
+                                  <Component id="timKiemSach" min="-2" pref="240" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -1997,20 +1997,20 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="categoryFilter" min="-2" pref="240" max="-2" attributes="0"/>
-                                              <Component id="publishingCompanyFilter" min="-2" pref="240" max="-2" attributes="0"/>
+                                              <Component id="theLoaiComboBox" min="-2" pref="240" max="-2" attributes="0"/>
+                                              <Component id="nhaXuatBanComboBox" min="-2" pref="240" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Component id="txtYearFilter" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="yearFilter" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="namComBoBox" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
                                                   <Component id="txtAuthorFilter" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="authorFilter" min="-2" pref="240" max="-2" attributes="0"/>
+                                                  <Component id="tacGiaComboBox" min="-2" pref="240" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2027,21 +2027,21 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtSearchBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchBook" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="timKiemSach" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtCategoryFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="categoryFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="theLoaiComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtYearFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="yearFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="namComBoBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtPublishingCompanyFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="publishingCompanyFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nhaXuatBanComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtAuthorFilter" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="authorFilter" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tacGiaComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane9" min="-2" pref="312" max="-2" attributes="0"/>
@@ -2068,7 +2068,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m s&#xe1;ch"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="searchBook">
+                <Component class="javax.swing.JTextField" name="timKiemSach">
                 </Component>
                 <Component class="javax.swing.JLabel" name="txtYearFilter">
                   <Properties>
@@ -2087,7 +2087,7 @@
                     <Property name="text" type="java.lang.String" value="L&#x1ecd;c theo n&#x103;m"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="categoryFilter">
+                <Component class="javax.swing.JComboBox" name="theLoaiComboBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2114,7 +2114,7 @@
                     <Property name="text" type="java.lang.String" value="L&#x1ecd;c theo th&#x1ec3; lo&#x1ea1;i"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="authorFilter">
+                <Component class="javax.swing.JComboBox" name="tacGiaComboBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2141,7 +2141,7 @@
                     <Property name="text" type="java.lang.String" value="Theo nh&#xe0; xu&#x1ea5;t b&#x1ea3;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="publishingCompanyFilter">
+                <Component class="javax.swing.JComboBox" name="nhaXuatBanComboBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2168,7 +2168,7 @@
                     <Property name="text" type="java.lang.String" value="Theo t&#xe1;c gi&#x1ea3;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="yearFilter">
+                <Component class="javax.swing.JComboBox" name="namComBoBox">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -2185,7 +2185,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable9">
+                    <Component class="javax.swing.JTable" name="traCuuTable">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="0" rowCount="0"/>

@@ -23,7 +23,7 @@ public class SQLConnection {
     public static Connection openConnection(){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");  
-            String connectionUrl = "jdbc:sqlserver://localhost;database=library_management;";  
+            String connectionUrl = "jdbc:sqlserver://localhost:1433;database=library_management;";
             String userName = "sa";
             String password = "18122001";
             return DriverManager.getConnection(connectionUrl, userName, password);

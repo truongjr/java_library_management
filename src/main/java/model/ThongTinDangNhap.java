@@ -9,15 +9,15 @@ package model;
  *
  * @author nguye
  */
-public class LoginInfomation {
+public class ThongTinDangNhap {
     private final String userName;
     private final String password;
 
-    public LoginInfomation() {
-        this.userName = "";
-        this.password = "";
+    public ThongTinDangNhap(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
-    
+
     public String getUserName() {
         return userName;
     }
