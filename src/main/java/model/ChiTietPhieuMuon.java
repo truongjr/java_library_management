@@ -10,14 +10,14 @@ package model;
  */
 public class ChiTietPhieuMuon {
     private final String phieuMuonID;
-    private final int maSach;
+    private final String maSach;
     private int trangThaiPhieuMuon;
     private String ngayMuon;
     private String ngayTra;
 
-    public ChiTietPhieuMuon(String maPhieuMuon, int maDocGia, String ngayMuon, String ngayTra, int trangThaiPhieuMuon) {
+    public ChiTietPhieuMuon(String maPhieuMuon, String maSach, String ngayMuon, String ngayTra, int trangThaiPhieuMuon) {
         this.phieuMuonID = maPhieuMuon;
-        this.maSach = maDocGia;
+        this.maSach = maSach;
         this.trangThaiPhieuMuon = trangThaiPhieuMuon;
         this.ngayMuon = ngayMuon;
         this.ngayTra = ngayTra;
@@ -27,7 +27,7 @@ public class ChiTietPhieuMuon {
         return phieuMuonID;
     }
 
-    public int getMaSach() {
+    public String getMaSach() {
         return maSach;
     }
 

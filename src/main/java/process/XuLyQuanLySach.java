@@ -2,10 +2,9 @@ package process;
 
 import DataAccessObject.SQLConnection;
 import UI.TrangChu;
-import model.DanhMucSach;
+import model.DanhMucSachModel;
 import model.DauSach;
 
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -13,7 +12,7 @@ import java.util.logging.Logger;
 
 public class XuLyQuanLySach {
     private ArrayList<DauSach> danhSachDauSach;
-    private ArrayList<DanhMucSach> danhSachDanhMucSach;
+    private ArrayList<DanhMucSachModel> danhSachDanhMucSach;
     public static int LOI_ISBN = 0;
     public static int LOI_ISBN_TRUNG = 8;
     public static int LOI_TEN_SACH = 1;
@@ -33,15 +32,23 @@ public class XuLyQuanLySach {
             Statement stm = connection.createStatement();
             ResultSet res = stm.executeQuery("SELECT * FROM dbo.DAUSACH");
             while(res.next()){
-                danhSachDauSach.add(new DauSach(res.getString("ISBN"), res.getString("TenDauSach"), res.getString("MaLoaiSach"), res.getString("TacGia"), res.getString("NhaXuatBan"), res.getString("NamXuatBan")));
+                danhSachDauSach.add(new DauSach(res.getString("ISBN"), res.getString("TenDauSach"), res.getString("TheLoai"), res.getString("TacGia"), res.getString("NhaXuatBan"), res.getString("NamXuatBan")));
             }
             res = stm.executeQuery("SELECT * FROM dbo.DANHMUCSACH");
             while(res.next()){
-                danhSachDanhMucSach.add(new DanhMucSach(res.getString("ISBN"), res.getString("MaSach"), Integer.valueOf(res.getString("TrangThai"))));
+                danhSachDanhMucSach.add(new DanhMucSachModel(res.getString("ISBN"), res.getString("MaSach"), Integer.valueOf(res.getString("TrangThai"))));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<DauSach> getDanhSachDauSach() {
+        return danhSachDauSach;
+    }
+
+    public ArrayList<DanhMucSachModel> getDanhSachDanhMucSach() {
+        return danhSachDanhMucSach;
     }
 
     public int themSach(String ISBN, String tenSach, String theLoai, String tacGia, String nhaXuatBan, String namXuatBan){
@@ -70,7 +77,7 @@ public class XuLyQuanLySach {
         }
         danhSachDauSach.add(new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, namXuatBan));
         Connection con = SQLConnection.openConnection();
-        String query = "INSERT INTO dbo.DAUSACH(ISBN, MaLoaiSach, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) " + "VALUES(?,?,?,?,?,?)";
+        String query = "INSERT INTO dbo.DAUSACH(ISBN, TheLoai, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) " + "VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, ISBN);
@@ -114,15 +121,15 @@ public class XuLyQuanLySach {
         }
         danhSachDauSach.set(index, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, namXuatBan));
         Connection con = SQLConnection.openConnection();
-        String query = "UPDATE dbo.DAUSACH SET ISBN=?, MaLoaiSach=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=?";
+        String query = "UPDATE dbo.DAUSACH SET TheLoai=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = '" + ISBN + "'";
         try {
             PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, ISBN);
-            pstmt.setString(2, theLoai);
-            pstmt.setString(3, tenSach);
-            pstmt.setString(4, tacGia);
-            pstmt.setString(5, nhaXuatBan);
-            pstmt.setString(6, namXuatBan);
+            pstmt.setString(6, ISBN);
+            pstmt.setString(1, theLoai);
+            pstmt.setString(2, tenSach);
+            pstmt.setString(3, tacGia);
+            pstmt.setString(4, nhaXuatBan);
+            pstmt.setString(5, namXuatBan);
             pstmt.executeUpdate();
             return THANH_CONG;
         } catch (SQLException ex) {
@@ -135,8 +142,10 @@ public class XuLyQuanLySach {
         int soLuongDanhMucSach = 0;
         try {
             Statement stm = con.createStatement();
-            ResultSet res = stm.executeQuery("SELECT COUNT(MaSach) FROM dbo.DANHMUCSACH WHERE ISBN = ?");
-            soLuongDanhMucSach = res.getInt(1);
+            ResultSet res = stm.executeQuery("SELECT COUNT(MaSach) FROM dbo.DANHMUCSACH WHERE ISBN ='" + danhSachDanhMucSach.get(index).getMaDauSach() + "'");
+            if(res.next()){
+                soLuongDanhMucSach = res.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

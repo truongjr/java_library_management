@@ -12,13 +12,13 @@ public class DocGia {
     private final int maDocGia;
     private String hoDocGia;
     private String tenDocGia;
-    private String gioiTinhDocGia;
+    private boolean gioiTinhDocGia;
     private String emailDocGia;
     private String ngaySinhDocGia;
     private String sdtDocGia;
     private boolean hoatDong;
 
-    public DocGia(int maDocGia, String hoDocGia, String tenDocGia, String gioiTinhDocGia, String emailDocGia, String ngaySinhDocGia, String sdtDocGia, boolean hoatDong) {
+    public DocGia(int maDocGia, String hoDocGia, String tenDocGia, boolean gioiTinhDocGia, String ngaySinhDocGia, String emailDocGia, String sdtDocGia, boolean hoatDong) {
         this.maDocGia = maDocGia;
         this.hoDocGia = hoDocGia;
         this.tenDocGia = tenDocGia;
@@ -49,11 +49,11 @@ public class DocGia {
         this.tenDocGia = tenDocGia;
     }
 
-    public String getGioiTinhDocGia() {
+    public boolean getGioiTinhDocGia() {
         return gioiTinhDocGia;
     }
 
-    public void setGioiTinhDocGia(String gioiTinhDocGia) {
+    public void setGioiTinhDocGia(boolean gioiTinhDocGia) {
         this.gioiTinhDocGia = gioiTinhDocGia;
     }
 

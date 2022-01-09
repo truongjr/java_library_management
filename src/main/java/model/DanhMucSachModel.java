@@ -8,12 +8,12 @@ package model;
  *
  * @author nguye
  */
-public class DanhMucSach {
+public class DanhMucSachModel {
     private final String maDauSach;
     private final String maDanhMucSach;
     private int trangThaiSach;
 
-    public DanhMucSach(String maDauSach, String maDanhMucSach, int trangThaiSach) {
+    public DanhMucSachModel(String maDauSach, String maDanhMucSach, int trangThaiSach) {
         this.maDauSach = maDauSach;
         this.maDanhMucSach = maDanhMucSach;
         this.trangThaiSach = trangThaiSach;
