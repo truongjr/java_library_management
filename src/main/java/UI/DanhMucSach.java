@@ -257,7 +257,7 @@ public class DanhMucSach extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void themDanhMucSachButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themDanhMucSachButtonActionPerformed
+    private void themDanhMucSachButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         int status = xuLyDanhMucSach.themDanhMucSach();
         if(status == XuLyDanhMucSach.THANH_CONG){
             JOptionPane.showMessageDialog(null, "Thêm danh mục sách thành công");
@@ -270,7 +270,7 @@ public class DanhMucSach extends javax.swing.JFrame {
         }
     }
 
-    private void chinhSuaDanhMucSachButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chinhSuaDanhMucSachButtonActionPerformed
+    private void chinhSuaDanhMucSachButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                          
         if(selectedRowIndex >= 0){
             int status = xuLyDanhMucSach.chinhSuaDanhMucSach(selectedRowIndex, trangThai.getSelectedIndex());
             if(status == XuLyDanhMucSach.THANH_CONG){
@@ -287,7 +287,7 @@ public class DanhMucSach extends javax.swing.JFrame {
         }
     }
 
-    private void xoaDanhMucSachButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xoaDanhMucSachButtonActionPerformed
+    private void xoaDanhMucSachButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         if (selectedRowIndex >= 0){
             int status = xuLyDanhMucSach.xoaDanhMucSach(selectedRowIndex);
             if(status == XuLyDanhMucSach.THANH_CONG){
