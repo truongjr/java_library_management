@@ -32,11 +32,11 @@ public class XuLyQuanLySach {
             Statement stm = connection.createStatement();
             ResultSet res = stm.executeQuery("SELECT * FROM dbo.DAUSACH");
             while(res.next()){
-                danhSachDauSach.add(new DauSach(res.getString("ISBN"), res.getString("TenDauSach"), res.getString("TheLoai"), res.getString("TacGia"), res.getString("NhaXuatBan"), res.getString("NamXuatBan")));
+                danhSachDauSach.add(new DauSach(res.getString("ISBN"), res.getString("TenDauSach"), res.getString("TenLoaiSach"), res.getString("TacGia"), res.getString("NhaXuatBan"), res.getInt("NamXuatBan")));
             }
             res = stm.executeQuery("SELECT * FROM dbo.DANHMUCSACH");
             while(res.next()){
-                danhSachDanhMucSach.add(new DanhMucSachModel(res.getString("ISBN"), res.getString("MaSach"), Integer.valueOf(res.getString("TrangThai"))));
+                danhSachDanhMucSach.add(new DanhMucSachModel(res.getString("MaDanhMucSach"), res.getString("ISBN"), Integer.parseInt(res.getString("TrangThai"))));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,14 +51,14 @@ public class XuLyQuanLySach {
         return danhSachDanhMucSach;
     }
 
-    public int themSach(String ISBN, String tenSach, String theLoai, String tacGia, String nhaXuatBan, String namXuatBan){
+    public int themSach(String ISBN, String tenDauSach, String tenLoaiSach, String tacGia, String nhaXuatBan, String namXuatBan){
         if(ISBN.equals("")){
             return LOI_ISBN;
         }
-        if(tenSach.equals("")){
+        if(tenDauSach.equals("")){
             return LOI_TEN_SACH;
         }
-        if(theLoai.equals("")){
+        if(tenLoaiSach.equals("")){
             return LOI_THE_LOAI;
         }
         if(tacGia.equals("")){
@@ -71,21 +71,22 @@ public class XuLyQuanLySach {
             return LOI_NAM_XUAT_BAN;
         }
         for(DauSach it:danhSachDauSach){
-            if(ISBN.equals(it.getMaDauSach())){
+            if(ISBN.equals(it.getISBN())){
                 return LOI_ISBN_TRUNG;
             }
         }
-        danhSachDauSach.add(new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, namXuatBan));
+        danhSachDauSach.add(new DauSach(ISBN, tenDauSach, tenLoaiSach, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
         Connection con = SQLConnection.openConnection();
-        String query = "INSERT INTO dbo.DAUSACH(ISBN, TheLoai, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) " + "VALUES(?,?,?,?,?,?)";
+        String query = "INSERT INTO dbo.DAUSACH(ISBN, TheLoaiSach, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) VALUES(?,?,?,?,?,?)";
         try {
-            PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            assert con != null;
+            PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, ISBN);
-            pstmt.setString(2, theLoai);
-            pstmt.setString(3, tenSach);
+            pstmt.setString(2, tenLoaiSach);
+            pstmt.setString(3, tenDauSach);
             pstmt.setString(4, tacGia);
             pstmt.setString(5, nhaXuatBan);
-            pstmt.setString(6, namXuatBan);
+            pstmt.setInt(6, Integer.parseInt(namXuatBan));
             int addSuccess = pstmt.executeUpdate();
             if(addSuccess == 1) {
                 return THANH_CONG;
@@ -115,21 +116,22 @@ public class XuLyQuanLySach {
             return LOI_NAM_XUAT_BAN;
         }
         for(DauSach it:danhSachDauSach){
-            if(ISBN.equals(it.getMaDauSach())){
+            if(ISBN.equals(it.getISBN())){
                 return LOI_ISBN_TRUNG;
             }
         }
-        danhSachDauSach.set(index, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, namXuatBan));
+        danhSachDauSach.set(index, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
         Connection con = SQLConnection.openConnection();
-        String query = "UPDATE dbo.DAUSACH SET TheLoai=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = '" + ISBN + "'";
+        String query = "UPDATE dbo.DAUSACH SET TheLoai=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = ?";
         try {
+            assert con != null;
             PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(6, ISBN);
             pstmt.setString(1, theLoai);
             pstmt.setString(2, tenSach);
             pstmt.setString(3, tacGia);
             pstmt.setString(4, nhaXuatBan);
-            pstmt.setString(5, namXuatBan);
+            pstmt.setInt(5, Integer.parseInt(namXuatBan));
             pstmt.executeUpdate();
             return THANH_CONG;
         } catch (SQLException ex) {
@@ -141,8 +143,10 @@ public class XuLyQuanLySach {
         Connection con = SQLConnection.openConnection();
         int soLuongDanhMucSach = 0;
         try {
-            Statement stm = con.createStatement();
-            ResultSet res = stm.executeQuery("SELECT COUNT(MaSach) FROM dbo.DANHMUCSACH WHERE ISBN ='" + danhSachDanhMucSach.get(index).getMaDauSach() + "'");
+            assert con != null;
+            PreparedStatement pstmt = con.prepareStatement("SELECT COUNT(MaDanhMucSach) FROM dbo.DANHMUCSACH WHERE ISBN =?");
+            pstmt.setString(1, danhSachDanhMucSach.get(index).getMaDauSach());
+            ResultSet res = pstmt.executeQuery();// + danhSachDanhMucSach.get(index).getMaDauSach() + "'");
             if(res.next()){
                 soLuongDanhMucSach = res.getInt(1);
             }
@@ -155,7 +159,7 @@ public class XuLyQuanLySach {
         String query = "DELETE FROM dbo.DAUSACH WHERE ISBN=?";
         try {
             PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, danhSachDauSach.get(index).getMaDauSach());
+            pstmt.setString(1, danhSachDauSach.get(index).getISBN());
             pstmt.executeUpdate();
             danhSachDauSach.remove(index);
             return THANH_CONG;

@@ -13,8 +13,8 @@ public class DocGia {
     private String hoDocGia;
     private String tenDocGia;
     private boolean gioiTinhDocGia;
-    private String emailDocGia;
     private String ngaySinhDocGia;
+    private String emailDocGia;
     private String sdtDocGia;
     private boolean hoatDong;
 
@@ -81,11 +81,13 @@ public class DocGia {
         this.sdtDocGia = sdtDocGia;
     }
 
-    public boolean isHoatDong() {
+    public boolean getHoatDong() {
         return hoatDong;
     }
 
     public void setHoatDong(boolean hoatDong) {
         this.hoatDong = hoatDong;
     }
+
+
 }

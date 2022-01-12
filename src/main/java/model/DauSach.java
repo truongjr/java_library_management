@@ -9,24 +9,24 @@ package model;
  * @author nguye
  */
 public class DauSach {
-    private final String maDauSach;
+    private final String ISBN;
     private String tenDauSach;
-    private final String maLoaiSach;
+    private final String tenLoaiSach;
     private String tacGia;
     private String nhaXuatBan;
-    private String namXuatBan;
+    private int namXuatBan;
 
-    public DauSach(String maDauSach, String tenDauSach, String maLoaiSach, String tacGia, String nhaXuatBan, String namXuatBan) {
-        this.maDauSach = maDauSach;
+    public DauSach(String maDauSach, String tenDauSach, String tenLoaiSach, String tacGia, String nhaXuatBan, int namXuatBan) {
+        this.ISBN = maDauSach;
         this.tenDauSach = tenDauSach;
-        this.maLoaiSach = maLoaiSach;
+        this.tenLoaiSach = tenLoaiSach;
         this.tacGia = tacGia;
         this.nhaXuatBan = nhaXuatBan;
         this.namXuatBan = namXuatBan;
     }
 
-    public String getMaDauSach() {
-        return maDauSach;
+    public String getISBN() {
+        return ISBN;
     }
 
     public String getTenDauSach() {
@@ -37,8 +37,8 @@ public class DauSach {
         this.tenDauSach = tenDauSach;
     }
 
-    public String getMaLoaiSach() {
-        return maLoaiSach;
+    public String getTenLoaiSach() {
+        return tenLoaiSach;
     }
 
     public String getTacGia() {
@@ -57,11 +57,11 @@ public class DauSach {
         this.nhaXuatBan = nhaXuatBan;
     }
 
-    public String getNamXuatBan() {
+    public int getNamXuatBan() {
         return namXuatBan;
     }
 
-    public void setNamXuatBan(String namXuatBan) {
+    public void setNamXuatBan(int namXuatBan) {
         this.namXuatBan = namXuatBan;
     }
 }

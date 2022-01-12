@@ -9,13 +9,13 @@ package model;
  * @author nguye
  */
 public class DanhMucSachModel {
-    private final String maDauSach;
     private final String maDanhMucSach;
+    private final String maDauSach;
     private int trangThaiSach;
 
-    public DanhMucSachModel(String maDauSach, String maDanhMucSach, int trangThaiSach) {
-        this.maDauSach = maDauSach;
+    public DanhMucSachModel(String maDanhMucSach, String maDauSach, int trangThaiSach) {
         this.maDanhMucSach = maDanhMucSach;
+        this.maDauSach = maDauSach;
         this.trangThaiSach = trangThaiSach;
     }
 
