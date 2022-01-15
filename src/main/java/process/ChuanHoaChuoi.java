@@ -6,6 +6,7 @@ public class ChuanHoaChuoi {
         this.string = string;
     }
     public void chuanHoaCap1() { // xóa khoảng trắng cuối và đầu chuỗi
+        if(string.isEmpty()) return;
         string = string.trim().toLowerCase();
     }
     public void chuanHoaCap2() { // xóa khoảng trắng dư thừa ở giữa

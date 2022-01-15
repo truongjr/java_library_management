@@ -17,10 +17,10 @@ public class XuLyThongKe {
         danhSachDauSach = new ArrayList<>();
         danhSachPhieuMuon = new ArrayList<>();
         thongKeSoLuotMuonSach = new HashMap<>();
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         try {
-            Statement stm = con.createStatement();
-            ResultSet res = stm.executeQuery("SELECT * FROM dbo.DAUSACH");
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery("SELECT * FROM dbo.DAUSACH");
             while (res.next()) {
                 danhSachDauSach.add(new DauSach(res.getString("ISBN"),
                         res.getString("TenDauSach"),
@@ -29,7 +29,7 @@ public class XuLyThongKe {
                         res.getString("NhaXuatBan"),
                         res.getInt("NamXuatBan")));
             }
-            res = stm.executeQuery("SELECT * FROM dbo.PHIEUMUON");
+            res = statement.executeQuery("SELECT * FROM dbo.PHIEUMUON");
             while(res.next()) {
                 danhSachPhieuMuon.add(new PhieuMuon(res.getInt("MaPhieuMuon"),
                         res.getInt("MaDocGia"),
@@ -38,7 +38,7 @@ public class XuLyThongKe {
                         res.getString("NgayTra"),
                         res.getInt("TrangThai")));
             }
-            res = stm.executeQuery("SELECT * FROM dbo.DOCGIA");
+            res = statement.executeQuery("SELECT * FROM dbo.DOCGIA");
             while(res.next()) {
                 danhSachDocGia.add(new DocGia(res.getInt("MaDocGia"),
                         res.getString("Ho"),

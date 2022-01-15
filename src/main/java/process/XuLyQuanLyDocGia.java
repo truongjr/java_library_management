@@ -2,8 +2,10 @@ package process;
 
 import DataAccessObject.SQLConnection;
 import UI.TrangChu;
+import com.toedter.calendar.JDateChooser;
 import model.DocGia;
 
+import javax.print.Doc;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,13 +14,13 @@ import java.util.logging.Logger;
 
 public class XuLyQuanLyDocGia {
     private ArrayList<DocGia> danhSachDocGia;
-    public static int LOI_HO = 0;
-    public static int LOI_TEN = 1;
-    public static int LOI_EMAIL = 2;
-    public static int LOI_NGAY_SINH = 3;
-    public static int LOI_SDT = 4;
-    public static int THANH_CONG = 5;
-    public static int LOI_BAT_DINH = 6;
+    public static final int LOI_HO = 0;
+    public static final int LOI_TEN = 1;
+    public static final int LOI_EMAIL = 2;
+    public static final int LOI_NGAY_SINH = 3;
+    public static final int LOI_SDT = 4;
+    public static final int THANH_CONG = 5;
+    public static final int LOI_BAT_DINH = 6;
     public XuLyQuanLyDocGia() {
         danhSachDocGia = new ArrayList<DocGia>();
         Connection connection = SQLConnection.openConnection();
@@ -48,15 +50,15 @@ public class XuLyQuanLyDocGia {
         return danhSachDocGia;
     }
 
-    private boolean checkInList(String maDocGia) {
+    private boolean checkInList(int maDocGia) {
         for (DocGia docGia: danhSachDocGia) {
-            if (docGia.getMaDocGia() == Integer.parseInt(maDocGia)) {
+            if (docGia.getMaDocGia() == maDocGia){
                 return true;
             }
         }
         return false;
     }
-    public int themDocGia(String ho, String ten, boolean gioiTinh, String ngaySinh, String email, String sdt) {
+    public int themDocGia(String ho, String ten, boolean gioiTinh, java.util.Date ngaySinh, String email, String sdt) {
         ChuanHoaChuoi chuanHoa = new ChuanHoaChuoi(ho);
         chuanHoa.chuanHoaCap3();
         ho = chuanHoa.getString();
@@ -64,14 +66,14 @@ public class XuLyQuanLyDocGia {
             return LOI_HO;
         }
         chuanHoa.setString(ten);
-        chuanHoa.chuanHoaCap3();
+        chuanHoa.chuanHoaCap4();
         ten = chuanHoa.getString();
         if (ten.equals("")) {
             return LOI_TEN;
         }
-        chuanHoa.setString(ngaySinh);
-        chuanHoa.chuanHoaCap1();
-        ngaySinh = chuanHoa.getString();
+//        chuanHoa.setString(ngaySinh);
+//        chuanHoa.chuanHoaCap1();
+//        ngaySinh = chuanHoa.getString();
         if (ngaySinh.equals("")) {
             return LOI_NGAY_SINH;
         }
@@ -97,33 +99,34 @@ public class XuLyQuanLyDocGia {
             }
         }
         Random random = new Random();
-        String maDocGia = "";
-        while(!checkInList(maDocGia) || maDocGia.equals("")) {
-            maDocGia = String.valueOf(random.nextInt(99999) + 10000);
+        int maDocGia = 0;
+        while(checkInList(maDocGia) || maDocGia == 0) {
+            maDocGia = random.nextInt(99999) + 10000;
         }
-        danhSachDocGia.add(new DocGia(Integer.parseInt(maDocGia), ho, ten, gioiTinh, email, ngaySinh, sdt, true));
         String query = "INSERT INTO dbo.DOCGIA VALUES (?,?,?,?,?,?,?,?)";
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         try {
-            PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, maDocGia);
-            pstmt.setString(2, ho);
-            pstmt.setString(3, ten);
-            pstmt.setString(4, gioiTinh ? "1": "0");
-            pstmt.setString(5, email);
-            pstmt.setString(6, ngaySinh);
-            pstmt.setString(7, sdt);
-            pstmt.setString(8,"1");
-            pstmt.executeUpdate();
-            pstmt.close();
-            con.close();
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, maDocGia);
+            preparedStatement.setString(2, ho);
+            preparedStatement.setString(3, ten);
+            preparedStatement.setBoolean(4, gioiTinh);
+            preparedStatement.setDate(5, new java.sql.Date(ngaySinh.getTime()));
+            preparedStatement.setString(6, email);
+            preparedStatement.setString(7, sdt);
+            preparedStatement.setString(8,"1");
+            preparedStatement.executeUpdate();
+            danhSachDocGia.add(new DocGia(maDocGia, ho, ten, gioiTinh, ngaySinh.toString(), email, sdt, true));
+            preparedStatement.close();
+            connection.close();
             return THANH_CONG;
         } catch (SQLException ex) {
             Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
             return LOI_BAT_DINH;
         }
     }
-    public int chinhSuaDocGia(int index, String ho, String ten, boolean gioiTinh, String ngaySinh, String email, String sdt, boolean hoatDong) {
+    public int chinhSuaDocGia(int maDocGia, String ho, String ten, boolean gioiTinh, java.util.Date ngaySinh, String email, String sdt, boolean hoatDong) {
         ChuanHoaChuoi chuanHoa = new ChuanHoaChuoi(ho);
         chuanHoa.chuanHoaCap3();
         ho = chuanHoa.getString();
@@ -136,9 +139,9 @@ public class XuLyQuanLyDocGia {
         if (ten.equals("")) {
             return LOI_TEN;
         }
-        if (ngaySinh.equals("")) {
-            return LOI_NGAY_SINH;
-        }
+//        if (ngaySinh.equals("")) {
+//            return LOI_NGAY_SINH;
+//        }
         chuanHoa.setString(email);
         chuanHoa.chuanHoaCap1();
         email = chuanHoa.getString();
@@ -160,38 +163,49 @@ public class XuLyQuanLyDocGia {
                 return LOI_SDT;
             }
         }
-        int maDocGia = danhSachDocGia.get(index).getMaDocGia();
-        danhSachDocGia.add(new DocGia(maDocGia, ho, ten, gioiTinh, email, ngaySinh, sdt, hoatDong));
-        Connection con = SQLConnection.openConnection();
-        String query = "UPDATE dbo.DOCGIA SET Ho=?, Ten=?, GioiTinh=?, NgaySinh=?, Email=?, SDT=?, TrangThai=?";
+        Connection connection = SQLConnection.openConnection();
+        String query = "UPDATE dbo.DOCGIA SET Ho=?, Ten=?, GioiTinh=?, NgaySinh=?, Email=?, SDT=?, TrangThai=? WHERE MaDocGia = ?";
         try {
-            PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(1, ho);
-            pstmt.setString(2, ten);
-            pstmt.setString(3, gioiTinh ? "1": "0");
-            pstmt.setString(4, ngaySinh);
-            pstmt.setString(5, email);
-            pstmt.setString(6, sdt);
-            pstmt.setString(7, hoatDong ? "1" : "0");
-            pstmt.executeUpdate();
-            pstmt.close();
-            con.close();
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, ho);
+            preparedStatement.setString(2, ten);
+            preparedStatement.setBoolean(3, gioiTinh);
+            preparedStatement.setDate(4, new java.sql.Date(ngaySinh.getTime()));
+            preparedStatement.setString(5, email);
+            preparedStatement.setString(6, sdt);
+            preparedStatement.setString(7, hoatDong ? "1" : "0");
+            preparedStatement.setInt(8, maDocGia);
+            preparedStatement.executeUpdate();
+            for(int i = 0; i < danhSachDocGia.size(); i++){
+                if(danhSachDocGia.get(i).getMaDocGia() == maDocGia){
+                    danhSachDocGia.set(i, new DocGia(maDocGia, ho, ten, gioiTinh, ngaySinh.toString(), email, sdt, hoatDong));
+                    break;
+                }
+            }
+            preparedStatement.close();
+            connection.close();
             return THANH_CONG;
         } catch (SQLException ex) {
             Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
             return LOI_BAT_DINH;
         }
     }
-    public int xoaDocGia(int index) {
+    public int xoaDocGia(int maDocGia) {
         Connection con = SQLConnection.openConnection();
-        String maDocGia = String.valueOf(danhSachDocGia.get(index).getMaDocGia());
-        String query = "DELETE FROM dbo.DAUSACH WHERE MaDocGia=?";
+        String query = "DELETE FROM dbo.DOCGIA WHERE MaDocGia=?";
         try {
             assert con != null;
             PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, maDocGia);
+            pstmt.setInt(1, maDocGia);
             pstmt.executeUpdate();
-            danhSachDocGia.remove(index);
+            int i = -1;
+            for(i = 0; i < danhSachDocGia.size(); i++){
+                if(danhSachDocGia.get(i).getMaDocGia() == maDocGia){
+                    break;
+                }
+            }
+            danhSachDocGia.remove(i);
             con.close();
             pstmt.close();
             return THANH_CONG;

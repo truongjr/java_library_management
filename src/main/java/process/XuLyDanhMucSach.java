@@ -16,16 +16,17 @@ public class XuLyDanhMucSach {
     public XuLyDanhMucSach(String maDauSachParent) {
         this.maDauSach = maDauSachParent;
         danhsachDanhMucSach = new ArrayList<>();
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         try {
-            Statement stm = con.createStatement();
-            ResultSet res = stm.executeQuery("SELECT * FROM DANHMUCSACH WHERE ISBN  = '" + maDauSachParent + "'");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM DANHMUCSACH WHERE ISBN  = ?");
+            preparedStatement.setString(1, maDauSachParent);
+            ResultSet res = preparedStatement.executeQuery();
             while(res.next()){
-                danhsachDanhMucSach.add(new DanhMucSachModel(res.getString("ISBN"), res.getString("MaSach"), res.getString("TrangThai").equals("0") ? 0 : res.getString("TrangThai").equals("1") ? 1 : 2));
+                danhsachDanhMucSach.add(new DanhMucSachModel(res.getString("ISBN"), res.getString("MaDanhMucSach"), res.getString("TrangThai").equals("0") ? 0 : res.getString("TrangThai").equals("1") ? 1 : 2));
             }
             res.close();
-            stm.close();
-            con.close();
+            preparedStatement.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -42,18 +43,18 @@ public class XuLyDanhMucSach {
             danhsachDanhMucSach.add(new DanhMucSachModel( maDauSach, maDauSach + "-0", 0));
         }
         int soLuongDanhMucSach = danhsachDanhMucSach.size();
-        System.out.println(soLuongDanhMucSach);
-        Connection con = SQLConnection.openConnection();
-        String query = "INSERT INTO dbo.DANHMUCSACH(MaSach, ISBN, TrangThai) VALUES(?,?,?)";
-        PreparedStatement pstmt = null;
+        Connection connection = SQLConnection.openConnection();
+        String query = "INSERT INTO dbo.DANHMUCSACH(MaDanhMucSach, ISBN, TrangThai) VALUES(?,?,?)";
+        PreparedStatement preparedStatement = null;
         try {
-            pstmt = con.prepareStatement(query);
-            pstmt.setString(1, danhsachDanhMucSach.get(soLuongDanhMucSach - 1).getMaDanhMucSach());
-            pstmt.setString(2, danhsachDanhMucSach.get(soLuongDanhMucSach - 1).getMaDauSach());
-            pstmt.setInt(3, 0);
-            pstmt.executeUpdate();
-            con.close();
-            pstmt.close();
+            assert connection != null;
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, danhsachDanhMucSach.get(soLuongDanhMucSach - 1).getMaDanhMucSach());
+            preparedStatement.setString(2, danhsachDanhMucSach.get(soLuongDanhMucSach - 1).getMaDauSach());
+            preparedStatement.setInt(3, 0);
+            preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -62,15 +63,16 @@ public class XuLyDanhMucSach {
     }
     public int chinhSuaDanhMucSach(int index, int selected){
         danhsachDanhMucSach.get(index).setTrangThaiSach(selected);
-        Connection con = SQLConnection.openConnection();
-        String query = "UPDATE dbo.DANHMUCSACH SET TrangThai = ? WHERE MaSach = ?";
+        Connection connection = SQLConnection.openConnection();
+        String query = "UPDATE dbo.DANHMUCSACH SET TrangThai = ? WHERE MaDanhMucSach = ?";
         try {
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, String.valueOf(selected));
-            pstmt.setString(2, danhsachDanhMucSach.get(index).getMaDanhMucSach());
-            pstmt.executeUpdate();
-            con.close();
-            pstmt.close();
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, String.valueOf(selected));
+            preparedStatement.setString(2, danhsachDanhMucSach.get(index).getMaDanhMucSach());
+            preparedStatement.executeUpdate();
+            connection.close();
+            preparedStatement.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -82,15 +84,15 @@ public class XuLyDanhMucSach {
             return LOI_XOA_SACH;
         }
         danhsachDanhMucSach.remove(index);
-        Connection con = SQLConnection.openConnection();
-        String query = "DELETE FROM dbo.DANHMUCSACH WHERE MaSach=?";
+        Connection connection = SQLConnection.openConnection();
+        String query = "DELETE FROM dbo.DANHMUCSACH WHERE MaDanhMucSach=?";
         try {
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, danhsachDanhMucSach.get(index).getMaDanhMucSach());
-            pstmt.executeUpdate();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, danhsachDanhMucSach.get(index).getMaDanhMucSach());
+            preparedStatement.executeUpdate();
             danhsachDanhMucSach.remove(index);
-            pstmt.close();
-            con.close();
+            preparedStatement.close();
+            connection.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();

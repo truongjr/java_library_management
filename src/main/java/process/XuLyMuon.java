@@ -23,23 +23,23 @@ public class XuLyMuon {
         danhSachDanhMucSach = new ArrayList<>();
         this.maDocGia = maDocGia;
         soLuongDangMuon = 0;
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         String query = "SELECT * FROM dbo.DAUSACH";
         try {
-            assert con != null;
-            PreparedStatement preparedStatement = con.prepareStatement(query);
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet res = preparedStatement.executeQuery();
             while (res.next()){
                 danhSachDauSach.add(new DauSach(res.getString("ISBN"), res.getString("TenDauSach"), res.getString("TenLoaiSach"), res.getString("TacGia"), res.getString("NhaXuatBan"), res.getInt("NamXuatBan")));
             }
             query = "SELECT * FROM dbo.DANHMUCSACH";
-            preparedStatement = con.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(query);
             res = preparedStatement.executeQuery();
             while (res.next()){
                 danhSachDanhMucSach.add(new DanhMucSachModel(res.getString("MaDanhMucSach"), res.getString("ISBN"), res.getInt("TrangThai")));
             }
             query = "SELECT * FROM dbo.PHIEUMUON WHERE MaDocGia = ? AND TrangThai = 0";
-            preparedStatement = con.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, maDocGia);
             res = preparedStatement.executeQuery();
             while(res.next()){
@@ -47,7 +47,7 @@ public class XuLyMuon {
             }
             res.close();
             preparedStatement.close();
-            con.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,26 +61,25 @@ public class XuLyMuon {
         if(soLuongDangMuon <= 3){
             for(DanhMucSachModel item:danhSachDanhMucSach){
                 if(item.getMaDauSach().equals(ISBN) && item.getTrangThaiSach() == 0){
-                    item.setTrangThaiSach(1);
-                    Connection con = SQLConnection.openConnection();
+                    Connection connection = SQLConnection.openConnection();
                     String query = "INSERT INTO dbo.PHIEUMUON(MaDocGia, MaDanhMucSach, NgayMuon, TrangThai) VALUES(?, ?, ?, ?)";
                     try {
-                        assert con != null;
-                        PreparedStatement preparedStatement = con.prepareStatement(query);
+                        assert connection != null;
+                        PreparedStatement preparedStatement = connection.prepareStatement(query);
                         preparedStatement.setInt(1, maDocGia);
                         preparedStatement.setString(2, item.getMaDanhMucSach());
                         preparedStatement.setDate(3, new java.sql.Date((new Date()).getTime()));
-                        //                    preparedStatement.setDate(5, null);
                         preparedStatement.setInt(4, 1);
-                        int c = preparedStatement.executeUpdate();
-                        if(c == 1) System.out.println("YES");
+                        preparedStatement.executeUpdate();
                         query = "UPDATE dbo.DANHMUCSACH SET TrangThai = ? WHERE MaDanhMucSach = ?";
-                        preparedStatement = con.prepareStatement(query);
+                        this.soLuongDangMuon++;
+                        item.setTrangThaiSach(1);
+                        preparedStatement = connection.prepareStatement(query);
                         preparedStatement.setInt(1, 1);
                         preparedStatement.setString(2, item.getMaDanhMucSach());
                         preparedStatement.executeUpdate();
                         preparedStatement.close();
-                        con.close();
+                        connection.close();
                         return THANH_CONG;
                     } catch (SQLException e) {
                         e.printStackTrace();

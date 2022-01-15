@@ -29,12 +29,12 @@ public class XuLyQuanLySach {
 
         Connection connection = SQLConnection.openConnection();
         try {
-            Statement stm = connection.createStatement();
-            ResultSet res = stm.executeQuery("SELECT * FROM dbo.DAUSACH");
+            Statement statement = connection.createStatement();
+            ResultSet res = statement.executeQuery("SELECT * FROM dbo.DAUSACH");
             while(res.next()){
                 danhSachDauSach.add(new DauSach(res.getString("ISBN"), res.getString("TenDauSach"), res.getString("TenLoaiSach"), res.getString("TacGia"), res.getString("NhaXuatBan"), res.getInt("NamXuatBan")));
             }
-            res = stm.executeQuery("SELECT * FROM dbo.DANHMUCSACH");
+            res = statement.executeQuery("SELECT * FROM dbo.DANHMUCSACH");
             while(res.next()){
                 danhSachDanhMucSach.add(new DanhMucSachModel(res.getString("MaDanhMucSach"), res.getString("ISBN"), Integer.parseInt(res.getString("TrangThai"))));
             }
@@ -76,20 +76,20 @@ public class XuLyQuanLySach {
             }
         }
         danhSachDauSach.add(new DauSach(ISBN, tenDauSach, tenLoaiSach, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         String query = "INSERT INTO dbo.DAUSACH(ISBN, TheLoaiSach, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) VALUES(?,?,?,?,?,?)";
         try {
-            assert con != null;
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, ISBN);
-            pstmt.setString(2, tenLoaiSach);
-            pstmt.setString(3, tenDauSach);
-            pstmt.setString(4, tacGia);
-            pstmt.setString(5, nhaXuatBan);
-            pstmt.setInt(6, Integer.parseInt(namXuatBan));
-            int addSuccess = pstmt.executeUpdate();
-            pstmt.close();
-            con.close();
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, ISBN);
+            preparedStatement.setString(2, tenLoaiSach);
+            preparedStatement.setString(3, tenDauSach);
+            preparedStatement.setString(4, tacGia);
+            preparedStatement.setString(5, nhaXuatBan);
+            preparedStatement.setInt(6, Integer.parseInt(namXuatBan));
+            int addSuccess = preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
             if(addSuccess == 1) {
                 return THANH_CONG;
             }
@@ -123,20 +123,20 @@ public class XuLyQuanLySach {
             }
         }
         danhSachDauSach.set(index, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         String query = "UPDATE dbo.DAUSACH SET TheLoai=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = ?";
         try {
-            assert con != null;
-            PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            pstmt.setString(6, ISBN);
-            pstmt.setString(1, theLoai);
-            pstmt.setString(2, tenSach);
-            pstmt.setString(3, tacGia);
-            pstmt.setString(4, nhaXuatBan);
-            pstmt.setInt(5, Integer.parseInt(namXuatBan));
-            pstmt.executeUpdate();
-            pstmt.close();
-            con.close();
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(6, ISBN);
+            preparedStatement.setString(1, theLoai);
+            preparedStatement.setString(2, tenSach);
+            preparedStatement.setString(3, tacGia);
+            preparedStatement.setString(4, nhaXuatBan);
+            preparedStatement.setInt(5, Integer.parseInt(namXuatBan));
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
             return THANH_CONG;
         } catch (SQLException ex) {
             Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,18 +144,18 @@ public class XuLyQuanLySach {
         }
     }
     public int xoaSach(int index){
-        Connection con = SQLConnection.openConnection();
+        Connection connection = SQLConnection.openConnection();
         int soLuongDanhMucSach = 0;
         try {
-            assert con != null;
-            PreparedStatement pstmt = con.prepareStatement("SELECT COUNT(MaDanhMucSach) FROM dbo.DANHMUCSACH WHERE ISBN =?");
-            pstmt.setString(1, danhSachDanhMucSach.get(index).getMaDauSach());
-            ResultSet res = pstmt.executeQuery();// + danhSachDanhMucSach.get(index).getMaDauSach() + "'");
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(MaDanhMucSach) FROM dbo.DANHMUCSACH WHERE ISBN =?");
+            preparedStatement.setString(1, danhSachDanhMucSach.get(index).getMaDauSach());
+            ResultSet res = preparedStatement.executeQuery();
             if(res.next()){
                 soLuongDanhMucSach = res.getInt(1);
             }
             res.close();
-            pstmt.close();
+            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -164,12 +164,12 @@ public class XuLyQuanLySach {
         }
         String query = "DELETE FROM dbo.DAUSACH WHERE ISBN=?";
         try {
-            PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement pstmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, danhSachDauSach.get(index).getISBN());
             pstmt.executeUpdate();
             danhSachDauSach.remove(index);
             pstmt.close();
-            con.close();
+            connection.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();
