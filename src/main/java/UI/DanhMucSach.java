@@ -5,10 +5,9 @@
 package UI;
 
 import model.DanhMucSachModel;
-import model.DauSach;
 import process.JTableUtilities;
 import process.Process;
-import process.XuLyDanhMucSach;
+import DataAccessObject.XuLyDanhMucSach;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

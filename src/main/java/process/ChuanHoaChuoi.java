@@ -2,7 +2,7 @@ package process;
 
 public class ChuanHoaChuoi {
     private String string;
-    ChuanHoaChuoi(String string) {
+    public ChuanHoaChuoi(String string) {
         this.string = string;
     }
     public void chuanHoaCap1() { // xóa khoảng trắng cuối và đầu chuỗi

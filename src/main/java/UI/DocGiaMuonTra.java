@@ -7,8 +7,8 @@ package UI;
 import model.DauSach;
 import process.JTableUtilities;
 import process.Process;
-import process.XuLyMuon;
-import process.XuLyTra;
+import DataAccessObject.XuLyMuon;
+import DataAccessObject.XuLyTra;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

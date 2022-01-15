@@ -4,23 +4,16 @@
  */
 package UI;
 
-import DataAccessObject.SQLConnection;
+import DataAccessObject.*;
+
 import java.awt.event.KeyEvent;
 
-import com.toedter.calendar.JDateChooser;
 import model.*;
 
 import java.awt.event.WindowEvent;
-import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
