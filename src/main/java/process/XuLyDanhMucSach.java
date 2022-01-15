@@ -23,6 +23,9 @@ public class XuLyDanhMucSach {
             while(res.next()){
                 danhsachDanhMucSach.add(new DanhMucSachModel(res.getString("ISBN"), res.getString("MaSach"), res.getString("TrangThai").equals("0") ? 0 : res.getString("TrangThai").equals("1") ? 1 : 2));
             }
+            res.close();
+            stm.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -49,6 +52,8 @@ public class XuLyDanhMucSach {
             pstmt.setString(2, danhsachDanhMucSach.get(soLuongDanhMucSach - 1).getMaDauSach());
             pstmt.setInt(3, 0);
             pstmt.executeUpdate();
+            con.close();
+            pstmt.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -64,8 +69,9 @@ public class XuLyDanhMucSach {
             pstmt.setString(1, String.valueOf(selected));
             pstmt.setString(2, danhsachDanhMucSach.get(index).getMaDanhMucSach());
             pstmt.executeUpdate();
+            con.close();
+            pstmt.close();
             return THANH_CONG;
-
         } catch (SQLException e) {
             e.printStackTrace();
             return LOI;
@@ -83,6 +89,8 @@ public class XuLyDanhMucSach {
             pstmt.setString(1, danhsachDanhMucSach.get(index).getMaDanhMucSach());
             pstmt.executeUpdate();
             danhsachDanhMucSach.remove(index);
+            pstmt.close();
+            con.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();

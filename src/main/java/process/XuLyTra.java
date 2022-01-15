@@ -71,6 +71,8 @@ public class XuLyTra {
             preparedStatement.setString(3, maDanhMucSach);
             preparedStatement.setInt(4, maDocGia);
             preparedStatement.executeUpdate();
+            preparedStatement.close();
+            con.close();
             for(DanhMucSachModel item:danhSachDanhMucSachModel){
                 if(item.getMaDanhMucSach().equals(maDanhMucSach)){
                     item.setTrangThaiSach(trangThaiSach);

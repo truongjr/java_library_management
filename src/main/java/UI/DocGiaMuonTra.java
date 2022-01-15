@@ -106,6 +106,7 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
         okButton.setForeground(new java.awt.Color(0, 0, 0));
         okButton.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ok.png"))));
         okButton.setText("Đồng ý");
+        okButton.setFocusPainted(false);
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
@@ -192,8 +193,7 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
         JTableUtilities.setCellsAlignment(muonTraSachTable, SwingConstants.CENTER);
     }
 
-    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {                                         
         if(trangThaiFrame){ // muon
             if(selectedRowIndex >= 0){
                 int status = xuLyMuon.muonSach(muonTraSachTable.getValueAt(selectedRowIndex, 0).toString());
@@ -202,7 +202,9 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
                     khoiTaoBang(prefix);
                 } else if(XuLyMuon.SACH_KHONG_SAN_SANG == status){
                     JOptionPane.showMessageDialog(null, "Sách không sẵn sàng");
-                } else {
+                } else if(XuLyMuon.MUON_HON_3_CUON == status){
+                    JOptionPane.showMessageDialog(null, "Đã mượn đủ 3 cuốn sách");
+                } else{
                     JOptionPane.showMessageDialog(null, "Đã có lỗi xảy ra");
                 }
             } else {
@@ -222,7 +224,7 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
                 this.setVisible(false);
             }
         }
-    }//GEN-LAST:event_okButtonActionPerformed
+    }
 
     private void timKiemKeyTyped(KeyEvent evt) {
         char c = evt.getKeyChar();

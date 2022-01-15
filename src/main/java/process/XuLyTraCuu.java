@@ -8,22 +8,53 @@ import java.util.ArrayList;
 
 public class XuLyTraCuu {
     private final ArrayList<DauSach> danhSachDauSach;
+    private ArrayList<String> tacGia, theLoai, nhaXuatBan, nam;
     public XuLyTraCuu() {
         danhSachDauSach = new ArrayList<>();
+        tacGia = new ArrayList<>();
+        theLoai = new ArrayList<>();
+        nhaXuatBan = new ArrayList<>();
+        nam = new ArrayList<>();
         Connection connection = SQLConnection.openConnection();
+        String query = "SELECT * FROM dbo.DAUSACH";
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM dbo.DAUSACH");
-            while(resultSet.next()) {
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet res = preparedStatement.executeQuery();
+            while(res.next()) {
                 danhSachDauSach.add(new DauSach(
-                        resultSet.getString("ISBN"),
-                        resultSet.getString("TenDauSach"),
-                        resultSet.getString("TenLoaiSach"),
-                        resultSet.getString("TacGia"),
-                        resultSet.getString("NhaXuatBan"),
-                        resultSet.getInt("NamXuatBan")
+                        res.getString("ISBN"),
+                        res.getString("TenDauSach"),
+                        res.getString("TenLoaiSach"),
+                        res.getString("TacGia"),
+                        res.getString("NhaXuatBan"),
+                        res.getInt("NamXuatBan")
                 ));
             }
+            query = "SELECT DISTINCT NamXuatBan FROM DAUSACH";
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT NamXuatBan FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                nam.add(res.getString("NamXuatBan"));
+            }
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT NhaXuatBan FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                nhaXuatBan.add(res.getString("NhaXuatBan"));
+            }
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT TenLoaiSach FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                theLoai.add(res.getString("TenLoaiSach"));
+            }
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT TacGia FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                tacGia.add(res.getString("TacGia"));
+            }
+            res.close();
+            preparedStatement.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -33,15 +64,31 @@ public class XuLyTraCuu {
         return danhSachDauSach;
     }
 
+    public ArrayList<String> getTacGia() {
+        return tacGia;
+    }
+
+    public ArrayList<String> getTheLoai() {
+        return theLoai;
+    }
+
+    public ArrayList<String> getNhaXuatBan() {
+        return nhaXuatBan;
+    }
+
+    public ArrayList<String> getNam() {
+        return nam;
+    }
+
     // trả về danh sách đã được lọc theo yêu cầu. lưu ý:
     // - để thể hiện chuỗi rỗng thì khi gọi hàm chỉ cần đặt ""
     // - để thể hiện năm xuất bản không có thì khi gọi hàm ta truyền tham số -1 vào
     public ArrayList<DauSach> danhSachDauSachLocTheo(String tenDauSach, String tenLoaiSach, int namXuatBan, String nhaXuatBan, String tenTacGia) {
-        ArrayList<DauSach> danhSachDauSachDaLoc = new ArrayList<>();
+        ArrayList<DauSach> danhSachDauSachDaLoc = new ArrayList<>(this.danhSachDauSach);
         if (!tenDauSach.isEmpty()) {
             if (danhSachDauSachDaLoc.isEmpty()) {
                 for (DauSach dauSach : danhSachDauSach) {
-                    if (dauSach.getTenDauSach().startsWith(tenDauSach)) {
+                    if (StringUtils.removeAccent(dauSach.getTenDauSach()).toLowerCase().startsWith(tenDauSach)) {
                         danhSachDauSachDaLoc.add(dauSach);
                     }
                 }

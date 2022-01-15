@@ -23,18 +23,22 @@ public class XuLyQuanLyDocGia {
         danhSachDocGia = new ArrayList<DocGia>();
         Connection connection = SQLConnection.openConnection();
         try {
+            assert connection != null;
             Statement stm = connection.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM dbo.DOCGIA");
-            while(rs.next()) {
-                danhSachDocGia.add(new DocGia(Integer.parseInt(rs.getString("MaDocGia")),
-                        rs.getString("Ho"),
-                        rs.getString("Ten"),
-                        rs.getString("GioiTinh").equals("1"),
-                        rs.getString("NgaySinh"),
-                        rs.getString("Email"),
-                        rs.getString("SDT"),
-                        rs.getString("TrangThai").equals("1")));
+            ResultSet res = stm.executeQuery("SELECT * FROM dbo.DOCGIA");
+            while(res.next()) {
+                danhSachDocGia.add(new DocGia(Integer.parseInt(res.getString("MaDocGia")),
+                        res.getString("Ho"),
+                        res.getString("Ten"),
+                        res.getString("GioiTinh").equals("1"),
+                        res.getString("NgaySinh"),
+                        res.getString("Email"),
+                        res.getString("SDT"),
+                        res.getBoolean("TrangThai")));
             }
+            res.close();
+            stm.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -111,6 +115,8 @@ public class XuLyQuanLyDocGia {
             pstmt.setString(7, sdt);
             pstmt.setString(8,"1");
             pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
             return THANH_CONG;
         } catch (SQLException ex) {
             Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,6 +174,8 @@ public class XuLyQuanLyDocGia {
             pstmt.setString(6, sdt);
             pstmt.setString(7, hoatDong ? "1" : "0");
             pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
             return THANH_CONG;
         } catch (SQLException ex) {
             Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
@@ -179,10 +187,13 @@ public class XuLyQuanLyDocGia {
         String maDocGia = String.valueOf(danhSachDocGia.get(index).getMaDocGia());
         String query = "DELETE FROM dbo.DAUSACH WHERE MaDocGia=?";
         try {
-            PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            assert con != null;
+            PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, maDocGia);
             pstmt.executeUpdate();
             danhSachDocGia.remove(index);
+            con.close();
+            pstmt.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();

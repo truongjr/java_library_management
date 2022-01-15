@@ -79,7 +79,7 @@ public class XuLyThongKe {
             int maDocGia = phieuMuon.getMaDocGia();
             int indexDocGia = timKiemNhiPhanTrongDanhSachDocGia(maDocGia);
             if (phieuMuon.getTrangThai() == 0 && danhSachDocGia.get(indexDocGia).getHoatDong()) {
-                tapHopMaDauSach.add(phieuMuon.getMaDanhMucSach());
+                tapHopMaDauSach.add(phieuMuon.getMaDanhMucSach().split("-")[0]);
             }
         }
         for (String maDauSach: tapHopMaDauSach) {

@@ -88,6 +88,8 @@ public class XuLyQuanLySach {
             pstmt.setString(5, nhaXuatBan);
             pstmt.setInt(6, Integer.parseInt(namXuatBan));
             int addSuccess = pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
             if(addSuccess == 1) {
                 return THANH_CONG;
             }
@@ -133,6 +135,8 @@ public class XuLyQuanLySach {
             pstmt.setString(4, nhaXuatBan);
             pstmt.setInt(5, Integer.parseInt(namXuatBan));
             pstmt.executeUpdate();
+            pstmt.close();
+            con.close();
             return THANH_CONG;
         } catch (SQLException ex) {
             Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
@@ -150,6 +154,8 @@ public class XuLyQuanLySach {
             if(res.next()){
                 soLuongDanhMucSach = res.getInt(1);
             }
+            res.close();
+            pstmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -162,6 +168,8 @@ public class XuLyQuanLySach {
             pstmt.setString(1, danhSachDauSach.get(index).getISBN());
             pstmt.executeUpdate();
             danhSachDauSach.remove(index);
+            pstmt.close();
+            con.close();
             return THANH_CONG;
         } catch (SQLException e) {
             e.printStackTrace();

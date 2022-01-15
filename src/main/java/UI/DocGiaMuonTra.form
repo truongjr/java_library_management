@@ -185,6 +185,7 @@
               <Connection code="new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Images/ok.png&quot;)))" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ed3;ng &#xfd;"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okButtonActionPerformed"/>

@@ -124,6 +124,7 @@ class BST_class {
         return search_Recursive(root.right, key); 
     } 
 }
+
 class Main{
     public static void main(String[] args)  { 
        //create a BST object
