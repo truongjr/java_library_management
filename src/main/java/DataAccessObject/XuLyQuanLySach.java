@@ -77,7 +77,7 @@ public class XuLyQuanLySach {
         }
         danhSachDauSach.add(new DauSach(ISBN, tenDauSach, tenLoaiSach, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
         Connection connection = SQLConnection.openConnection();
-        String query = "INSERT INTO dbo.DAUSACH(ISBN, TheLoaiSach, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) VALUES(?,?,?,?,?,?)";
+        String query = "INSERT INTO dbo.DAUSACH(ISBN, TenLoaiSach, TenDauSach, TacGia, NhaXuatBan, NamXuatBan) VALUES(?,?,?,?,?,?)";
         try {
             assert connection != null;
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -124,7 +124,7 @@ public class XuLyQuanLySach {
         }
         danhSachDauSach.set(index, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
         Connection connection = SQLConnection.openConnection();
-        String query = "UPDATE dbo.DAUSACH SET TheLoai=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = ?";
+        String query = "UPDATE dbo.DAUSACH SET TenLoaiSach=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = ?";
         try {
             assert connection != null;
             PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
