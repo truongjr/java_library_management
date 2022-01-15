@@ -117,7 +117,7 @@ public class XuLyQuanLyDocGia {
             preparedStatement.setString(7, sdt);
             preparedStatement.setString(8,"1");
             preparedStatement.executeUpdate();
-            danhSachDocGia.add(new DocGia(maDocGia, ho, ten, gioiTinh, ngaySinh.toString(), email, sdt, true));
+            danhSachDocGia.add(new DocGia(maDocGia, ho, ten, gioiTinh, (new java.sql.Date(ngaySinh.getTime())).toString(), email, sdt, true));
             preparedStatement.close();
             connection.close();
             return THANH_CONG;
@@ -179,7 +179,7 @@ public class XuLyQuanLyDocGia {
             preparedStatement.executeUpdate();
             for(int i = 0; i < danhSachDocGia.size(); i++){
                 if(danhSachDocGia.get(i).getMaDocGia() == maDocGia){
-                    danhSachDocGia.set(i, new DocGia(maDocGia, ho, ten, gioiTinh, ngaySinh.toString(), email, sdt, hoatDong));
+                    danhSachDocGia.set(i, new DocGia(maDocGia, ho, ten, gioiTinh, (new java.sql.Date(ngaySinh.getTime())).toString(), email, sdt, hoatDong));
                     break;
                 }
             }
