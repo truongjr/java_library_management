@@ -15,6 +15,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -316,11 +317,7 @@ public class TrangChu extends javax.swing.JFrame {
     txtEmail.setText("Email");
 
     maDocGia.setBackground(new java.awt.Color(255, 255, 255));
-    maDocGia.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyPressed(java.awt.event.KeyEvent evt) {
-            maDocGiaKeyPressed(evt);
-        }
-    });
+
 
     hoDocGia.setBackground(new java.awt.Color(255, 255, 255));
     hoDocGia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -345,11 +342,7 @@ public class TrangChu extends javax.swing.JFrame {
     namRadioButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
     namRadioButton.setForeground(new java.awt.Color(0, 0, 0));
     namRadioButton.setText("Nam");
-    namRadioButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            namRadioButtonActionPerformed(evt);
-        }
-    });
+
 
     nuRadioButton.setBackground(new java.awt.Color(255, 255, 255));
     sexRadioGroup.add(nuRadioButton);
@@ -864,11 +857,7 @@ public class TrangChu extends javax.swing.JFrame {
 
     readerStatistics.setBackground(new java.awt.Color(255, 255, 255));
     readerStatistics.setForeground(new java.awt.Color(0, 0, 0));
-    readerStatistics.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            readerStatisticsMouseClicked(evt);
-        }
-    });
+
 
     txtReaderStatisticIcon.setIcon(new NoScalingIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/choose.png"))));
 
@@ -879,17 +868,6 @@ public class TrangChu extends javax.swing.JFrame {
     thongKeDocGiaComboBox.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             thongKeDocGiaComboBoxItemStateChanged(evt);
-        }
-    });
-    thongKeDocGiaComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            thongKeDocGiaComboBoxMouseClicked(evt);
-        }
-        public void mousePressed(java.awt.event.MouseEvent evt) {
-            thongKeDocGiaComboBoxMousePressed(evt);
-        }
-        public void mouseReleased(java.awt.event.MouseEvent evt) {
-            thongKeDocGiaComboBoxMouseReleased(evt);
         }
     });
 
@@ -911,11 +889,7 @@ public class TrangChu extends javax.swing.JFrame {
     thongKeDocGiaTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
     thongKeDocGiaTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
     thongKeDocGiaTable.setShowGrid(true);
-    thongKeDocGiaTable.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            thongKeDocGiaTableMouseClicked(evt);
-        }
-    });
+
     jScrollPane12.setViewportView(thongKeDocGiaTable);
     thongKeDocGiaTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -976,11 +950,7 @@ public class TrangChu extends javax.swing.JFrame {
     thongKeSachTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
     thongKeSachTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
     thongKeSachTable.setShowGrid(true);
-    thongKeSachTable.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            thongKeSachTableMouseClicked(evt);
-        }
-    });
+
     jScrollPane13.setViewportView(thongKeSachTable);
     thongKeSachTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -991,17 +961,6 @@ public class TrangChu extends javax.swing.JFrame {
     thongKeSachComboBox.addItemListener(new java.awt.event.ItemListener() {
         public void itemStateChanged(java.awt.event.ItemEvent evt) {
             thongKeSachComboBoxItemStateChanged(evt);
-        }
-    });
-    thongKeSachComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            thongKeSachComboBoxMouseClicked(evt);
-        }
-        public void mousePressed(java.awt.event.MouseEvent evt) {
-            thongKeSachComboBoxMousePressed(evt);
-        }
-        public void mouseReleased(java.awt.event.MouseEvent evt) {
-            thongKeSachComboBoxMouseReleased(evt);
         }
     });
 
@@ -1140,11 +1099,6 @@ public class TrangChu extends javax.swing.JFrame {
     traCuuTable.setSelectionForeground(new java.awt.Color(0, 0, 0));
     traCuuTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
     traCuuTable.setShowGrid(true);
-    traCuuTable.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            traCuuTableMouseClicked(evt);
-        }
-    });
     jScrollPane11.setViewportView(traCuuTable);
     traCuuTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -1249,73 +1203,15 @@ public class TrangChu extends javax.swing.JFrame {
         new DangNhap().setVisible(true);
     }
 
-    private void namRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void maDocGiaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_maDocGiaKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maDocGiaKeyPressed
-
-    private void traCuuTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_traCuuTableMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_traCuuTableMouseClicked
-
-    private void thongKeDocGiaTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeDocGiaTableMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_thongKeDocGiaTableMouseClicked
-
-    private void thongKeSachTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeSachTableMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_thongKeSachTableMouseClicked
-
-    private void thongKeDocGiaComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeDocGiaComboBoxMouseClicked
-        // TODO add your handling code here:
-//        if(thongKeDocGiaQuaHan){
-//            khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
-//        } else {
-//            khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
-//        }
-    }//GEN-LAST:event_thongKeDocGiaComboBoxMouseClicked
-
-    private void readerStatisticsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_readerStatisticsMouseClicked
-        // TODO add your handling code here:
-//        System.out.println("vc");
-    }//GEN-LAST:event_readerStatisticsMouseClicked
-
-    private void thongKeDocGiaComboBoxMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeDocGiaComboBoxMouseReleased
-        // TODO add your handling code here:
-//        System.out.println("cl");
-//        if(thongKeDocGiaQuaHan){
-//            khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
-//        } else {
-//            khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
-//        }
-    }//GEN-LAST:event_thongKeDocGiaComboBoxMouseReleased
-
-    private void thongKeDocGiaComboBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeDocGiaComboBoxMousePressed
-        // TODO add your handling code here:
-//        System.out.println("ccc");
-//        if(thongKeDocGiaQuaHan){
-//            khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
-//        } else {
-//            khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
-//        }
-    }//GEN-LAST:event_thongKeDocGiaComboBoxMousePressed
-
-    private void thongKeDocGiaComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_thongKeDocGiaComboBoxItemStateChanged
-        // TODO add your handling code here:
+    private void thongKeDocGiaComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         if(thongKeDocGiaComboBox.getSelectedIndex() == 0){
             khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
         } else {
             khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
         }
-    }//GEN-LAST:event_thongKeDocGiaComboBoxItemStateChanged
+    }
 
-    private void tabThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabThongKeMouseClicked
-        // TODO add your handling code here:
+    private void tabThongKeMouseClicked(java.awt.event.MouseEvent evt) {
         if(tabThongKe.getSelectedIndex() == 0){
             if(thongKeDocGiaComboBox.getSelectedIndex() == 0){
                 khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
@@ -1330,55 +1226,37 @@ public class TrangChu extends javax.swing.JFrame {
                 khoiTaoBang("", THONG_KE_SACH_DANG_DUOC_MUON);
             }
         }
-    }//GEN-LAST:event_tabThongKeMouseClicked
+    }
 
-    private void thongKeSachComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_thongKeSachComboBoxItemStateChanged
-        // TODO add your handling code here:
+    private void thongKeSachComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         if(thongKeSachComboBox.getSelectedIndex() == 0){
             khoiTaoBang("", THONG_KE_SACH_MUON_NHIEU_NHAT);
         } else {
             khoiTaoBang("", THONG_KE_SACH_DANG_DUOC_MUON);
         }
-    }//GEN-LAST:event_thongKeSachComboBoxItemStateChanged
+    }
 
-    private void thongKeSachComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeSachComboBoxMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_thongKeSachComboBoxMouseClicked
-
-    private void thongKeSachComboBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeSachComboBoxMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_thongKeSachComboBoxMousePressed
-
-    private void thongKeSachComboBoxMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thongKeSachComboBoxMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_thongKeSachComboBoxMouseReleased
-
-    private void theLoaiComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_theLoaiComboBoxItemStateChanged
-        // TODO add your handling code here:
+    private void theLoaiComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         traCuuTenLoaiSach = (String) theLoaiComboBox.getSelectedItem();
         khoiTaoBang("", TRA_CUU);
-    }//GEN-LAST:event_theLoaiComboBoxItemStateChanged
+    }
 
-    private void nhaXuatBanComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nhaXuatBanComboBoxItemStateChanged
-        // TODO add your handling code here:
+    private void nhaXuatBanComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         traCuuNhaXuatBan = (String) nhaXuatBanComboBox.getSelectedItem();
         khoiTaoBang("", TRA_CUU);
-    }//GEN-LAST:event_nhaXuatBanComboBoxItemStateChanged
+    }
 
-    private void namComBoBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_namComBoBoxItemStateChanged
-        // TODO add your handling code here:
+    private void namComBoBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         traCuuNamXuatBan = (((String) namComBoBox.getSelectedItem()).length() == 0) ? -1 : Integer.parseInt(namComBoBox.getSelectedItem().toString());
         khoiTaoBang("", TRA_CUU);
-    }//GEN-LAST:event_namComBoBoxItemStateChanged
+    }
 
-    private void tacGiaComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tacGiaComboBoxItemStateChanged
-        // TODO add your handling code here:
+    private void tacGiaComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {
         traCuuTacGia = (String) tacGiaComboBox.getSelectedItem();
         khoiTaoBang("", TRA_CUU);
-    }//GEN-LAST:event_tacGiaComboBoxItemStateChanged
+    }
 
-    private void QuanLyDocGiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyDocGiaMouseClicked
-        // TODO add your handling code here:
+    private void QuanLyDocGiaMouseClicked(java.awt.event.MouseEvent evt) {
         selectedRowIndex = -1;
         maDocGia.setText("");
         tenDocGia.setText("");
@@ -1387,13 +1265,10 @@ public class TrangChu extends javax.swing.JFrame {
         sdtDocGia.setText("");
         ngaySinhDocGia.setCalendar(null);
         namRadioButton.setSelected(!namRadioButton.isSelected());
-//        nuRadioButton.setSelected(!nuRadioButton.isSelected());
         hoDocGia.requestFocus();
+    }
 
-    }//GEN-LAST:event_QuanLyDocGiaMouseClicked
-
-    private void QuanLySachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLySachMouseClicked
-        // TODO add your handling code here:
+    private void QuanLySachMouseClicked(java.awt.event.MouseEvent evt) {
         selectedRowIndex = -1;
         maDauSach.setText("");
         tenSach.setText("");
@@ -1402,20 +1277,21 @@ public class TrangChu extends javax.swing.JFrame {
         nhaXuatBan.setText("");
         namXuatBan.setText("");
         maDauSach.requestFocus();
-    }//GEN-LAST:event_QuanLySachMouseClicked
+    }
 
     private void tenSachKeyTyped(java.awt.event.KeyEvent evt) {
-        // TODO add your handling code here:
         String prefixName = "";
         char c = evt.getKeyChar();
         String currText = tenDocGia.getText();
         if (Character.isAlphabetic(c) || c == ' ') {
             prefixName = currText + c;
         } else if (c == java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            if (currText.length() >= 1)
+            if (currText.length() >= 1) {
                 prefixName = currText.substring(0, currText.length() - 1);
-            else
+            }
+            else {
                 prefixName = "";
+            }
         } else {
             evt.consume();
             prefixName = currText;
@@ -1424,7 +1300,6 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     private void timKiemSachKeyTyped(java.awt.event.KeyEvent evt) {
-        // TODO add your handling code here:
         System.out.println(traCuuTenSach);
         String prefixName = "";
         char c = evt.getKeyChar();
@@ -1432,10 +1307,12 @@ public class TrangChu extends javax.swing.JFrame {
         if (Character.isAlphabetic(c) || c == ' ') {
             prefixName = currText + c;
         } else if (c == java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            if (currText.length() >= 1)
+            if (currText.length() >= 1) {
                 prefixName = currText.substring(0, currText.length() - 1);
-            else
+            }
+            else {
                 prefixName = "";
+            }
         } else {
             evt.consume();
             prefixName = currText;
@@ -1454,13 +1331,11 @@ public class TrangChu extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Độc giả này đang bị khóa");
             } else {
                 this.setEnabled(false);
-//                System.out.println(Integer.parseInt(docGiaMuonTraSachTable.getValueAt(selectedRowIndex, 0).toString()));
                 DocGiaMuonTra docGiaMuonTra = new DocGiaMuonTra(Integer.parseInt(docGiaMuonTraSachTable.getValueAt(selectedRowIndex, 0).toString()),  true);
                 docGiaMuonTra.setVisible(true);
                 docGiaMuonTra.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(WindowEvent windowEvent) {
-                        //                    danhMucSach.setVisible(false);
                         docGiaMuonTra.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
                     }
                 });
@@ -1471,8 +1346,7 @@ public class TrangChu extends javax.swing.JFrame {
         }
     }
 
-    private void traSachButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
+    private void traSachButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if(selectedRowIndex >= 0){
             this.setEnabled(false);
             DocGiaMuonTra docGiaMuonTra = new DocGiaMuonTra(Integer.parseInt(docGiaMuonTraSachTable.getValueAt(selectedRowIndex, 0).toString()),  false);
@@ -1480,7 +1354,6 @@ public class TrangChu extends javax.swing.JFrame {
             docGiaMuonTra.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent windowEvent) {
-                    //                    danhMucSach.setVisible(false);
                     docGiaMuonTra.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
                 }
             });
@@ -1530,6 +1403,20 @@ public class TrangChu extends javax.swing.JFrame {
         khoiTaoBang(prefixName, QUAN_LY_DOC_GIA);
     }
 
+    private void sdtDocGiaKeyTyped(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if(((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)){
+            evt.consume();
+        }
+    }
+
+    private void namXuatBanKeyTyped(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if(((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)){
+            evt.consume();
+        }
+    }
+
     private void tenDocGiaKeyTyped(java.awt.event.KeyEvent evt) {
         dangNhapTai = (hoDocGia.getText().length() == 0) ? 1 : 2;
         String prefixName = "";
@@ -1538,10 +1425,12 @@ public class TrangChu extends javax.swing.JFrame {
         if (Character.isAlphabetic(c) || c == ' ') {
             prefixName = currText + c;
         } else if (c == java.awt.event.KeyEvent.VK_BACK_SPACE) {
-            if (currText.length() >= 1)
+            if (currText.length() >= 1) {
                 prefixName = currText.substring(0, currText.length() - 1);
-            else
+            }
+            else {
                 prefixName = "";
+            }
         } else {
             evt.consume();
             prefixName = currText;
@@ -1564,11 +1453,11 @@ public class TrangChu extends javax.swing.JFrame {
                 for(DocGia item:xuLyQuanLyDocGia.getDanhSachDocGia()){
                     if(prefixName.length() > 0){
                         if(dangNhapTai == 0){
-                            if(StringUtils.removeAccent(item.getHoDocGia()).toLowerCase().startsWith(prefixName)){
+                            if(StringUtils.removeAccent(item.getHoDocGia()).toLowerCase().startsWith(prefixName.toLowerCase())){
                                 modelManagement.addRow(new String[] {String.valueOf(item.getMaDocGia()), item.getHoDocGia(), item.getTenDocGia(), item.getGioiTinhDocGia() ? "Nữ" : "Nam", item.getNgaySinhDocGia(), item.getEmailDocGia(), item.getSdtDocGia(), item.getHoatDong() ? "Hoạt động" : "Bị khóa"});
                             }
                         } else {
-                            if(StringUtils.removeAccent(item.getTenDocGia()).toLowerCase().startsWith(prefixName)){
+                            if(StringUtils.removeAccent(item.getTenDocGia()).toLowerCase().startsWith(prefixName.toLowerCase())){
                                 modelManagement.addRow(new String[] {String.valueOf(item.getMaDocGia()), item.getHoDocGia(), item.getTenDocGia(), item.getGioiTinhDocGia() ? "Nữ" : "Nam", item.getNgaySinhDocGia(), item.getEmailDocGia(), item.getSdtDocGia(), item.getHoatDong() ? "Hoạt động" : "Bị khóa"});
                             }
                         }
@@ -1586,7 +1475,7 @@ public class TrangChu extends javax.swing.JFrame {
                 modelManagement.setColumnIdentifiers(new String []{"Mã độc giả", "Họ",  "Tên", "Giới tính", "Ngày sinh", "Email", "SÐT", "Trạng thái"});
                 for(DocGia item:xuLyQuanLyDocGia.getDanhSachDocGia()){
                     if(prefixName.length() > 0){
-                        if(StringUtils.removeAccent(String.valueOf(item.getMaDocGia())).toLowerCase().startsWith(prefixName)){
+                        if(StringUtils.removeAccent(String.valueOf(item.getMaDocGia())).toLowerCase().startsWith(prefixName.toLowerCase())){
                             modelManagement.addRow(new String[] {String.valueOf(item.getMaDocGia()), item.getHoDocGia(), item.getTenDocGia(), item.getGioiTinhDocGia() ? "Nữ" : "Nam", item.getNgaySinhDocGia(), item.getEmailDocGia(), item.getSdtDocGia(), item.getHoatDong() ? "Hoạt động" : "Bị khóa"});
                         }
                     } else {
@@ -1661,7 +1550,7 @@ public class TrangChu extends javax.swing.JFrame {
                 modelManagement.setColumnIdentifiers(new String []{"ISBN", "Tên sách",  "Thể loại", "Tác giả", "Nhà xuất bản", "Năm xuất bản"});
                 for(DauSach item: xuLyQuanLySach.getDanhSachDauSach()){
                     if(prefixName.length() > 0){
-                        if(item.getTenDauSach().startsWith(prefixName)){
+                        if(item.getTenDauSach().startsWith(prefixName.toLowerCase())){
                             modelManagement.addRow(new String[] {item.getISBN(), item.getTenDauSach(), item.getTenLoaiSach(), item.getTacGia(), item.getNhaXuatBan(), String.valueOf(item.getNamXuatBan())});
                         }
                     } else {
@@ -1672,22 +1561,6 @@ public class TrangChu extends javax.swing.JFrame {
                 Process.resizeColumnWidth(quanLySachTable);
                 JTableUtilities.setCellsAlignment(quanLySachTable, SwingConstants.CENTER);
             }
-        }
-    }
-
-
-    private void sdtDocGiaKeyTyped(java.awt.event.KeyEvent evt) {
-        char c = evt.getKeyChar();
-        if(((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)){
-            evt.consume();
-        }
-    }
-
-    private void namXuatBanKeyTyped(java.awt.event.KeyEvent evt) {                                    
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-        if(((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)){
-            evt.consume();
         }
     }
 
@@ -1729,14 +1602,12 @@ public class TrangChu extends javax.swing.JFrame {
         nhaXuatBan.setText(model.getValueAt(selectedRowIndex, 4).toString());
         namXuatBan.setText(model.getValueAt(selectedRowIndex, 5).toString());
         if(evt.getClickCount() == 2){
-            // code
             this.setEnabled(false);
             DanhMucSach danhMucSach = new DanhMucSach(maDauSach.getText(), tenSach.getText());
             danhMucSach.setVisible(true);
             danhMucSach.addWindowListener(new java.awt.event.WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent windowEvent) {
-//                    danhMucSach.setVisible(false);
                     danhMucSach.setDefaultCloseOperation(javax.swing.JFrame.DISPOSE_ON_CLOSE);
                 }
             });
@@ -1775,13 +1646,13 @@ public class TrangChu extends javax.swing.JFrame {
         if(selectedRowIndex >= 0){
             int confirm = JOptionPane.showConfirmDialog(null,"Bạn có chắc chắn muốn xóa", "Confirm", JOptionPane.YES_NO_OPTION);
             if(confirm == JOptionPane.YES_OPTION){
-                Connection con = SQLConnection.openConnection();
+                Connection connection = SQLConnection.openConnection();
                 String query = "DELETE FROM dbo.DOCGIA WHERE MaDocGia=?";
                 try {
-                    assert con != null;
-                    PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-                    pstmt.setString(1, modelManagement.getValueAt(selectedRowIndex, 0).toString());
-                    pstmt.executeUpdate();
+                    assert connection != null;
+                    PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                    preparedStatement.setString(1, modelManagement.getValueAt(selectedRowIndex, 0).toString());
+                    preparedStatement.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Xóa độc giả thành công");
                     khoiTaoBang("", QUAN_LY_DOC_GIA);
                     maDocGia.setText("");
@@ -1793,6 +1664,8 @@ public class TrangChu extends javax.swing.JFrame {
                     namRadioButton.setSelected(!namRadioButton.isSelected());
                     nuRadioButton.setSelected(!nuRadioButton.isSelected());
                     hoDocGia.requestFocus();
+                    preparedStatement.close();
+                    connection.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -1804,7 +1677,7 @@ public class TrangChu extends javax.swing.JFrame {
 
     private void chinhSuaDocGiaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if(selectedRowIndex >= 0){
-            Connection con = SQLConnection.openConnection();
+            Connection connection = SQLConnection.openConnection();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String date = sdf.format(ngaySinhDocGia.getDate());
             String txtReaderLastName = hoDocGia.getText();
@@ -1818,11 +1691,12 @@ public class TrangChu extends javax.swing.JFrame {
             if(!date.equals("") && !txtReaderFirstName.equals("") && !txtReaderLastName.equals("") && !txtEmail.equals("") && !txtPhoneNumber.equals("")){
                 String query = "UPDATE dbo.DOCGIA SET Ho=?, Ten=?, GioiTinh=?, NgaySinh=?, Email=?, SDT=?, TrangThai=? WHERE MaDocGia = ?";
                 try {
-                    PreparedStatement pstmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                    assert connection != null;
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
                     for(int i = 1; i <= 8; i++){
-                        pstmt.setString(i, listTxt[i - 1]);
+                        preparedStatement.setString(i, listTxt[i - 1]);
                     }
-                    int addSuccess = pstmt.executeUpdate();
+                    int addSuccess = preparedStatement.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Chỉnh sửa độc giả thành công");
                     khoiTaoBang("", QUAN_LY_DOC_GIA);
                     tenDocGia.setText("");
@@ -1833,6 +1707,8 @@ public class TrangChu extends javax.swing.JFrame {
                     namRadioButton.setSelected(!namRadioButton.isSelected());
                     nuRadioButton.setSelected(!nuRadioButton.isSelected());
                     hoDocGia.requestFocus();
+                    preparedStatement.close();
+                    connection.close();
                 } catch (SQLException ex) {
                     Logger.getLogger(TrangChu.class.getName()).log(Level.SEVERE, null, ex);
                 }
