@@ -304,7 +304,7 @@ public class DanhMucSach extends javax.swing.JFrame {
         modelManagement.setRowCount(0);
         danhMucSachTable.setModel(modelManagement);
         modelManagement.setRowCount(0);
-        modelManagement.setColumnIdentifiers(new String []{"ISBN", "Tên sách", "Mã sách",  "Trạng thái"});
+        modelManagement.setColumnIdentifiers(new String []{"ISBN", "Tên sách", "Mã danh mục sách",  "Trạng thái"});
         for(DanhMucSachModel item: xuLyDanhMucSach.getDanhsachDanhMucSach()){
             modelManagement.addRow(new String[] {item.getMaDauSach(), tenSach, item.getMaDanhMucSach(), item.getTrangThaiSach() == 0 ? "Sẵn sàng" : item.getTrangThaiSach() == 1 ? "Đang mượn" : "Thanh lý / Mất"});
         }

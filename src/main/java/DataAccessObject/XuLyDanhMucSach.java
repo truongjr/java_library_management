@@ -22,7 +22,7 @@ public class XuLyDanhMucSach {
             preparedStatement.setString(1, maDauSachParent);
             ResultSet res = preparedStatement.executeQuery();
             while(res.next()){
-                danhsachDanhMucSach.add(new DanhMucSachModel(res.getString("ISBN"), res.getString("MaDanhMucSach"), res.getString("TrangThai").equals("0") ? 0 : res.getString("TrangThai").equals("1") ? 1 : 2));
+                danhsachDanhMucSach.add(new DanhMucSachModel(res.getString("MaDanhMucSach"), res.getString("ISBN"), res.getString("TrangThai").equals("0") ? 0 : res.getString("TrangThai").equals("1") ? 1 : 2));
             }
             res.close();
             preparedStatement.close();
@@ -38,9 +38,9 @@ public class XuLyDanhMucSach {
 
     public int themDanhMucSach(){
         if(danhsachDanhMucSach.size() > 0){
-            danhsachDanhMucSach.add(new DanhMucSachModel(danhsachDanhMucSach.get(0).getMaDauSach(),danhsachDanhMucSach.get(0).getMaDanhMucSach() + "-" + String.valueOf(danhsachDanhMucSach.size() - 1),  0));
+            danhsachDanhMucSach.add(new DanhMucSachModel(maDauSach + "-" + String.valueOf(danhsachDanhMucSach.size()), maDauSach,  0));
         } else {
-            danhsachDanhMucSach.add(new DanhMucSachModel( maDauSach, maDauSach + "-0", 0));
+            danhsachDanhMucSach.add(new DanhMucSachModel(maDauSach + "-0", maDauSach,  0));
         }
         int soLuongDanhMucSach = danhsachDanhMucSach.size();
         Connection connection = SQLConnection.openConnection();

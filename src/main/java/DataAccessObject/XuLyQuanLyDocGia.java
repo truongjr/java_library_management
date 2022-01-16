@@ -129,7 +129,7 @@ public class XuLyQuanLyDocGia {
     }
     public int chinhSuaDocGia(int maDocGia, String ho, String ten, boolean gioiTinh, java.util.Date ngaySinh, String email, String sdt, boolean hoatDong) {
         ChuanHoaChuoi chuanHoa = new ChuanHoaChuoi(ho);
-        chuanHoa.chuanHoaCap3();
+        chuanHoa.chuanHoaCap4();
         ho = chuanHoa.getString();
         if (ho.equals("")) {
             return LOI_HO;
@@ -140,9 +140,9 @@ public class XuLyQuanLyDocGia {
         if (ten.equals("")) {
             return LOI_TEN;
         }
-//        if (ngaySinh.equals("")) {
-//            return LOI_NGAY_SINH;
-//        }
+        if (ngaySinh.equals("")) {
+            return LOI_NGAY_SINH;
+        }
         chuanHoa.setString(email);
         chuanHoa.chuanHoaCap1();
         email = chuanHoa.getString();
