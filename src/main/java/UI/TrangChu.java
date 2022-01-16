@@ -8,6 +8,7 @@ import DataAccessObject.*;
 
 import java.awt.event.KeyEvent;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import model.*;
 
 import java.awt.event.WindowEvent;
@@ -404,7 +405,8 @@ public class TrangChu extends javax.swing.JFrame {
 
     ngaySinhDocGia.setBackground(new java.awt.Color(255, 255, 255));
     ngaySinhDocGia.setForeground(new java.awt.Color(0, 0, 0));
-//    ngaySinhDocGia.setEnabled(false);
+    JTextFieldDateEditor editor = (JTextFieldDateEditor)ngaySinhDocGia.getDateEditor();
+    editor.setEditable(false);
 
     javax.swing.GroupLayout QuanLyDocGiaLayout = new javax.swing.GroupLayout(QuanLyDocGia);
     QuanLyDocGia.setLayout(QuanLyDocGiaLayout);
