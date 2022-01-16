@@ -1726,7 +1726,7 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     private void themSachButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        int status = xuLyQuanLySach.themSach(maDauSach.getText().toString(), tenSach.getText().toString(), theLoaiSach.getText().toString(), tacGia.getText().toString(), nhaXuatBan.getText().toString(), namXuatBan.getText().toString());
+        int status = xuLyQuanLySach.themSach(maDauSach.getText(), tenSach.getText(), theLoaiSach.getText(), tacGia.getText(), nhaXuatBan.getText(), namXuatBan.getText());
         if(status == XuLyQuanLySach.LOI_ISBN){
             JOptionPane.showMessageDialog(null, "Hãy nhập lại mã đầu sách");
             maDauSach.setText("");
@@ -1779,7 +1779,7 @@ public class TrangChu extends javax.swing.JFrame {
 
     private void chinhSuaSachButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if(selectedRowIndex >= 0){
-            int status = xuLyQuanLySach.chinhSuaSach(maDauSach.getText(), tenSach.getText(), theLoaiSach.getText(), tacGia.getText(), nhaXuatBan.getText(), Integer.parseInt(namXuatBan.getText()));
+            int status = xuLyQuanLySach.chinhSuaSach(maDauSach.getText(), tenSach.getText(), theLoaiSach.getText(), tacGia.getText(), nhaXuatBan.getText(), namXuatBan.getText());
             if(status == XuLyQuanLySach.LOI_ISBN){
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại mã đầu sách");
                 maDauSach.setText("");
