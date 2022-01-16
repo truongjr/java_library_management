@@ -6,7 +6,6 @@ import com.toedter.calendar.JDateChooser;
 import model.DocGia;
 import process.ChuanHoaChuoi;
 
-import javax.print.Doc;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -72,11 +71,13 @@ public class XuLyQuanLyDocGia {
         if (ten.equals("")) {
             return LOI_TEN;
         }
-//        chuanHoa.setString(ngaySinh);
-//        chuanHoa.chuanHoaCap1();
-//        ngaySinh = chuanHoa.getString();
-        if (ngaySinh.toString().equals("")) {
+        if (ngaySinh.toString().equals("") || ngaySinh.toString() == null) {
             return LOI_NGAY_SINH;
+        } else {
+            java.util.Date now = new java.util.Date();
+            if (ngaySinh.after(now)) {
+                return LOI_NGAY_SINH;
+            }
         }
         chuanHoa.setString(email);
         chuanHoa.chuanHoaCap1();
@@ -95,7 +96,7 @@ public class XuLyQuanLyDocGia {
         if (sdt.equals("")) {
             return LOI_SDT;
         } else {
-            if (sdt.length() < 10 || sdt.length() > 11) {
+            if (sdt.length() < 10 || sdt.length() > 11 || !sdt.startsWith("0")) {
                 return LOI_SDT;
             }
         }
@@ -113,12 +114,12 @@ public class XuLyQuanLyDocGia {
             preparedStatement.setString(2, ho);
             preparedStatement.setString(3, ten);
             preparedStatement.setBoolean(4, gioiTinh);
-            preparedStatement.setDate(5, new java.sql.Date(ngaySinh.getTime()));
+            preparedStatement.setDate(5, new Date(ngaySinh.getTime()));
             preparedStatement.setString(6, email);
             preparedStatement.setString(7, sdt);
             preparedStatement.setString(8,"1");
             preparedStatement.executeUpdate();
-            danhSachDocGia.add(new DocGia(maDocGia, ho, ten, gioiTinh, (new java.sql.Date(ngaySinh.getTime())).toString(), email, sdt, true));
+            danhSachDocGia.add(new DocGia(maDocGia, ho, ten, gioiTinh, (new Date(ngaySinh.getTime())).toString(), email, sdt, true));
             preparedStatement.close();
             connection.close();
             return THANH_CONG;
@@ -140,8 +141,13 @@ public class XuLyQuanLyDocGia {
         if (ten.equals("")) {
             return LOI_TEN;
         }
-        if (ngaySinh.equals("")) {
+        if (ngaySinh.toString().equals("") || ngaySinh.toString() == null) {
             return LOI_NGAY_SINH;
+        } else {
+            java.util.Date now = new java.util.Date();
+            if (ngaySinh.after(now)) {
+                return LOI_NGAY_SINH;
+            }
         }
         chuanHoa.setString(email);
         chuanHoa.chuanHoaCap1();
@@ -160,7 +166,7 @@ public class XuLyQuanLyDocGia {
         if (sdt.equals("")) {
             return LOI_SDT;
         } else {
-            if (sdt.length() < 10 || sdt.length() > 11) {
+            if (sdt.length() < 10 || sdt.length() > 11 || !sdt.startsWith("0")) {
                 return LOI_SDT;
             }
         }
@@ -172,7 +178,7 @@ public class XuLyQuanLyDocGia {
             preparedStatement.setString(1, ho);
             preparedStatement.setString(2, ten);
             preparedStatement.setBoolean(3, gioiTinh);
-            preparedStatement.setDate(4, new java.sql.Date(ngaySinh.getTime()));
+            preparedStatement.setDate(4, new Date(ngaySinh.getTime()));
             preparedStatement.setString(5, email);
             preparedStatement.setString(6, sdt);
             preparedStatement.setString(7, hoatDong ? "1" : "0");
@@ -180,7 +186,7 @@ public class XuLyQuanLyDocGia {
             preparedStatement.executeUpdate();
             for(int i = 0; i < danhSachDocGia.size(); i++){
                 if(danhSachDocGia.get(i).getMaDocGia() == maDocGia){
-                    danhSachDocGia.set(i, new DocGia(maDocGia, ho, ten, gioiTinh, (new java.sql.Date(ngaySinh.getTime())).toString(), email, sdt, hoatDong));
+                    danhSachDocGia.set(i, new DocGia(maDocGia, ho, ten, gioiTinh, (new Date(ngaySinh.getTime())).toString(), email, sdt, hoatDong));
                     break;
                 }
             }

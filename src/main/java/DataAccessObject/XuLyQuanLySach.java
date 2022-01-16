@@ -4,11 +4,15 @@ import DataAccessObject.SQLConnection;
 import UI.TrangChu;
 import model.DanhMucSachModel;
 import model.DauSach;
+import process.ChuanHoaChuoi;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 
 public class XuLyQuanLySach {
     private ArrayList<DauSach> danhSachDauSach;
@@ -52,23 +56,51 @@ public class XuLyQuanLySach {
     }
 
     public int themSach(String ISBN, String tenDauSach, String tenLoaiSach, String tacGia, String nhaXuatBan, String namXuatBan){
+        ChuanHoaChuoi chuanHoaChuoi = new ChuanHoaChuoi(ISBN);
+        chuanHoaChuoi.chuanHoaCap5();
+        ISBN = chuanHoaChuoi.getString();
         if(ISBN.equals("")){
             return LOI_ISBN;
         }
+        chuanHoaChuoi.setString(tenDauSach);
+        chuanHoaChuoi.chuanHoaCap4();
+        tenDauSach = chuanHoaChuoi.getString();
         if(tenDauSach.equals("")){
             return LOI_TEN_SACH;
         }
+        chuanHoaChuoi.setString(tenLoaiSach);
+        chuanHoaChuoi.chuanHoaCap3();
+        tenLoaiSach = chuanHoaChuoi.getString();
         if(tenLoaiSach.equals("")){
             return LOI_THE_LOAI;
         }
+        chuanHoaChuoi.setString(tacGia);
+        chuanHoaChuoi.chuanHoaCap4();
+        tacGia = chuanHoaChuoi.getString();
         if(tacGia.equals("")){
             return LOI_TAC_GIA;
         }
+        chuanHoaChuoi.setString(nhaXuatBan);
+        chuanHoaChuoi.chuanHoaCap5();
+        nhaXuatBan = chuanHoaChuoi.getString();
         if(nhaXuatBan.equals("")){
             return LOI_NHA_XUAT_BAN;
         }
+        chuanHoaChuoi.setString(namXuatBan);
+        chuanHoaChuoi.chuanHoaCap1();
+        namXuatBan = chuanHoaChuoi.getString();
         if(namXuatBan.equals("")){
             return LOI_NAM_XUAT_BAN;
+        } else {
+            Date bayGio = new Date();
+            try {
+                Date namDuocChon = (Date) new SimpleDateFormat("yyyy").parse(namXuatBan);
+                if (namDuocChon.after(bayGio)) {
+                    return LOI_NAM_XUAT_BAN;
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
         for(DauSach it:danhSachDauSach){
             if(ISBN.equals(it.getISBN())){
@@ -98,10 +130,7 @@ public class XuLyQuanLySach {
         }
         return LOI_BAT_DINH;
     }
-    public int chinhSuaSach(int index, String ISBN, String tenSach, String theLoai, String tacGia, String nhaXuatBan, String namXuatBan){
-        if(ISBN.equals("")){
-            return LOI_ISBN;
-        }
+    public int chinhSuaSach(String ISBN, String tenSach, String theLoai, String tacGia, String nhaXuatBan, int namXuatBan){
         if(tenSach.equals("")){
             return LOI_TEN_SACH;
         }
@@ -114,27 +143,34 @@ public class XuLyQuanLySach {
         if(nhaXuatBan.equals("")){
             return LOI_NHA_XUAT_BAN;
         }
-        if(namXuatBan.equals("")){
+        if(String.valueOf(namXuatBan).equals("")){
             return LOI_NAM_XUAT_BAN;
         }
-        for(DauSach it:danhSachDauSach){
-            if(ISBN.equals(it.getISBN())){
-                return LOI_ISBN_TRUNG;
-            }
-        }
-        danhSachDauSach.set(index, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, Integer.parseInt(namXuatBan)));
+//        for(DauSach it:danhSachDauSach){
+//            if(ISBN.equals(it.getISBN())){
+//                return LOI_ISBN_TRUNG;
+//            }
+//        }
+
         Connection connection = SQLConnection.openConnection();
         String query = "UPDATE dbo.DAUSACH SET TenLoaiSach=?, TenDauSach=?, TacGia=?, NhaXuatBan=?, NamXuatBan=? WHERE ISBN = ?";
         try {
             assert connection != null;
-            PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(6, ISBN);
             preparedStatement.setString(1, theLoai);
             preparedStatement.setString(2, tenSach);
             preparedStatement.setString(3, tacGia);
             preparedStatement.setString(4, nhaXuatBan);
-            preparedStatement.setInt(5, Integer.parseInt(namXuatBan));
+            preparedStatement.setInt(5, namXuatBan);
             preparedStatement.executeUpdate();
+            for(int i = 0; i < danhSachDauSach.size(); i++){
+                if(ISBN.equals(danhSachDauSach.get(i).getISBN())){
+                    System.out.println(namXuatBan);
+                    danhSachDauSach.set(i, new DauSach(ISBN, tenSach, theLoai, tacGia, nhaXuatBan, namXuatBan));
+                    break;
+                }
+            }
             preparedStatement.close();
             connection.close();
             return THANH_CONG;

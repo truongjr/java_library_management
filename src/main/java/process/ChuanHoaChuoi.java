@@ -31,6 +31,12 @@ public class ChuanHoaChuoi {
                 string += " ";
         }
     }
+    public void chuanHoaCap5() { // viết hoa toàn bộ các ký tự
+        chuanHoaCap2();
+        if (string.isEmpty()) return;
+        string = string.toUpperCase();
+    }
+
     public void setString(String string) {
         this.string = string;
     }

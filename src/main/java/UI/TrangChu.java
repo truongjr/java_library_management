@@ -404,6 +404,7 @@ public class TrangChu extends javax.swing.JFrame {
 
     ngaySinhDocGia.setBackground(new java.awt.Color(255, 255, 255));
     ngaySinhDocGia.setForeground(new java.awt.Color(0, 0, 0));
+//    ngaySinhDocGia.setEnabled(false);
 
     javax.swing.GroupLayout QuanLyDocGiaLayout = new javax.swing.GroupLayout(QuanLyDocGia);
     QuanLyDocGia.setLayout(QuanLyDocGiaLayout);
@@ -1501,7 +1502,7 @@ public class TrangChu extends javax.swing.JFrame {
                 Process.resizeColumnWidth(traCuuTable);
                 JTableUtilities.setCellsAlignment(traCuuTable, SwingConstants.CENTER);
             }
-            default -> {
+            case QUAN_LY_SACH -> {
                 quanLySachTable.setModel(modelManagement);
                 modelManagement.setRowCount(0);
                 quanLySachTable.setModel(modelManagement);
@@ -1551,7 +1552,8 @@ public class TrangChu extends javax.swing.JFrame {
         sdtDocGia.setText(model.getValueAt(selectedRowIndex, 6).toString());
     }
 
-    private void quanLySachTableMouseClicked(java.awt.event.MouseEvent evt) {                                             
+    private void quanLySachTableMouseClicked(java.awt.event.MouseEvent evt) {
+        maDauSach.setEnabled(false);
         DefaultTableModel model = (DefaultTableModel)quanLySachTable.getModel();
         selectedRowIndex = quanLySachTable.getSelectedRow();
         maDauSach.setText(model.getValueAt(selectedRowIndex, 0).toString());
@@ -1762,7 +1764,6 @@ public class TrangChu extends javax.swing.JFrame {
             maDauSach.requestFocus();
         } else if(status == XuLyQuanLySach.THANH_CONG){
             JOptionPane.showMessageDialog(null, "Thêm đầu sách thành công");
-            khoiTaoBang("", QUAN_LY_SACH);
             maDauSach.setText("");
             tenSach.setText("");
             theLoaiSach.setText("");
@@ -1771,11 +1772,12 @@ public class TrangChu extends javax.swing.JFrame {
             namXuatBan.setText("");
             maDauSach.requestFocus();
         }
+        khoiTaoBang("", QUAN_LY_SACH);
     }
 
     private void chinhSuaSachButtonActionPerformed(java.awt.event.ActionEvent evt) {
         if(selectedRowIndex >= 0){
-            int status = xuLyQuanLySach.chinhSuaSach(selectedRowIndex, maDauSach.getText().toString(), tenSach.getText().toString(), theLoaiSach.getText().toString(), tacGia.getText().toString(), nhaXuatBan.getText().toString(), namXuatBan.getText());
+            int status = xuLyQuanLySach.chinhSuaSach(maDauSach.getText(), tenSach.getText(), theLoaiSach.getText(), tacGia.getText(), nhaXuatBan.getText(), Integer.parseInt(namXuatBan.getText()));
             if(status == XuLyQuanLySach.LOI_ISBN){
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại mã đầu sách");
                 maDauSach.setText("");
@@ -1818,6 +1820,7 @@ public class TrangChu extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Hãy chọn đầu sách cần chỉnh sửa");
         }
+        khoiTaoBang("", QUAN_LY_SACH);
     }
 
     private void xoaSachButtonActionPerformed(java.awt.event.ActionEvent evt) {                                              
@@ -1830,7 +1833,6 @@ public class TrangChu extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Đã xảy ra lỗi");
             }
-            khoiTaoBang("", QUAN_LY_SACH);
             maDauSach.setText("");
             tenSach.setText("");
             theLoaiSach.setText("");
@@ -1839,6 +1841,7 @@ public class TrangChu extends javax.swing.JFrame {
             namXuatBan.setText("");
             maDauSach.requestFocus();
         }
+        khoiTaoBang("", QUAN_LY_SACH);
     }
 
     public static void main(String args[]) {
