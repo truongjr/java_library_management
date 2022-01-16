@@ -1233,6 +1233,7 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     private void QuanLySachMouseClicked(java.awt.event.MouseEvent evt) {
+        maDauSach.setEnabled(true);
         selectedRowIndex = -1;
         maDauSach.setText("");
         tenSach.setText("");
