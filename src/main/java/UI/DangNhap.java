@@ -4,13 +4,10 @@
  */
 package UI;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import DataAccessObject.SQLConnection;
 
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -202,8 +199,9 @@ public class DangNhap extends javax.swing.JFrame {
             Connection connection = SQLConnection.openConnection();
             String query = "SELECT * FROM [dbo].[THONGTINDANGNHAP]";
             try {
-                Statement statement = connection.createStatement();
-                ResultSet res = statement.executeQuery(query);
+                assert connection != null;
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                ResultSet res = preparedStatement.executeQuery();
                 boolean isSuccess = false;
                 while(res.next()){
                     if(res.getString("TenDangNhap").equals(userName) && res.getString("MatKhau").equals(password)){
@@ -211,7 +209,7 @@ public class DangNhap extends javax.swing.JFrame {
                         break;
                     }
                 }
-                statement.close();
+                preparedStatement.close();
                 res.close();
                 connection.close();
 
@@ -246,8 +244,9 @@ public class DangNhap extends javax.swing.JFrame {
                 Connection connection = SQLConnection.openConnection();
                 String query = "SELECT * FROM [dbo].[THONGTINDANGNHAP]";
                 try {
-                    Statement statement = connection.createStatement();
-                    ResultSet res = statement.executeQuery(query);
+                    assert connection != null;
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    ResultSet res = preparedStatement.executeQuery();
                     boolean isSuccess = false;
                     while(res.next()){
                         if(res.getString("TenDangNhap").equals(userName) && res.getString("MatKhau").equals(password)){
@@ -255,7 +254,7 @@ public class DangNhap extends javax.swing.JFrame {
                             break;
                         }
                     }
-                    statement.close();
+                    preparedStatement.close();
                     res.close();
                     connection.close();
                     

@@ -36,7 +36,6 @@ public class TrangChu extends javax.swing.JFrame {
     private final int THONG_KE_SACH_MUON_NHIEU_NHAT = 8;
     private final int THONG_KE_SACH_DANG_DUOC_MUON = 9;
     private int dangNhapTai = 0;
-    private boolean thongKeDocGiaQuaHan = true;
     private final int TRA_CUU = 10;
     private String traCuuTenSach = "";
     private String traCuuTenLoaiSach = "";
