@@ -169,7 +169,6 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
             modelManagement.setColumnIdentifiers(new String []{"Mã phiếu mượn", "Tên đầu sách", "Mã danh mục sách", "Ngày mượn", "Ngày trả", "Trạng thái"});
             for(ArrayList<String> item:xuLyTra.getDataJoin()){
                 if(item.get(1).startsWith(prefix)){
-                    System.out.println("lol");
                     modelManagement.addRow(new String[]{item.get(0), item.get(1), item.get(2), item.get(3), item.get(4), item.get(5)});
                 }
             }

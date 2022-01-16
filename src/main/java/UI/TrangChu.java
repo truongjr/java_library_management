@@ -82,6 +82,11 @@ public class TrangChu extends javax.swing.JFrame {
             tacGiaComboBox.addItem(item);
         }
         khoiTaoBang("", QUAN_LY_DOC_GIA);
+        khoiTaoBang("", QUAN_LY_SACH);
+        khoiTaoBang("", QUAN_LY_MUON_TRA);
+        khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
+        khoiTaoBang("", THONG_KE_SACH_MUON_NHIEU_NHAT);
+        khoiTaoBang("", TRA_CUU);
     }
 
     @SuppressWarnings("unchecked")
@@ -829,11 +834,6 @@ public class TrangChu extends javax.swing.JFrame {
     tabThongKe.setBackground(new java.awt.Color(255, 255, 255));
     tabThongKe.setForeground(new java.awt.Color(0, 0, 0));
     tabThongKe.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-    tabThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            tabThongKeMouseClicked(evt);
-        }
-    });
 
     readerStatistics.setBackground(new java.awt.Color(255, 255, 255));
     readerStatistics.setForeground(new java.awt.Color(0, 0, 0));
@@ -1178,7 +1178,6 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         this.setVisible(false);
         new DangNhap().setVisible(true);
     }
@@ -1188,23 +1187,6 @@ public class TrangChu extends javax.swing.JFrame {
             khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
         } else {
             khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
-        }
-    }
-
-    private void tabThongKeMouseClicked(java.awt.event.MouseEvent evt) {
-        if(tabThongKe.getSelectedIndex() == 0){
-            if(thongKeDocGiaComboBox.getSelectedIndex() == 0){
-                khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
-            }
-            else if(thongKeDocGiaComboBox.getSelectedIndex() == 1){
-                khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
-            }
-        } else {
-            if(thongKeSachComboBox.getSelectedIndex() == 0){
-                khoiTaoBang("", THONG_KE_SACH_MUON_NHIEU_NHAT);
-            } else {
-                khoiTaoBang("", THONG_KE_SACH_DANG_DUOC_MUON);
-            }
         }
     }
 
@@ -1237,7 +1219,6 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     private void QuanLyDocGiaMouseClicked(java.awt.event.MouseEvent evt) {
-        khoiTaoBang("", QUAN_LY_DOC_GIA);
         selectedRowIndex = -1;
         maDocGia.setText("");
         tenDocGia.setText("");
@@ -1250,7 +1231,6 @@ public class TrangChu extends javax.swing.JFrame {
     }
 
     private void QuanLySachMouseClicked(java.awt.event.MouseEvent evt) {
-        khoiTaoBang("", QUAN_LY_SACH);
         selectedRowIndex = -1;
         maDauSach.setText("");
         tenSach.setText("");
@@ -1603,6 +1583,7 @@ public class TrangChu extends javax.swing.JFrame {
         } else if(tabChinh.getSelectedIndex() == 2){
             khoiTaoBang("", QUAN_LY_MUON_TRA);
         } else if(tabChinh.getSelectedIndex() == 3){
+            xuLyThongKe.update();
             if(tabThongKe.getSelectedIndex() == 0){
                 if(thongKeDocGiaComboBox.getSelectedIndex() == 0){
                     khoiTaoBang("", THONG_KE_DOC_GIA_QUA_HAN);
@@ -1611,10 +1592,10 @@ public class TrangChu extends javax.swing.JFrame {
                     khoiTaoBang("", THONG_KE_DOC_GIA_CHUA_TRA);
                 }
             } else {
-                if(thongKeSachComboBox.getSelectedIndex() == 0){
-                    khoiTaoBang("", THONG_KE_SACH_MUON_NHIEU_NHAT);
-                } else {
+                if(thongKeSachComboBox.getSelectedIndex() == 1){
                     khoiTaoBang("", THONG_KE_SACH_DANG_DUOC_MUON);
+                } else {
+                    khoiTaoBang("", THONG_KE_SACH_MUON_NHIEU_NHAT);
                 }
             }
         } else if(tabChinh.getSelectedIndex() == 4){
@@ -1653,33 +1634,38 @@ public class TrangChu extends javax.swing.JFrame {
             switch (status){
                 case XuLyQuanLyDocGia.LOI_HO -> {
                     JOptionPane.showMessageDialog(null, "Hãy nhập lại họ của độc giả");
+                    this.hoDocGia.setText("");
+                    this.hoDocGia.requestFocus();
                 }
                 case XuLyQuanLyDocGia.LOI_TEN -> {
                     JOptionPane.showMessageDialog(null, "Hãy nhập lại tên của độc giả");
+                    this.tenDocGia.setText("");
+                    this.tenDocGia.requestFocus();
                 }
                 case XuLyQuanLyDocGia.LOI_NGAY_SINH -> {
                     JOptionPane.showMessageDialog(null, "Hãy nhập lại ngày sinh của độc giả");
                 }
                 case XuLyQuanLyDocGia.LOI_EMAIL -> {
                     JOptionPane.showMessageDialog(null, "Hãy nhập lại email của độc giả");
+                    this.emailDocGia.setText("");
+                    this.emailDocGia.requestFocus();
                 }
                 case XuLyQuanLyDocGia.LOI_SDT -> {
                     JOptionPane.showMessageDialog(null, "Hãy nhập lại số điện thoại của độc giả");
+                    this.sdtDocGia.setText("");
+                    this.sdtDocGia.requestFocus();
                 }
                 case XuLyQuanLyDocGia.LOI_BAT_DINH ->{
-                    JOptionPane.showMessageDialog(null, "Chỉnh sửa độc giả không thành công");
+                    JOptionPane.showMessageDialog(null, "Thêm độc giả không thành công");
                 }
                 default -> {
                     JOptionPane.showMessageDialog(null, "Chỉnh sửa độc giả thành công");
-                    if(hoDocGia.equals("")){
-                        this.hoDocGia.requestFocus();
-                    } else if(tenDocGia.equals("")){
-                        this.tenDocGia.requestFocus();
-                    } else if(txtEmail.equals("")){
-                        emailDocGia.requestFocus();
-                    } else if(soDienThoaiDocGia.equals("")){
-                        sdtDocGia.requestFocus();
-                    }
+                    this.hoDocGia.setText("");
+                    this.tenDocGia.setText("");
+                    this.emailDocGia.setText("");
+                    this.sdtDocGia.setText("");
+                    this.maDocGia.setText("");
+                    this.hoDocGia.requestFocus();
                 }
             }
         } else {
@@ -1699,33 +1685,38 @@ public class TrangChu extends javax.swing.JFrame {
         switch (status){
             case XuLyQuanLyDocGia.LOI_HO -> {
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại họ của độc giả");
+                this.hoDocGia.setText("");
+                this.hoDocGia.requestFocus();
             }
             case XuLyQuanLyDocGia.LOI_TEN -> {
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại tên của độc giả");
+                this.tenDocGia.setText("");
+                this.tenDocGia.requestFocus();
             }
             case XuLyQuanLyDocGia.LOI_NGAY_SINH -> {
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại ngày sinh của độc giả");
             }
             case XuLyQuanLyDocGia.LOI_EMAIL -> {
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại email của độc giả");
+                this.emailDocGia.setText("");
+                this.emailDocGia.requestFocus();
             }
             case XuLyQuanLyDocGia.LOI_SDT -> {
                 JOptionPane.showMessageDialog(null, "Hãy nhập lại số điện thoại của độc giả");
+                this.sdtDocGia.setText("");
+                this.sdtDocGia.requestFocus();
             }
             case XuLyQuanLyDocGia.LOI_BAT_DINH ->{
                 JOptionPane.showMessageDialog(null, "Thêm độc giả không thành công");
             }
             default -> {
                 JOptionPane.showMessageDialog(null, "Thêm độc giả thành công");
-                if(hoDocGia.equals("")){
-                    this.hoDocGia.requestFocus();
-                } else if(tenDocGia.equals("")){
-                    this.tenDocGia.requestFocus();
-                } else if(txtEmail.equals("")){
-                    emailDocGia.requestFocus();
-                } else if(soDienThoaiDocGia.equals("")){
-                    sdtDocGia.requestFocus();
-                }
+                this.hoDocGia.setText("");
+                this.tenDocGia.setText("");
+                this.emailDocGia.setText("");
+                this.sdtDocGia.setText("");
+                this.maDocGia.setText("");
+                this.hoDocGia.requestFocus();
             }
         }
         khoiTaoBang("", QUAN_LY_DOC_GIA);
