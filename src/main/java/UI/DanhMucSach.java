@@ -21,6 +21,8 @@ public class DanhMucSach extends javax.swing.JFrame {
     public DanhMucSach(String maDauSach, String tenSach) {
         this.tenSach = tenSach;
         initComponents();
+        setResizable(false);
+        setTitle("Library Management");
         xuLyDanhMucSach = new XuLyDanhMucSach(maDauSach);
         khoiTaoBang();
     }
@@ -319,15 +321,6 @@ public class DanhMucSach extends javax.swing.JFrame {
         tenSachUI.setText(tenSach);
         maSach.setText(model.getValueAt(selectedRowIndex, 2).toString());
         trangThai.setSelectedIndex(model.getValueAt(selectedRowIndex, 3).toString().equals("Sẵn sàng") ? 0 : model.getValueAt(selectedRowIndex, 3).toString().equals("Đang mượn") ? 1 : 2);
-    }
-
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DanhMucSach("LTM", "Lập trình mạng").setVisible(true);
-            }
-        });
     }
 
     private javax.swing.JButton chinhSuaDanhMucSachButton;

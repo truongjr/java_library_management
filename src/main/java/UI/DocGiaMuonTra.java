@@ -30,6 +30,8 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
         xuLyTra = new XuLyTra(maDocGia);
         xuLyMuon = new XuLyMuon(maDocGia);
         initComponents();
+        setResizable(false);
+        setTitle("Library Management");
         khoiTaoBang(prefix);
     }
 
@@ -234,14 +236,6 @@ public class DocGiaMuonTra extends javax.swing.JFrame {
     private void muonTraSachTableMouseClicked(java.awt.event.MouseEvent evt) {
         selectedRowIndex = muonTraSachTable.getSelectedRow();
         timKiem.setText(muonTraSachTable.getValueAt(selectedRowIndex, 1).toString());
-    }
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DocGiaMuonTra(56371, false).setVisible(true);
-            }
-        });
     }
 
     private javax.swing.JLabel jLabel2;

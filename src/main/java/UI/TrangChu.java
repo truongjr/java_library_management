@@ -49,6 +49,7 @@ public class TrangChu extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         setResizable(false);
+        setTitle("Library Management");
         logoutButton.setFocusPainted(false);
         themSachButton.setFocusPainted(false);
         themDocGiaButton.setFocusPainted(false);
@@ -1845,14 +1846,6 @@ public class TrangChu extends javax.swing.JFrame {
             maDauSach.requestFocus();
         }
         khoiTaoBang("", QUAN_LY_SACH);
-    }
-
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                TrangChu trangChu = new TrangChu();
-            }
-        });
     }
 
     private javax.swing.JPanel QuanLyDocGia;
