@@ -85,7 +85,7 @@ public class XuLyQuanLyDocGia {
         if (email.equals("")) {
             return LOI_EMAIL;
         } else {
-            String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+            String regex = "^[a-zA-Z][\\\\w-]+@([\\\\w]+\\\\.[\\\\w]+|[\\\\w]+\\\\.[\\\\w]{2,}\\\\.[\\\\w]{2,})$\n";
             if (!email.matches(regex)) {
                 return LOI_EMAIL;
             }
