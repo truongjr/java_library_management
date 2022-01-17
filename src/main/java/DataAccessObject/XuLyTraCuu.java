@@ -60,7 +60,56 @@ public class XuLyTraCuu {
             e.printStackTrace();
         }
     }
-
+    public void update(){
+        danhSachDauSach.clear();
+        tacGia.clear();
+        theLoai.clear();
+        nhaXuatBan.clear();
+        nam.clear();
+        Connection connection = SQLConnection.openConnection();
+        String query = "SELECT * FROM dbo.DAUSACH";
+        try {
+            assert connection != null;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet res = preparedStatement.executeQuery();
+            while(res.next()) {
+                danhSachDauSach.add(new DauSach(
+                        res.getString("ISBN"),
+                        res.getString("TenDauSach"),
+                        res.getString("TenLoaiSach"),
+                        res.getString("TacGia"),
+                        res.getString("NhaXuatBan"),
+                        res.getInt("NamXuatBan")
+                ));
+            }
+            query = "SELECT DISTINCT NamXuatBan FROM DAUSACH";
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT NamXuatBan FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                nam.add(res.getString("NamXuatBan"));
+            }
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT NhaXuatBan FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                nhaXuatBan.add(res.getString("NhaXuatBan"));
+            }
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT TenLoaiSach FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                theLoai.add(res.getString("TenLoaiSach"));
+            }
+            preparedStatement = connection.prepareStatement("SELECT DISTINCT TacGia FROM DAUSACH");
+            res = preparedStatement.executeQuery();
+            while(res.next()){
+                tacGia.add(res.getString("TacGia"));
+            }
+            res.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public ArrayList<DauSach> getDanhSachDauSach() {
         return danhSachDauSach;
     }

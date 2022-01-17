@@ -1604,6 +1604,7 @@ public class TrangChu extends javax.swing.JFrame {
                 }
             }
         } else if(tabChinh.getSelectedIndex() == 4){
+            xuLyTraCuu.update();
             khoiTaoBang("", TRA_CUU);
         }
     }
